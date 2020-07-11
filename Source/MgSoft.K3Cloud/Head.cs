@@ -7,21 +7,19 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud
 {
-    public class Head
+    public class Head : ValueObject
     {
-        private readonly Biller biller;
+        public Heads Heads { get; }
 
-        public Head(Biller biller)
-        {
-            this.biller = biller;
-        }
+        public string HeadName { get; }
 
-        public HeadObject this[string name]
+        public override Object Value { get; }
+
+        public Head(Biller biller,Heads heads, string name) : base(biller)
         {
-            get
-            {
-                return new HeadObject(biller, this, name);
-            }
+            this.Heads = heads;
+            this.HeadName = name;
+            this.Value = this.Biller.Model.DataObject[name];
         }
     }
 }

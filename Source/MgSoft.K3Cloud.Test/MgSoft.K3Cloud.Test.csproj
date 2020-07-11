@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>C:\Program Files %28x86%29\Kingdee\K3Cloud\WebSite\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,6 +36,10 @@
     </Reference>
     <Reference Include="Kingdee.BOS.Core">
       <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity, Version=7.5.1658.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

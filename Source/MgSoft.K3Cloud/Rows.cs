@@ -11,34 +11,28 @@ namespace MgSoft.K3Cloud
 {
     public class Rows
     {
-        private readonly Biller biller;
-        private readonly DynamicObject dataObject;
-        private string bodyName;
-        public Rows(Biller biller)
+        public Biller Biller { get; }
+        public Entity Entity { get; }
+
+        public Rows(Biller biller,Entity entity)
         {
-            this.biller = biller;
-            this.dataObject = this.biller.Model.DataObject;
+            this.Biller = biller;
+            this.Entity = entity;
         }
 
         public int Count
         {
             get
             {
-                return (dataObject[bodyName] as DynamicObjectCollection).Count;
+                return (this.Biller.Model.DataObject[Entity.Name] as DynamicObjectCollection).Count;
             }
-        }
-
-
-        public Rows(Biller biller, string bodyName) : this(biller)
-        {
-            this.bodyName = bodyName;
         }
 
         public Row this[int rowIndex]
         {
             get
             {
-                return new Row(this.biller, this.bodyName, rowIndex);
+                return new Row(this.Biller, this,rowIndex);
             }
         }
 

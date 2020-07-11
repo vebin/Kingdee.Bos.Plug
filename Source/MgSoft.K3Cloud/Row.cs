@@ -8,14 +8,14 @@ namespace MgSoft.K3Cloud
 {
     public class Row
     {
-        private Biller biller;
-        public string BodyName { get; }
+        public Biller Biller { get; }
+        public Rows Rows { get; }
         public int RowIndex { get; }
 
-        public Row(Biller biller, string bodyName, int rowIndex)
+        public Row(Biller biller, Rows rows, int rowIndex)
         {
-            this.biller = biller;
-            this.BodyName = bodyName;
+            this.Biller = biller;
+            this.Rows = rows;
             this.RowIndex = rowIndex;
         }
 
@@ -23,7 +23,7 @@ namespace MgSoft.K3Cloud
         {
             get
             {
-                return new Cell(biller, this, name);
+                return new Cell(Biller, this, name);
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using Kingdee.BOS.KDHttpUtility;
+﻿using Kingdee.BOS.Core.Bill.PlugIn;
+using Kingdee.BOS.Core.Metadata;
+using Kingdee.BOS.KDHttpUtility;
 using Kingdee.BOS.Orm.DataEntity;
 using System;
 using System.Collections.Generic;
@@ -10,45 +12,87 @@ namespace MgSoft.K3Cloud
 {
     public abstract class ValueObject
     {
+        private const string FIdKey = "FId";
+        private const string FNumberKey = "FNumber";
+        private const string FNameKey = "FName";
+
         public Biller Biller { get; }
 
-        protected abstract DynamicObject DataObject { get; }
+        public abstract object Value { get; }
+
 
         protected ValueObject(Biller biller)
         {
             Biller = biller;
         }
-
-        public DynamicObject Value
+        private bool IsHead()
         {
-            get
-            {
-                return DataObject;
-            }
+            return this is Head;
+        }
+
+        private bool IsCell()
+        {
+            return this is Cell;
+        }
+
+        private Cell ToCellObject()
+        {
+            return this as Cell;
+        }
+
+        private Head ToHeadObject()
+        {
+            return this as Head;
         }
 
         #region 基础资料
-        public object Id 
+        public int Id 
         {
             get
             {
-                throw new NotImplementedException();
+                return (int)this.ToDynamicObject()[FIdKey];
             }
             set
             {
-                throw new NotImplementedException();
+                if (this.IsHead())
+                {
+                    //给单据头赋值
+                    this.Biller.Model.SetItemValueByID(this.ToHeadObject().HeadName, value, 0);
+                }
+                else if (this.IsCell())
+                {
+                    //给单据体赋值
+                    this.Biller.Model.SetItemValueByID(this.ToCellObject().ColumnName, value, this.ToCellObject().Row.RowIndex);
+                }
+                else
+                {
+                    throw new Exception("框架异常，没有初始化对像为单据头或单据体");
+                }
             }
         }
 
-        public object Number
+        public string Number
         {
             get
             {
-                throw new NotImplementedException();
+                return this.ToDynamicObject()[FNumberKey].ToString();
             }
             set
             {
-                throw new NotImplementedException();
+                if (this.IsHead())
+                {
+                    //给单据头赋值
+                    this.Biller.Model.SetItemValueByNumber(this.ToHeadObject().HeadName, value, 0);
+                }
+                else if(this.IsCell())
+                {
+                    //给单据体赋值
+                    this.Biller.Model.SetItemValueByNumber(this.ToCellObject().ColumnName, value, this.ToCellObject().Row.RowIndex);
+                }
+                else
+                {
+                    throw new Exception("框架异常，没有初始化对像为单据头或单据体");
+                }
             }
         }
 
@@ -56,7 +100,7 @@ namespace MgSoft.K3Cloud
         {
             get
             {
-                throw new NotImplementedException();
+                return this.ToDynamicObject()[FNameKey].ToString();
             }
         }
         #endregion
@@ -66,7 +110,17 @@ namespace MgSoft.K3Cloud
             return this.Value == null;
         }
 
+        public DynamicObject ToDynamicObject()
+        {
+            return (DynamicObject)this.Value;
+        }
+
         #region toString
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
         public string ToStringOrNull()
         {
             return this.ToStringOrDefault(null);
@@ -79,26 +133,24 @@ namespace MgSoft.K3Cloud
 
         public string ToStringOrDefault(string defalutValue)
         {
-            var dataObject = this.Value;
-
-            if (dataObject == null)
+            if (this.IsNull())
             {
                 return defalutValue;
             }
-            return dataObject.ToString();
+            return Value.ToString();
         }
         #endregion
 
         #region toInt
         public int ToInt()
         {
-            return Convert.ToInt32(this.ToString());
+            return (int)this.Value;
         }
 
         public int ToIntOrDefault(int defaultValue)
         {
             var value = this.ToStringOrNull();
-            if(value==null)
+            if(this.IsNull())
             {
                 return defaultValue;
             }
@@ -126,12 +178,11 @@ namespace MgSoft.K3Cloud
 
         public double ToDoubleOrDefault(double defaultValue)
         {
-            var value = this.ToStringOrNull();
-            if (value == null)
+            if (this.IsNull())
             {
                 return defaultValue;
             }
-            return Convert.ToInt32(value);
+            return (double)this.Value;
         }
 
         public double TryToDoubleOrDefault(double defaultValue)
@@ -147,17 +198,23 @@ namespace MgSoft.K3Cloud
         }
         #endregion
 
-        #region toDataTime        
-        public DateTime ToDataTime()
+        #region toDateTime        
+        public DateTime ToDateTime()
         {
-            return Convert.ToDateTime(this.ToString());
+            return (DateTime)this.Value;
         }
+        public DateTime? ToDateTimeOrNull()
+        {
+            if (this.IsNull()) return null;
+            return this.ToDateTime() ;
+        }
+
 
         public DateTime TryToDateTimeOrDefault(DateTime defaultValue)
         {
             try
             {
-                return this.ToDataTime();
+                return this.ToDateTime();
             }
             catch
             {
@@ -169,7 +226,7 @@ namespace MgSoft.K3Cloud
         {
             try
             {
-                return this.ToDataTime();
+                return this.ToDateTime();
             }
             catch
             {

@@ -51,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biller.cs" />
-    <Compile Include="Body.cs" />
-    <Compile Include="BodyObject.cs" />
+    <Compile Include="Entities.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="Heads.cs" />
     <Compile Include="Head.cs" />
-    <Compile Include="HeadObject.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

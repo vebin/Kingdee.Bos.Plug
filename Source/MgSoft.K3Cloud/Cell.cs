@@ -13,7 +13,7 @@ namespace MgSoft.K3Cloud
         public string ColumnName { get; }
         public Row Row { get; }
 
-        protected override DynamicObject DataObject { get; }
+        public override object Value { get; }
 
         public Cell(Biller biller,Row row, string columnName) :base(biller)
         {
@@ -21,7 +21,8 @@ namespace MgSoft.K3Cloud
             this.Row = row;
             this.ColumnName = columnName;
 
-            this.DataObject = (DynamicObject)(biller.Model.DataObject[row.BodyName] as DynamicObjectCollection)[row.RowIndex][ColumnName];
+            var entityName = row.Rows.Entity.Name;
+            this.Value = (biller.Model.DataObject[entityName] as DynamicObjectCollection)[row.RowIndex][ColumnName];
         }
     }
 }
