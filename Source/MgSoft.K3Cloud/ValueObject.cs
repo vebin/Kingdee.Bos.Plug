@@ -5,6 +5,7 @@ using Kingdee.BOS.Orm.DataEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,89 +13,24 @@ namespace MgSoft.K3Cloud
 {
     public abstract class ValueObject
     {
-        private const string FIdKey = "FId";
-        private const string FNumberKey = "FNumber";
-        private const string FNameKey = "FName";
+        protected const string FIdKey = "Id";
+        protected const string FNumberKey = "Number";
+        protected const string FNameKey = "Name";
 
         public Biller Biller { get; }
 
-        public abstract object Value { get; }
+        public abstract object Value { get; set; }
 
 
         protected ValueObject(Biller biller)
         {
             Biller = biller;
         }
-        private bool IsHead()
-        {
-            return this is Head;
-        }
-
-        private bool IsCell()
-        {
-            return this is Cell;
-        }
-
-        private Cell ToCellObject()
-        {
-            return this as Cell;
-        }
-
-        private Head ToHeadObject()
-        {
-            return this as Head;
-        }
 
         #region 基础资料
-        public int Id 
-        {
-            get
-            {
-                return (int)this.ToDynamicObject()[FIdKey];
-            }
-            set
-            {
-                if (this.IsHead())
-                {
-                    //给单据头赋值
-                    this.Biller.Model.SetItemValueByID(this.ToHeadObject().HeadName, value, 0);
-                }
-                else if (this.IsCell())
-                {
-                    //给单据体赋值
-                    this.Biller.Model.SetItemValueByID(this.ToCellObject().ColumnName, value, this.ToCellObject().Row.RowIndex);
-                }
-                else
-                {
-                    throw new Exception("框架异常，没有初始化对像为单据头或单据体");
-                }
-            }
-        }
+        public abstract long Id { get; set; }
 
-        public string Number
-        {
-            get
-            {
-                return this.ToDynamicObject()[FNumberKey].ToString();
-            }
-            set
-            {
-                if (this.IsHead())
-                {
-                    //给单据头赋值
-                    this.Biller.Model.SetItemValueByNumber(this.ToHeadObject().HeadName, value, 0);
-                }
-                else if(this.IsCell())
-                {
-                    //给单据体赋值
-                    this.Biller.Model.SetItemValueByNumber(this.ToCellObject().ColumnName, value, this.ToCellObject().Row.RowIndex);
-                }
-                else
-                {
-                    throw new Exception("框架异常，没有初始化对像为单据头或单据体");
-                }
-            }
-        }
+        public abstract string Number { get; set; }
 
         public string Name
         {

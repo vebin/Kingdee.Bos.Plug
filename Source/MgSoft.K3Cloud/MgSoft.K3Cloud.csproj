@@ -56,6 +56,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Heads.cs" />
     <Compile Include="Head.cs" />
+    <Compile Include="MgBusinessException.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

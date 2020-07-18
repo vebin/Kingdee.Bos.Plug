@@ -13,13 +13,28 @@ namespace MgSoft.K3Cloud
 
         public string HeadName { get; }
 
-        public override Object Value { get; }
+        public override Object Value 
+        {
+            get=> this.Biller.Model.DataObject[this.HeadName];
+            set => this.Biller.Model.SetValue(this.HeadName, value);
+        }
 
-        public Head(Biller biller,Heads heads, string name) : base(biller)
+        public override string Number
+        {
+            get => this.ToDynamicObject()[FNumberKey].ToString();
+            set => this.Biller.Model.SetItemValueByNumber(this.HeadName, value,0);
+        }
+
+        public override long Id
+        {
+            get => (long)this.ToDynamicObject()[FIdKey];
+            set => this.Biller.Model.SetItemValueByID(this.HeadName, value, 0);
+        }
+
+        public Head(Biller biller, Heads heads, string name) : base(biller)
         {
             this.Heads = heads;
             this.HeadName = name;
-            this.Value = this.Biller.Model.DataObject[name];
         }
     }
 }
