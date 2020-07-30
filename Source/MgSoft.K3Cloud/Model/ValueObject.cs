@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MgSoft.K3Cloud
+namespace MgSoft.K3Cloud.Model
 {
     public abstract class ValueObject
     {

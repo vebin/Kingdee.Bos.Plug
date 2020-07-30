@@ -7,7 +7,7 @@ using Kingdee.BOS.Core.Bill.PlugIn;
 using Kingdee.BOS.Core.DynamicForm.PlugIn.Args;
 using Kingdee.BOS.Util;
 
-namespace MgSoft.K3Cloud
+namespace MgSoft.K3Cloud.Model
 {
     public abstract class Biller : AbstractBillPlugIn
     {

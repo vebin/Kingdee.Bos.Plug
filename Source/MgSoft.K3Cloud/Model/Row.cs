@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MgSoft.K3Cloud
+namespace MgSoft.K3Cloud.Model
 {
     public class Row
     {
