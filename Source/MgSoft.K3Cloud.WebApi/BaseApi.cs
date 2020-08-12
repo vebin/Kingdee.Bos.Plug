@@ -148,13 +148,28 @@ namespace MgSoft.K3Cloud.WebApi
                 for (int fieldIndex = 0; fieldIndex < fieldKeysArray.Length; fieldIndex++)
                 {
                     string fieldKey = fieldKeysArray[fieldIndex];
-                    ReflectionUtil.SetValueByAttribute(data, fieldKey, row[fieldIndex].Value<string>());
+                    ReflectionUtil.SetValueByAttribute(data, fieldKey, JTokenToObject(row[fieldIndex]));    
                 }
 
                 result.Add(data);
             }
 
             return result;
+        }
+
+        private object JTokenToObject(JToken jtoken)
+        {
+            switch (jtoken.Type)
+            {
+                case JTokenType.String: return jtoken.Value<string>();
+                case JTokenType.Integer: return jtoken.Value<int>();
+                case JTokenType.Float: return jtoken.Value<float>();
+                case JTokenType.Boolean: return jtoken.Value<bool>();
+                case JTokenType.Date:return jtoken.Value<DateTime>();
+                case JTokenType.Null:return null;
+                default:
+                    throw new Exception("不支持的类型转换");
+            }
         }
 
         //private List<T> SerializeToPocoList<T>(List<List<Object>> queryList, string[] indexFields)
