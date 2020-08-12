@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MgSoft.K3Cloud.Util
+namespace MgSoft.Util
 {
     public class PropertyMapNameAttribute : Attribute
     {

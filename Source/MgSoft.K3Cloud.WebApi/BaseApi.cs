@@ -1,6 +1,5 @@
-﻿using Kingdee.BOS.WebApi.Client;
-using MgSoft.K3Cloud.Util;
-using MgSoft.K3Cloud.WebApi.Dto;
+﻿using MgSoft.K3Cloud.WebApi.Dto;
+using MgSoft.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -26,11 +25,11 @@ namespace MgSoft.K3Cloud.WebApi
         public BaseApi(string serverUrl, string dbid, string userName, string password, int lcid = 2052)
         {
             client = new K3CloudApiClient(serverUrl);
-            var loginResult = client.ValidateLogin(dbid, userName, password, lcid);
+            var loginResult = client.ValidateUser(dbid, userName, password, lcid);
             var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
             if (resultType != 1)
             {
-                throw new MgBusinessException(loginResult);
+                throw new Exception(loginResult);
             }
         }
 
@@ -51,47 +50,47 @@ namespace MgSoft.K3Cloud.WebApi
         /// </param>
         /// <returns></returns>
         public List<T> GetList<T>(GetListInputDto queryListApiDto) where T : class, new()
-        {            
+        {
             string fileds = queryListApiDto.FieldKeys;
-            if(fileds==null||fileds.Length==0)
+            if (fileds == null || fileds.Length == 0)
             {
                 fileds = getFieldsByPropertyMapName<T>();
             }
             queryListApiDto.FieldKeys = fileds;
 
-            var apiResult = this.client.ExecuteBillQuery(JsonConvert.SerializeObject(queryListApiDto));
+            var apiResult = client.ExecuteBillQuery(JsonConvert.SerializeObject(queryListApiDto));
 
-            CheckGetIsSuccess(apiResult[0][0].ToString());
+            CheckGetIsSuccess(apiResult);
 
             return SerializeToPocoList<T>(apiResult, fileds);
         }
 
 
-        public T Get<T>(string formId,long id) where T:class
+        public T Get<T>(string formId, long id) where T : class
         {
-            return this.Get<T>(new GetInputDto()
+            return Get<T>(new GetInputDto()
             {
                 FormId = formId,
-                Id= id
+                Id = id
             });
         }
 
-        public T Get<T>(string formId,string number) where T:class
+        public T Get<T>(string formId, string number) where T : class
         {
-            return this.Get<T>(new GetInputDto() 
+            return Get<T>(new GetInputDto()
             {
-                FormId=formId,
-                Number=number
+                FormId = formId,
+                Number = number
             });
         }
 
-        public T Get<T>(GetInputDto getInputDto) where T:class
+        public T Get<T>(GetInputDto getInputDto) where T : class
         {
-            var apiResult = this.client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
+            var apiResult = client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject=JObject.Parse(apiResult);
-            var data= jObject["Result"]["Result"].ToString();
+            var jObject = JObject.Parse(apiResult);
+            var data = jObject["Result"]["Result"].ToString();
             return JsonConvert.DeserializeObject<T>(data);
         }
 
@@ -125,29 +124,31 @@ namespace MgSoft.K3Cloud.WebApi
                 return;
             }
 
-            if(jObject["Result"]==null||jObject["Result"]["ResponseStatus"]==null)
+            if (jObject["Result"] == null || jObject["Result"]["ResponseStatus"] == null)
             {
                 return;
             }
             var responseStatus = jObject["Result"]["ResponseStatus"];
             if (!string.IsNullOrEmpty(responseStatus.ToString()))
             {
-                throw new MgBusinessException(responseStatus["Errors"].ToString());
+                throw new Exception(responseStatus["Errors"].ToString());
             }
         }
 
-        private List<T> SerializeToPocoList<T>(List<List<object>> queryList, string fieldKeys) where T : class, new()
+        private List<T> SerializeToPocoList<T>(string queryList, string fieldKeys) where T : class, new()
         {
             var result = new List<T>();
             string[] fieldKeysArray = fieldKeys.Split(',');
 
-            foreach (var row in queryList)
+            JArray jarray = JArray.Parse(queryList);
+
+            foreach (var row in jarray)
             {
                 T data = new T();
                 for (int fieldIndex = 0; fieldIndex < fieldKeysArray.Length; fieldIndex++)
                 {
                     string fieldKey = fieldKeysArray[fieldIndex];
-                    ReflectionUtil.SetValueByAttribute(data, fieldKey, row[fieldIndex]);
+                    ReflectionUtil.SetValueByAttribute(data, fieldKey, row[fieldIndex].Value<string>());
                 }
 
                 result.Add(data);

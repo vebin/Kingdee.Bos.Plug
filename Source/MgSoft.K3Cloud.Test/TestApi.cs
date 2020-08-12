@@ -19,7 +19,7 @@ namespace MgSoft.K3Cloud.Test
 
         public List<DeliveryNoticeListOutPutDto> GetList()
         {
-            QueryListInputDto queryApiDto = new QueryListInputDto()
+            GetListInputDto queryApiDto = new GetListInputDto()
             {
                 FormId = "SAL_DELIVERYNOTICE",
                 //查找的字段，注意要配合indexFields进行修改

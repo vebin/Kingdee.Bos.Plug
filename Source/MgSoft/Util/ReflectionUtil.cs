@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace MgSoft.K3Cloud.Util
+namespace MgSoft.Util
 {
     public static class ReflectionUtil
     {
@@ -20,9 +20,9 @@ namespace MgSoft.K3Cloud.Util
             var targetType = target.GetType();
             foreach (var property in targetType.GetProperties())
             {
-                if(GetPropertyMapNameAttributeName(property)==valueAttributeName)
+                if (GetPropertyMapNameAttributeName(property) == valueAttributeName)
                 {
-                    property.SetValue(target, value,null);
+                    property.SetValue(target, value, null);
                 }
             }
         }
