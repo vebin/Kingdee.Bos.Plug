@@ -11,5 +11,13 @@ namespace MgSoft.K3Cloud.WebApi
         public int PageIndex { get; set; } = 0;
 
         public int RowCount { get; set; } = 100;
+
+        public int StartRow
+        {
+            get
+            {
+                return (this.PageIndex - 1) * this.RowCount;
+            }
+        }
     }
 }

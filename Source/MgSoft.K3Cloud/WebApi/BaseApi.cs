@@ -34,25 +34,109 @@ namespace MgSoft.K3Cloud.WebApi
             }
         }
 
+        protected BaseApi(ApiServerInfo apiServerInfo)
+            : this(apiServerInfo.ServerUrl, apiServerInfo.Dbid, apiServerInfo.UserName, apiServerInfo.Password, apiServerInfo.Lcid)
+        {
+        }
+
         /// <summary>
         /// 获取列表
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="queryApiDto"></param>
+        /// <param name="queryListApiDto"></param>
         /// <param name="serializeIndexFields">
         /// 序列化的顺序，需要配合FieldKeys进行修改
         /// 由于api返回的结果是一个扁平的数组
         /// indexFields的作用是，使行数组的位置与要序列化的字段作对应，例如:BillNo在第0位，把数组的第0位序列话给BillNo
         /// </param>
         /// <returns></returns>
-        public List<T> GetList<T>(QueryListInputDto queryApiDto) where T:class,new()
-        {
-            var queryList = this.client.ExecuteBillQuery(JsonConvert.SerializeObject(queryApiDto));
+        public List<T> GetList<T>(GetListInputDto queryListApiDto) where T : class, new()
+        {            
+            string fileds = queryListApiDto.FieldKeys;
+            if(fileds==null||fileds.Length==0)
+            {
+                fileds = getFieldsByPropertyMapName<T>();
+            }
+            queryListApiDto.FieldKeys = fileds;
 
-            return SerializeToPocoList<T>(queryList,queryApiDto.FieldKeys);
+            var apiResult = this.client.ExecuteBillQuery(JsonConvert.SerializeObject(queryListApiDto));
+
+            CheckGetIsSuccess(apiResult[0][0].ToString());
+
+            return SerializeToPocoList<T>(apiResult, fileds);
         }
 
-        private List<T> SerializeToPocoList<T>(List<List<object>> queryList, string fieldKeys) where T:class,new()
+
+        public T Get<T>(string formId,long id) where T:class
+        {
+            return this.Get<T>(new GetInputDto()
+            {
+                FormId = formId,
+                Id= id
+            });
+        }
+
+        public T Get<T>(string formId,string number) where T:class
+        {
+            return this.Get<T>(new GetInputDto() 
+            {
+                FormId=formId,
+                Number=number
+            });
+        }
+
+        public T Get<T>(GetInputDto getInputDto) where T:class
+        {
+            var apiResult = this.client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            var jObject=JObject.Parse(apiResult);
+            var data= jObject["Result"]["Result"].ToString();
+            return JsonConvert.DeserializeObject<T>(data);
+        }
+
+        private string getFieldsByPropertyMapName<T>() where T : class, new()
+        {
+            var mapNameList = ReflectionUtil.GetPropertyMapNameAttributeNameList<T>();
+
+            if (mapNameList.Count == 0)
+            {
+                return "";
+            }
+
+            var result = new StringBuilder();
+            foreach (var mapName in mapNameList)
+            {
+                result.Append($"{mapName},");
+            }
+            result.Remove(result.Length - 1, 1);
+
+            return result.ToString();
+        }
+        private void CheckGetIsSuccess(string apiResult)
+        {
+            JObject jObject;
+            try
+            {
+                jObject = JObject.Parse(apiResult);
+            }
+            catch
+            {
+                return;
+            }
+
+            if(jObject["Result"]==null||jObject["Result"]["ResponseStatus"]==null)
+            {
+                return;
+            }
+            var responseStatus = jObject["Result"]["ResponseStatus"];
+            if (!string.IsNullOrEmpty(responseStatus.ToString()))
+            {
+                throw new MgBusinessException(responseStatus["Errors"].ToString());
+            }
+        }
+
+        private List<T> SerializeToPocoList<T>(List<List<object>> queryList, string fieldKeys) where T : class, new()
         {
             var result = new List<T>();
             string[] fieldKeysArray = fieldKeys.Split(',');

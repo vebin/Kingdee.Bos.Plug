@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MgSoft.K3Cloud.WebApi
+namespace MgSoft.K3Cloud.Util
 {
-    public class ValueDicNameAttribute : Attribute
+    public class PropertyMapNameAttribute : Attribute
     {
-        
-        public ValueDicNameAttribute(string name)
+
+        public PropertyMapNameAttribute(string name)
         {
             Name = name;
         }

@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var api=new TestApi("http://win-npgu7b2g150/K3Cloud/", "5edf5498bbbe2c", "Administrator","888888");
+            var api=new TestApi("http://hy.gxjgjt.com:10080/k3cloud/", "5edf5498bbbe2c", "Administrator", "gxjghy@2020");
             var list=api.GetList();
         }
     }

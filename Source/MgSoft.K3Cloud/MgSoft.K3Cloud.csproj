@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\ReflectionUtil.cs" />
-    <Compile Include="Util\ValueDicNameAttribute.cs" />
+    <Compile Include="Util\PropertyMapNameAttribute.cs" />
     <Compile Include="WebApi\BaseApi.cs" />
     <Compile Include="Model\Biller.cs" />
     <Compile Include="Model\Entities.cs" />
@@ -72,9 +72,11 @@
     <Compile Include="Model\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Rows.cs" />
+    <Compile Include="WebApi\Dto\ApiServerInfo.cs" />
     <Compile Include="WebApi\Dto\BaseApiDto.cs" />
+    <Compile Include="WebApi\Dto\GetInputDto.cs" />
     <Compile Include="WebApi\Pager.cs" />
-    <Compile Include="WebApi\Dto\QueryListInputDto.cs" />
+    <Compile Include="WebApi\Dto\GetListInputDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
