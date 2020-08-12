@@ -86,7 +86,7 @@ namespace MgSoft.K3Cloud.Model
         public int ToIntOrDefault(int defaultValue)
         {
             var value = this.ToStringOrNull();
-            if(this.IsNull())
+            if (this.IsNull())
             {
                 return defaultValue;
             }
@@ -142,7 +142,7 @@ namespace MgSoft.K3Cloud.Model
         public DateTime? ToDateTimeOrNull()
         {
             if (this.IsNull()) return null;
-            return this.ToDateTime() ;
+            return this.ToDateTime();
         }
 
 
@@ -163,6 +163,80 @@ namespace MgSoft.K3Cloud.Model
             try
             {
                 return this.ToDateTime();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region toLong
+        public long ToLong()
+        {
+            return (long)this.Value;
+        }
+
+        public long? ToLongOrNull()
+        {
+            if (this.IsNull()) return null;
+            return this.ToLong();
+        }
+
+        public long TryToLongOrDefault(long defaultValue)
+        {
+            try
+            {
+                return this.ToLong();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
+        public long? TryToLongOrNull(long? defaultValue)
+        {
+            try
+            {
+                return this.ToLong();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region toDec
+        public decimal ToDecimal()
+        {
+            return (decimal)this.Value;
+        }
+
+        public decimal? ToDecimalOrNull()
+        {
+            if (this.IsNull()) return null;
+            return this.ToLong();
+        }
+
+        public decimal TryToDecimalOrDefault(decimal defaultValue)
+        {
+            try
+            {
+                return this.ToDecimal();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
+        public decimal? TryToDecimalOrNull(decimal? defaultValue)
+        {
+            try
+            {
+                return this.ToDecimal();
             }
             catch
             {

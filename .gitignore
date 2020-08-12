@@ -1,2 +1,6 @@
-bin
 obj
+packages
+
+bin
+.vs
+packages
