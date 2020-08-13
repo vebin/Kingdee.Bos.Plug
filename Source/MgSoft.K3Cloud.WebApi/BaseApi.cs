@@ -42,25 +42,25 @@ namespace MgSoft.K3Cloud.WebApi
         /// 获取列表
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="queryListApiDto"></param>
+        /// <param name="getListInputDto"></param>
         /// <param name="serializeIndexFields">
         /// 序列化的顺序，需要配合FieldKeys进行修改
         /// 由于api返回的结果是一个扁平的数组
         /// indexFields的作用是，使行数组的位置与要序列化的字段作对应，例如:BillNo在第0位，把数组的第0位序列话给BillNo
         /// </param>
         /// <returns></returns>
-        public List<T> GetList<T>(GetListInputDto queryListApiDto) where T : class, new()
+        public List<T> GetList<T>(GetListInputDto getListInputDto) where T : class, new()
         {
-            string fileds = queryListApiDto.FieldKeys;
+            string fileds = getListInputDto.FieldKeys;
             if (fileds == null || fileds.Length == 0)
             {
                 fileds = getFieldsByPropertyMapName<T>();
             }
-            queryListApiDto.FieldKeys = fileds;
+            getListInputDto.FieldKeys = fileds;
 
-            var apiResult = client.ExecuteBillQuery(JsonConvert.SerializeObject(queryListApiDto));
+            var apiResult = client.ExecuteBillQuery(JsonConvert.SerializeObject(getListInputDto));
 
-            CheckGetIsSuccess(apiResult);
+            CheckGetListIsSuccess(apiResult);
 
             return SerializeToPocoList<T>(apiResult, fileds);
         }
@@ -87,6 +87,7 @@ namespace MgSoft.K3Cloud.WebApi
         public T Get<T>(GetInputDto getInputDto) where T : class
         {
             var apiResult = client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
+            
             CheckGetIsSuccess(apiResult);
 
             var jObject = JObject.Parse(apiResult);
@@ -112,26 +113,32 @@ namespace MgSoft.K3Cloud.WebApi
 
             return result.ToString();
         }
+        private void CheckGetListIsSuccess(string apiResult)
+        {
+            JArray jResult = JArray.Parse(apiResult);
+            if(jResult==null|| jResult.Count==0|| jResult[0].Count()==0||jResult[0][0].SelectToken("Result")==null)
+            {
+                return;
+            }
+            CheckIsSuccess(jResult[0][0].SelectToken("Result"));
+        }
+
         private void CheckGetIsSuccess(string apiResult)
         {
-            JObject jObject;
-            try
-            {
-                jObject = JObject.Parse(apiResult);
-            }
-            catch
-            {
-                return;
-            }
+            var jResult = JObject.Parse(apiResult)?["Result"];
+            CheckIsSuccess(jResult);
+        }
 
-            if (jObject["Result"] == null || jObject["Result"]["ResponseStatus"] == null)
+        private void CheckIsSuccess(JToken jResult)
+        {
+            if (jResult==null|| jResult.SelectToken("ResponseStatus") == null)
             {
                 return;
             }
-            var responseStatus = jObject["Result"]["ResponseStatus"];
-            if (!string.IsNullOrEmpty(responseStatus.ToString()))
-            {
-                throw new Exception(responseStatus["Errors"].ToString());
+            var responseStatus = jResult["ResponseStatus"];
+            if (responseStatus.SelectToken("Errors")!=null)
+            { 
+                throw new ApiException(responseStatus["Errors"].ToString());
             }
         }
 
@@ -148,7 +155,7 @@ namespace MgSoft.K3Cloud.WebApi
                 for (int fieldIndex = 0; fieldIndex < fieldKeysArray.Length; fieldIndex++)
                 {
                     string fieldKey = fieldKeysArray[fieldIndex];
-                    ReflectionUtil.SetValueByAttribute(data, fieldKey, JTokenToObject(row[fieldIndex]));    
+                    ReflectionUtil.SetValueByAttribute(data, fieldKey, row[fieldIndex]);
                 }
 
                 result.Add(data);
@@ -157,20 +164,21 @@ namespace MgSoft.K3Cloud.WebApi
             return result;
         }
 
-        private object JTokenToObject(JToken jtoken)
-        {
-            switch (jtoken.Type)
-            {
-                case JTokenType.String: return jtoken.Value<string>();
-                case JTokenType.Integer: return jtoken.Value<int>();
-                case JTokenType.Float: return jtoken.Value<float>();
-                case JTokenType.Boolean: return jtoken.Value<bool>();
-                case JTokenType.Date:return jtoken.Value<DateTime>();
-                case JTokenType.Null:return null;
-                default:
-                    throw new Exception("不支持的类型转换");
-            }
-        }
+
+        //private object JTokenToObject(JToken jtoken)
+        //{
+        //    switch (jtoken.Type)
+        //    {
+        //        case JTokenType.String: return jtoken.Value<string>();
+        //        case JTokenType.Integer: return jtoken.Value<int>();
+        //        case JTokenType.Float: return jtoken.Value<float>();
+        //        case JTokenType.Boolean: return jtoken.Value<bool>();
+        //        case JTokenType.Date: return jtoken.Value<DateTime>();
+        //        case JTokenType.Null: return null;
+        //        default:
+        //            throw new Exception("不支持的类型转换");
+        //    }
+        //}
 
         //private List<T> SerializeToPocoList<T>(List<List<Object>> queryList, string[] indexFields)
         //{
