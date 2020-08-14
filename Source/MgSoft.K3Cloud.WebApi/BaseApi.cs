@@ -87,14 +87,30 @@ namespace MgSoft.K3Cloud.WebApi
         public T Get<T>(GetInputDto getInputDto) where T : class
         {
             var apiResult = client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
-            
+
             CheckGetIsSuccess(apiResult);
 
             var jObject = JObject.Parse(apiResult);
             var data = jObject["Result"]["Result"].ToString();
             return JsonConvert.DeserializeObject<T>(data);
         }
+        public void Save(UpdateInputDto updateInputDto)
+        {
+            var apiResult = client.Save(updateInputDto.FormId, JsonConvert.SerializeObject(updateInputDto));
+            CheckGetIsSuccess(apiResult);
+        }
 
+        public T Save<T>(UpdateInputDto updateInputDto)
+        {
+            var apiResult = client.Save(updateInputDto.FormId, JsonConvert.SerializeObject(updateInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            var jObject = JObject.Parse(apiResult);
+            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
+            return JsonConvert.DeserializeObject<T>(data);
+        }
+
+        #region 私有方法
         private string getFieldsByPropertyMapName<T>() where T : class, new()
         {
             var mapNameList = ReflectionUtil.GetPropertyMapNameAttributeNameList<T>();
@@ -116,7 +132,7 @@ namespace MgSoft.K3Cloud.WebApi
         private void CheckGetListIsSuccess(string apiResult)
         {
             JArray jResult = JArray.Parse(apiResult);
-            if(jResult==null|| jResult.Count==0|| jResult[0].Count()==0||jResult[0][0].SelectToken("Result")==null)
+            if (jResult == null || jResult.Count == 0 || jResult[0].Count() == 0 || jResult[0][0].SelectToken("Result") == null)
             {
                 return;
             }
@@ -131,13 +147,17 @@ namespace MgSoft.K3Cloud.WebApi
 
         private void CheckIsSuccess(JToken jResult)
         {
-            if (jResult==null|| jResult.SelectToken("ResponseStatus") == null)
+            if (jResult == null || jResult.SelectToken("ResponseStatus") == null)
             {
                 return;
             }
             var responseStatus = jResult["ResponseStatus"];
-            if (responseStatus.SelectToken("Errors")!=null)
-            { 
+            if(responseStatus.SelectToken("IsSuccess")!=null&& responseStatus["IsSuccess"].Value<bool>())
+            {
+                return;
+            }
+            if (responseStatus.SelectToken("Errors") != null)
+            {
                 throw new ApiException(responseStatus["Errors"].ToString());
             }
         }
@@ -163,7 +183,6 @@ namespace MgSoft.K3Cloud.WebApi
 
             return result;
         }
-
 
         //private object JTokenToObject(JToken jtoken)
         //{
@@ -195,5 +214,7 @@ namespace MgSoft.K3Cloud.WebApi
 
         //    return JsonConvert.DeserializeObject<List<T>>(jArray.ToString());
         //}
+
+        #endregion
     }
 }
