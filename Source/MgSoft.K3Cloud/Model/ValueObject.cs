@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.Model
 {
-    public abstract class ValueObject
+    public abstract class ValueObject : IValueObject
     {
         protected const string FIdKey = "Id";
         protected const string FNumberKey = "Number";
         protected const string FNameKey = "Name";
 
-        public Biller Biller { get; }
+        public IModel Model { get; }
 
         public abstract object Value { get; set; }
 
 
-        protected ValueObject(Biller biller)
+        protected ValueObject(IModel model)
         {
-            Biller = biller;
+            Model = model;
         }
 
         #region 基础资料
