@@ -15,7 +15,7 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
         public IModel Model { get; }
         public IEntity Entity { get; }
 
-        public IDynamicFormModel DynamicFormModel { get; private set; }
+        public IDynamicFormModel DynamicFormModel => Model.ModelObject as IDynamicFormModel;
 
         public Rows(IModel model, IEntity entity)
         {
@@ -27,7 +27,17 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
         {
             get
             {
-                return (DynamicFormModel.DataObject[Entity.Name] as DynamicObjectCollection).Count;
+                if(!DynamicFormModel.DataObject.DynamicObjectType.Properties.ContainsKey(Entity.Name))
+                {
+                    throw new ArgumentException($"不存在单据体{Entity.Name}");
+                }
+                var entity = DynamicFormModel.DataObject[Entity.Name];
+                var rows = (entity as DynamicObjectCollection);
+                if(rows==null)
+                {
+                    throw new ArgumentException($"名称为{Entity.Name}字段，不是单据体");
+                }
+                return rows.Count;
             }
         }
 

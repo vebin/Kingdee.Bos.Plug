@@ -14,11 +14,20 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
 
         public string HeadName { get; }
 
-        public IDynamicFormModel DynamicFormModel { get; private set; }
+        public DynamicObject DynamicObject => DynamicFormModel.DataObject as DynamicObject;
+
+        public IDynamicFormModel DynamicFormModel => this.Model.ModelObject as IDynamicFormModel;
 
         public override object Value
         {
-            get => DynamicFormModel.DataObject[HeadName];
+            get
+            {   
+                if(!DynamicFormModel.DataObject.DynamicObjectType.Properties.ContainsKey(HeadName))
+                {
+                    throw new ArgumentException($"不存在单据头{HeadName}");
+                }
+                return DynamicFormModel.DataObject[HeadName];
+            }
             set => DynamicFormModel.SetValue(HeadName, value);
         }
 
@@ -38,7 +47,6 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
         {
             Heads = heads;
             HeadName = name;
-            DynamicFormModel = this.Model.ModelObject as IDynamicFormModel;
         }
     }
 }

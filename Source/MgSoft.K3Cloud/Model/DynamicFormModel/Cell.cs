@@ -14,11 +14,33 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
         public string ColumnName { get; }
         public IRow Row { get; }
 
-        public IDynamicFormModel DynamicFormModel { get; private set; }
+        public IDynamicFormModel DynamicFormModel => this.Model.ModelObject as IDynamicFormModel;
 
         public override object Value
         {
-            get => (DynamicFormModel.DataObject[Row.Rows.Entity.Name] as DynamicObjectCollection)[Row.RowIndex][ColumnName];
+            get
+            {
+                var entityName = Row.Rows.Entity.Name;
+                if (!DynamicFormModel.DataObject.DynamicObjectType.Properties.ContainsKey(entityName))
+                {
+                    throw new ArgumentException($"不存在单据体{Row.Rows.Entity.Name}");
+                };
+                var entity = DynamicFormModel.DataObject[entityName];
+
+                var rows = (entity as DynamicObjectCollection);
+                if (rows == null||rows.Count<=Row.RowIndex)
+                {
+                    throw new ArgumentException($"行下标越界{Row.RowIndex}");
+                }
+
+                var row=rows[Row.RowIndex];
+                if(!row.DynamicObjectType.Properties.ContainsKey(ColumnName))
+                {
+                    throw new ArgumentException($"单据体{entityName}不存在列{ColumnName}");
+                }
+
+                return row[ColumnName];
+            }
             set => DynamicFormModel.SetValue(ColumnName, value, Row.RowIndex);
         }
 
@@ -41,7 +63,6 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
             ColumnName = columnName;
 
             var entityName = row.Rows.Entity.Name;
-            DynamicFormModel = model.ModelObject as IDynamicFormModel;
         }
     }
 }

@@ -38,8 +38,8 @@
 
 ## 插件使用
 
-按金蝶插件开发手册正常开发即可，在进行继承的地方不要写AbstractBillPlugIn，插件需要继承于Biller   
-注：实际上Biller也是继承于AbstractBillPlugIn
+按金蝶插件开发手册正常开发即可，在进行继承的地方不要写AbstractBillPlugIn，插件需要继承于FormBillModelPlugIn   
+注：实际上FormBillModelPlugIn也是继承于AbstractBillPlugIn
 
 以下是插件的例子，以及封装好的一些常用功能
 ```
@@ -75,7 +75,7 @@
             var t = this.Entities[bodyName].Rows.Count;//单据休行数
             var row = this.Entities[bodyName].Rows[0];//单据体bodyName，第0行，第ItemNumber列
 
-            //单据体单无格
+            //单据体单元格
             var cellBaseId = row[cellItemName].Id;
             var cellBaseNumber = row[cellItemName].Number;
             var cellBaseName = row[cellItemName].Name;

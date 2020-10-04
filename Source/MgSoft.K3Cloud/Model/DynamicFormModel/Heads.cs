@@ -11,6 +11,8 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
     {
         private readonly IModel model;
 
+        public DynamicObject DynamicObject => throw new NotImplementedException();
+
         public Heads(IModel model)
         {
             this.model = model;

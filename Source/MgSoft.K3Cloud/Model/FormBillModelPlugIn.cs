@@ -19,13 +19,12 @@ namespace MgSoft.K3Cloud.Model
         /// <summary>
         /// 模型对像
         /// </summary>
-        public object ModelObject { get; private set; }
+        public object ModelObject => this.Model; 
 
         public FormBillModelPlugIn()
         {
             Heads = new Heads(this);
             Entities = new Entities(this);
-            ModelObject = this.Model;
         }
     }
 }
