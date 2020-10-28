@@ -4,3 +4,4 @@ packages
 bin
 .vs
 packages
+/Source/.vs
