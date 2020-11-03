@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Dto
 {
-    public class UpdateInputDto:BaseApiDto
+    public class SaveInputDto:BaseApiDto
     {
         /// <summary>
         /// 需要更新的字段，数组类型，格式：[key1, key2,...] （非必录）注（更新单据体字段得加上单据体key）

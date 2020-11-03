@@ -94,15 +94,15 @@ namespace MgSoft.K3Cloud.WebApi
             var data = jObject["Result"]["Result"].ToString();
             return JsonConvert.DeserializeObject<T>(data);
         }
-        public void Save(UpdateInputDto updateInputDto)
+        public void Save(SaveInputDto saveInputDto)
         {
-            var apiResult = client.Save(updateInputDto.FormId, JsonConvert.SerializeObject(updateInputDto));
+            var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
         }
 
-        public T Save<T>(UpdateInputDto updateInputDto)
+        public T Save<T>(SaveInputDto saveInputDto)
         {
-            var apiResult = client.Save(updateInputDto.FormId, JsonConvert.SerializeObject(updateInputDto));
+            var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
 
             var jObject = JObject.Parse(apiResult);

@@ -5,15 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MgSoft\**" />
+    <EmbeddedResource Remove="MgSoft\**" />
+    <None Remove="MgSoft\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MgSoft\MgSoft.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MgSoft\K3Cloud\WebApi\" />
   </ItemGroup>
 
 </Project>
