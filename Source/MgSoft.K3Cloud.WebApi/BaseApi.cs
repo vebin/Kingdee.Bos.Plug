@@ -15,6 +15,8 @@ namespace MgSoft.K3Cloud.WebApi
     {
         protected K3CloudApiClient client;
 
+        protected abstract string formId { get; }
+
         /// <summary>
         /// </summary>
         /// <param name="serverUrl">服务器地址</param>
@@ -51,6 +53,8 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public List<T> GetList<T>(GetListInputDto getListInputDto) where T : class, new()
         {
+            setFormId(getListInputDto);
+
             string fileds = getListInputDto.FieldKeys;
             if (fileds == null || fileds.Length == 0)
             {
@@ -70,7 +74,6 @@ namespace MgSoft.K3Cloud.WebApi
         {
             return Get<T>(new GetInputDto()
             {
-                FormId = formId,
                 Id = id
             });
         }
@@ -79,13 +82,14 @@ namespace MgSoft.K3Cloud.WebApi
         {
             return Get<T>(new GetInputDto()
             {
-                FormId = formId,
                 Number = number
             });
         }
 
         public T Get<T>(GetInputDto getInputDto) where T : class
         {
+            setFormId(getInputDto);
+
             var apiResult = client.View(getInputDto.FormId, JsonConvert.SerializeObject(getInputDto));
 
             CheckGetIsSuccess(apiResult);
@@ -94,23 +98,42 @@ namespace MgSoft.K3Cloud.WebApi
             var data = jObject["Result"]["Result"].ToString();
             return JsonConvert.DeserializeObject<T>(data);
         }
-        public void Save(SaveInputDto saveInputDto)
-        {
-            var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
-            CheckGetIsSuccess(apiResult);
-        }
+        //public SaveOutPutDto Save(SaveInputDto saveInputDto)
+        //{
+        //    var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
+        //    CheckGetIsSuccess(apiResult);
+        //}
 
-        public T Save<T>(SaveInputDto saveInputDto)
+        public List<SaveOutPutDto> Save(SaveInputDto saveInputDto)
         {
+            setFormId(saveInputDto);
+
             var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
 
             var jObject = JObject.Parse(apiResult);
             var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<T>(data);
+            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(data);
+        }
+
+        public List<SubmitOutputDto> Submit(SubmitInputDto submitInputDto)
+        {
+            setFormId(submitInputDto);
+
+            var apiResult = client.Submit(submitInputDto.FormId, JsonConvert.SerializeObject(submitInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            var jObject = JObject.Parse(apiResult);
+            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
+            return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(data);
         }
 
         #region 私有方法
+        private void setFormId(BaseApiDto baseApiDto)
+        {
+            baseApiDto.FormId = this.formId;
+        }
+
         private string getFieldsByPropertyMapName<T>() where T : class, new()
         {
             var mapNameList = ReflectionUtil.GetPropertyMapNameAttributeNameList<T>();
