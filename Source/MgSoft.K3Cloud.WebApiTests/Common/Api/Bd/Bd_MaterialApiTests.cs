@@ -7,7 +7,6 @@ using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
-using MgSoft.K3Cloud.WebApi.Common.Dto.BD;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {

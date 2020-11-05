@@ -128,6 +128,20 @@ namespace MgSoft.K3Cloud.WebApi
             return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(data);
         }
 
+        public List<AuditOutpuDto> Audit(AuditInputDto auditInputDto)
+        {
+            setFormId(auditInputDto);
+
+            var apiResult = client.Audit(auditInputDto.FormId, JsonConvert.SerializeObject(auditInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            var jObject = JObject.Parse(apiResult);
+            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
+            return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(data);
+        }
+
+
+
         #region 私有方法
         private void setFormId(BaseApiDto baseApiDto)
         {

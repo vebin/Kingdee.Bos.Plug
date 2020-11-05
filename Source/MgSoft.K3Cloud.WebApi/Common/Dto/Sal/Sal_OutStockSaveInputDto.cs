@@ -62,7 +62,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// </summary>
         /// <param name=""></param>
         /// <returns></returns>
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCustomerID { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -143,7 +142,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual string FSHOPNUMBER { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FGYDATE { get; set; }
+        public virtual DateTime? FGYDATE { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FSALECHANNEL { get; set; }

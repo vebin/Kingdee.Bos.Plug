@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
 {
     public class Sal_OutStockApi : BaseApi
     {
-        public const string FormId = "SAL_OUTSTOCK";
+        protected override string formId => "SAL_OUTSTOCK";
         public Sal_OutStockApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)
         {
         }
@@ -18,11 +18,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
         {
         }
 
+
         public bool Save(Sal_OutStockSaveInputDto OutStockSaveInputDTO)
         {
             base.Save(new SaveInputDto
             {
-                FormId = FormId,
+                FormId = formId,
                 Model = OutStockSaveInputDTO
             });
             return true;
@@ -33,10 +34,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
         {
             base.Save(new SaveInputDto
             {
-                FormId = FormId,
+                FormId = formId,
                 Model = OutStockSaveInputDTO
             });
             return true;
-        }
+        }        
     }
 }

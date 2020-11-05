@@ -16,7 +16,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FPhoneNumber { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FDelTime { get; set; }
+        public virtual DateTime? FDelTime { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FCarryBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

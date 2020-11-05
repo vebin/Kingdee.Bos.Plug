@@ -5,6 +5,11 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
 {
+    /// <summary>
+    /// 出库单明细
+    /// </summary>
+    /// <typeparam name="Type_Sal_OutStock_FTaxDetailSubEntity"></typeparam>
+    /// <typeparam name="Type_Sal_OutStock_FSerialSubEntity"></typeparam>
     public class Sal_OutStock_FEntity<Type_Sal_OutStock_FTaxDetailSubEntity, Type_Sal_OutStock_FSerialSubEntity>
         where Type_Sal_OutStock_FTaxDetailSubEntity : Sal_OutStock_FTaxDetailSubEntity
         where Type_Sal_OutStock_FSerialSubEntity : Sal_OutStock_FSerialSubEntity
@@ -48,9 +53,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FLot { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FProduceDate { get; set; }
+        public virtual DateTime? FProduceDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FExpiryDate { get; set; }
+        public virtual DateTime? FExpiryDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FTaxCombination { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -129,6 +134,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual string FETHIRDBILLID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FETHIRDBILLNO { get; set; }
+
+        /// <summary>
+        /// 计价单位（必填）
+        /// </summary>
+        public virtual FNumberProperty FPriceUnitId { get; set; }
+
+        /// <summary>
+        /// 计价数量（必填）
+        /// </summary>
+        public virtual decimal FPriceUnitQty { get; set; }
+
 
         /// <summary>
         /// 税务明细

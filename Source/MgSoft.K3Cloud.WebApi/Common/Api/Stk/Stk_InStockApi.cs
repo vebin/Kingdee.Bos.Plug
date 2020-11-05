@@ -23,7 +23,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
         {
         }
 
-        public List<SaveOutPutDto> Save(STK_InStockSaveInputDto inStockSaveInputDto)
+        public List<SaveOutPutDto> Save(Stk_InStockSaveInputDto inStockSaveInputDto)
         {
             return base.Save(new SaveInputDto()
             {
@@ -31,7 +31,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
             });
         }
 
-        public List<SaveOutPutDto> Save<T>(T inStockSaveInputDto) where T : STK_InStockSaveInputDto
+        public List<SaveOutPutDto> Save<T>(T inStockSaveInputDto) where T : Stk_InStockSaveInputDto
         {
             return base.Save(new SaveInputDto()
             {
