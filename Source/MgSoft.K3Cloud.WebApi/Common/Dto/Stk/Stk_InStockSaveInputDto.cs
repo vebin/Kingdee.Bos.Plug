@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 {
-    public class Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry>
+    public class Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry> 
+        where Type_FInStockFin : Stk_InStock_FInStockFin
+        where Type_FInStockEntry : Stk_InStock_FInStockEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual long? FID { get; set; }
@@ -56,7 +58,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPurchaserGroupId { get; set; }
-        
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPurchaserId { get; set; }
 
@@ -116,7 +118,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual List<Type_FInStockEntry> FInStockEntry { get; set; }
     }
 
-    public class Stk_InStockSaveInputDto: Stk_InStockSaveInputDto<Stk_InStock_FInStockFin, Stk_InStock_FInStockEntry>
+    public class STK_InStockSaveInputDto : Stk_InStockSaveInputDto<Stk_InStock_FInStockFin, Stk_InStock_FInStockEntry>
     {
 
     }

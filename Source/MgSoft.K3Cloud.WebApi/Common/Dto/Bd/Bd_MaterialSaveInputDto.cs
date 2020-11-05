@@ -1,10 +1,9 @@
-﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MgSoft.K3Cloud.WebApi.Common.Dto.BD
+namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
 {
     public class Bd_MaterialSaveInputDto
     {
@@ -16,7 +15,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.BD
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FUseOrgId { get; set; }
-        
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FNumber { get; set; }
 
@@ -80,7 +79,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.BD
         //List<Bd_Material_FSpecialAttributeEntity> FSpecialAttributeEntity { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         List<Bd_Material_FEntityAuxPty> FEntityAuxPty { get; set; }
-        
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         List<Bd_Material_FEntityInvPty> FEntityInvPty { get; set; }
     }

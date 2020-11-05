@@ -13,7 +13,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
     /// </summary>
     public class Stk_InStockApi : BaseApi
     {
-        private const string formId = "STK_InStock";
+        protected override string formId => "STK_InStock";
 
         public Stk_InStockApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)
         {
@@ -23,26 +23,20 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
         {
         }
 
-        public bool Save(Stk_InStockSaveInputDto inStockSaveInputDto)
+        public List<SaveOutPutDto> Save(STK_InStockSaveInputDto inStockSaveInputDto)
         {
-            base.Save(new SaveInputDto()
+            return base.Save(new SaveInputDto()
             {
-                FormId = formId,
                 Model = inStockSaveInputDto
             });
-
-            return true;
         }
 
-        public bool Save<T>(T inStockSaveInputDto) where T : Stk_InStockSaveInputDto
+        public List<SaveOutPutDto> Save<T>(T inStockSaveInputDto) where T : STK_InStockSaveInputDto
         {
-            base.Save(new SaveInputDto()
+            return base.Save(new SaveInputDto()
             {
-                FormId = formId,
                 Model = inStockSaveInputDto
             });
-
-            return true;
         }
     }
 }
