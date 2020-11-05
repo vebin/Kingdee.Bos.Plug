@@ -7,6 +7,7 @@ using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
+using MgSoft.K3Cloud.WebApi.Common.Dto.BD;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {
@@ -26,14 +27,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             bd_MaterialApi.Save(getSaveDto());
         }
 
-        [TestMethod]
-        public void SubmitTest()
-        {
-            bd_MaterialApi.Submit(new SubmitInputDto() 
-            {
-                Numbers=new string[]{ "TestMaterial" }
-            });
-        }
+        //[TestMethod]
+        //public void SubmitTest()
+        //{
+        //    bd_MaterialApi.Submit(new SubmitInputDto() 
+        //    {
+        //        Numbers=new string[]{ "TestMaterial" }
+        //    });
+        //}
 
         private Bd_MaterialSaveInputDto getSaveDto()
         {

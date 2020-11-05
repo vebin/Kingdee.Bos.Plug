@@ -23,7 +23,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
         {
         }
 
-        public bool Save(STK_InStockSaveInputDto inStockSaveInputDto)
+        public bool Save(Stk_InStockSaveInputDto inStockSaveInputDto)
         {
             base.Save(new SaveInputDto()
             {
@@ -34,7 +34,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
             return true;
         }
 
-        public bool Save<T>(T inStockSaveInputDto) where T : STK_InStockSaveInputDto
+        public bool Save<T>(T inStockSaveInputDto) where T : Stk_InStockSaveInputDto
         {
             base.Save(new SaveInputDto()
             {
