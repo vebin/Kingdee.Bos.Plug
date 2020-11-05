@@ -9,15 +9,21 @@ using MgSoft.K3Cloud.WebApi.Common.Api.Stk;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Stk;
 using MgSoft.K3Cloud.WebApiTests;
 
-namespace MgSoft.K3Cloud.WebApi.Common.Api.Tests
+namespace MgSoft.K3Cloud.WebApiTests.Common.Api.Stk
 {
     [TestClass()]
-    public class STK_InStockApiTests:BaseTest
+    public class STK_InStockApiTests : BaseTest
     {
+        private Stk_InStockApi inStockApi;
+
+        public STK_InStockApiTests()
+        {
+            inStockApi = new Stk_InStockApi(GetApiServerInfo());
+        }
+
         [TestMethod()]
         public void SaveTest()
         {
-            Stk_InStockApi inStockApi = new Stk_InStockApi(GetApiServerInfo());
             inStockApi.Save(getSaveDto());
         }
 
@@ -30,16 +36,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Tests
                 FBillTypeID = new FNumberProperty("RKD01_SYS"),
                 FOwnerTypeIdHead = "BD_OwnerOrg",
                 FOwnerIdHead = new FNumberProperty("106.2"),
-                FPurchaseOrgId=new FNumberProperty("106.2"),
+                FPurchaseOrgId = new FNumberProperty("106.2"),
                 FSupplierId = new FNumberProperty("VEN00001"),
 
                 FInStockFin = new Stk_InStock_FInStockFin()
                 {
                     FSettleOrgId = new FNumberProperty("100"),
-                    FSettleCurrId=new FNumberProperty("PRE001"),
+                    FSettleCurrId = new FNumberProperty("PRE001"),
                     FPriceTimePoint = "1"
                 },
-                FInStockEntry=new List<Stk_InStock_FInStockEntry>()
+                FInStockEntry = new List<Stk_InStock_FInStockEntry>()
                 {
                     new Stk_InStock_FInStockEntry()
                     {
