@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -92,27 +93,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual FNumberProperty FSettleID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPayerID { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FCreateDate { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual FNumberProperty FModifierId { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FModifyDate { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual FNumberProperty FCreatorId { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual FNumberProperty FApproverID { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FApproveDate { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual FNumberProperty FCancellerID { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual DateTime FCancelDate { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FOwnerTypeIdHead { get; set; }
@@ -130,7 +110,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual FNumberProperty FCorrespondOrgId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual FNumberProperty FReceiverContactID { get; set; }
+        public virtual FNameProperty FReceiverContactID { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FLinkPhone { get; set; }
@@ -194,6 +174,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
                 Sal_OutStock_FEntity<Sal_OutStock_FTaxDetailSubEntity, Sal_OutStock_FSerialSubEntity>,
                 Sal_OutStock_FOutStockTrace<Sal_OutStock_FOutStockTraceDetail>
                 >
-    { 
+    {
     }
 }
