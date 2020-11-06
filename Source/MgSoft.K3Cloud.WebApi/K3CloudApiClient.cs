@@ -30,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(dbid, userName, password, lcid));
+            httpClient.Content = GetContents(dbid, userName, password, lcid);
 
             return httpClient.SysncRequest();
         }
@@ -45,7 +45,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId, content));
+            httpClient.Content = GetContents(formId, content);
             return httpClient.SysncRequest();
         }
 
@@ -58,7 +58,7 @@ namespace MgSoft.K3Cloud.WebApi
         public string Submit(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc");
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId, content));
+            httpClient.Content = GetContents(formId, content);
             return httpClient.SysncRequest();
         }
 
@@ -66,12 +66,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.ExecuteBillQuery.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            ////业务对象Id 
-            //Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(content);
             return httpClient.SysncRequest();
         }
 
@@ -85,7 +80,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId, content));
+            httpClient.Content = GetContents(formId, content);
 
             return httpClient.SysncRequest();
         }
@@ -100,7 +95,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Audit.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId, content));
+            httpClient.Content = GetContents(formId, content);
             return httpClient.SysncRequest();
         }
         /// <summary>
@@ -113,7 +108,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UnAudit.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId,content));
+            httpClient.Content = GetContents(formId, content);
 
             return httpClient.SysncRequest();
         }
@@ -127,7 +122,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.View.common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(GetParameters(formId, content));
+            httpClient.Content = GetContents(formId, content);
 
             return httpClient.SysncRequest();
         }
@@ -148,14 +143,14 @@ namespace MgSoft.K3Cloud.WebApi
 
 
         #region 私有方法
-        private List<object> GetParameters(params Object[] objs)
+        private string GetContents(params Object[] objs)
         {
             List<object> Parameters = new List<object>();
             foreach (var obj in objs)
             {
                 Parameters.Add(obj);
             }
-            return Parameters;
+            return JsonConvert.SerializeObject(Parameters);
         }
         #endregion
     }
