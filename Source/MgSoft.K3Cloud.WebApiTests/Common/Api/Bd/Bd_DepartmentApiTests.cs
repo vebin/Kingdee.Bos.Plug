@@ -64,5 +64,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             });
             var data2 = JsonConvert.SerializeObject(data);
         }
+
+
+        [TestMethod]
+        public void DeleteTest()
+        {
+            bd_DepartmentApi.Delete(new DeleteInputDto()
+            {
+                FormId = "Bd_Department",
+                Numbers = new string[] { "VEN00016" }
+            });
+        }
     }
 }

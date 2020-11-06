@@ -31,7 +31,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
         {
             return new Bd_SupplierSaveInputDto()
             {
-                FName = "Api测试供应商2",
+                FName = "Api测试供应商3",
                 FCreateOrgId = new FNumberProperty("100"),
                 FUseOrgId = new FNumberProperty("100"),
                 FFinanceInfo = new Bd_Supplier_FinanceInfo()
@@ -57,6 +57,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             Bd_SupplierApi.Submit(new SubmitInputDto()
             {
                 Numbers = new string[] { "VEN00014" }
+            });
+        }
+
+        [TestMethod]
+        public void DeleteTest()
+        {
+            Bd_SupplierApi.Delete(new DeleteInputDto()
+            {
+                FormId = "Bd_Supplier",
+                Numbers = new string[] { "VEN00016" }
             });
         }
     }

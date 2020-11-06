@@ -124,15 +124,36 @@ namespace MgSoft.K3Cloud.WebApi
             return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(GetData(apiResult));
         }
 
-        public List<AuditOutpuDto> Audit(AuditInputDto auditInputDto)
+        public List<AuditOutputDto> Audit(AuditInputDto auditInputDto)
         {
             setFormId(auditInputDto);
 
             var apiResult = client.Audit(auditInputDto.FormId, JsonConvert.SerializeObject(auditInputDto));
             CheckGetIsSuccess(apiResult);
 
-            return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(GetData(apiResult));
+            return JsonConvert.DeserializeObject<List<AuditOutputDto>>(GetData(apiResult));
         }
+
+        public List<UnAuditOutputDto> UnAudit(UnAuditInputDto unAuditInputDto)
+        {
+            setFormId(unAuditInputDto);
+
+            var apiResult = client.UnAudit(unAuditInputDto.FormId, JsonConvert.SerializeObject(unAuditInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<UnAuditOutputDto>>(GetData(apiResult));
+        }
+
+        public List<DeleteOutputDto> Delete(DeleteInputDto deleteInputDto)
+        {
+            setFormId(deleteInputDto);
+
+            var apiResult = client.Delete(deleteInputDto.FormId, JsonConvert.SerializeObject(deleteInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<DeleteOutputDto>>(GetData(apiResult));
+        }
+
 
 
         #region 私有方法
