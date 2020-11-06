@@ -130,7 +130,7 @@ namespace MgSoft.K3Cloud.WebApi
 
             var apiResult = client.Audit(auditInputDto.FormId, JsonConvert.SerializeObject(auditInputDto));
             CheckGetIsSuccess(apiResult);
-            
+
             return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(GetData(apiResult));
         }
 
@@ -182,7 +182,7 @@ namespace MgSoft.K3Cloud.WebApi
                 return;
             }
             var responseStatus = jResult["ResponseStatus"];
-            if(responseStatus.SelectToken("IsSuccess")!=null&& responseStatus["IsSuccess"].Value<bool>())
+            if (responseStatus.SelectToken("IsSuccess") != null && responseStatus["IsSuccess"].Value<bool>())
             {
                 return;
             }
@@ -194,7 +194,7 @@ namespace MgSoft.K3Cloud.WebApi
 
         private string GetData(string apiResult)
         {
-            if (string.IsNullOrEmpty(apiResult))
+            if (!string.IsNullOrEmpty(apiResult))
             {
                 var jObject = JObject.Parse(apiResult);
                 return jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
