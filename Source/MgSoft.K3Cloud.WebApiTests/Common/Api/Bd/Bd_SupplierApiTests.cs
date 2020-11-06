@@ -31,7 +31,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
         {
             return new Bd_SupplierSaveInputDto()
             {
-                FName = "Api测试供应商1",
+                FName = "Api测试供应商2",
                 FCreateOrgId = new FNumberProperty("100"),
                 FUseOrgId = new FNumberProperty("100"),
                 FFinanceInfo = new Bd_Supplier_FinanceInfo()

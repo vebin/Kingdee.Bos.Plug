@@ -111,9 +111,7 @@ namespace MgSoft.K3Cloud.WebApi
             var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(data);
+            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(GetData(apiResult));
         }
 
         public List<SubmitOutputDto> Submit(SubmitInputDto submitInputDto)
@@ -123,9 +121,7 @@ namespace MgSoft.K3Cloud.WebApi
             var apiResult = client.Submit(submitInputDto.FormId, JsonConvert.SerializeObject(submitInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(data);
+            return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(GetData(apiResult));
         }
 
         public List<AuditOutpuDto> Audit(AuditInputDto auditInputDto)
@@ -134,12 +130,9 @@ namespace MgSoft.K3Cloud.WebApi
 
             var apiResult = client.Audit(auditInputDto.FormId, JsonConvert.SerializeObject(auditInputDto));
             CheckGetIsSuccess(apiResult);
-
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(data);
+            
+            return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(GetData(apiResult));
         }
-
 
 
         #region 私有方法
@@ -197,6 +190,16 @@ namespace MgSoft.K3Cloud.WebApi
             {
                 throw new ApiException(responseStatus["Errors"].ToString());
             }
+        }
+
+        private string GetData(string apiResult)
+        {
+            if (string.IsNullOrEmpty(apiResult))
+            {
+                var jObject = JObject.Parse(apiResult);
+                return jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
+            }
+            return "";
         }
 
         private List<T> SerializeToPocoList<T>(string queryList, string fieldKeys) where T : class, new()

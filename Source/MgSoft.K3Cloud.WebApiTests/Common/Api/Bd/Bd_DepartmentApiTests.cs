@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
+using Newtonsoft.Json;
+using MgSoft.K3Cloud.WebApi.Dto;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {
@@ -40,6 +43,26 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             {
                 Numbers = new string[] { "BM000018" }
             });
+        }
+
+        [TestMethod]
+        public void Get()
+        {
+            var data = bd_DepartmentApi.Get<Bd_DepartmetQueryOutputDto>(new GetInputDto()
+            {
+                FormId = "BD_Department",
+                Number =  "BM000018" 
+            });
+        }
+
+        [TestMethod]
+        public void GetList()
+        {
+            var data = bd_DepartmentApi.GetList<Bd_DepartmentQueryListOutputDto>(new GetListInputDto()
+            {
+                FormId = "Bd_Department"
+            });
+            var data2 = JsonConvert.SerializeObject(data);
         }
     }
 }

@@ -4,10 +4,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Dto
 {
-    public class AuditOutpuDto
+    public class AuditOutpuDto : BaseApiOutputDto
     {
-        public long Id { get; set; }
-        public string Number { get; set; }
-        public long DIndex { get; set; }
     }
 }
