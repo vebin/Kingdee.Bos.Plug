@@ -27,9 +27,9 @@ namespace MgSoft.K3Cloud.WebApiTests.Common.Api.Stk
             inStockApi.Save(getSaveDto());
         }
 
-        private STK_InStockSaveInputDto getSaveDto()
+        private Stk_InStockSaveInputDto getSaveDto()
         {
-            var result = new STK_InStockSaveInputDto()
+            var result = new Stk_InStockSaveInputDto()
             {
                 FStockOrgId = new FNumberProperty("106.2"),
                 FDate = DateTime.Now,

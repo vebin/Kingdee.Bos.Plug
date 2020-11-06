@@ -118,7 +118,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual List<Type_FInStockEntry> FInStockEntry { get; set; }
     }
 
-    public class STK_InStockSaveInputDto : Stk_InStockSaveInputDto<Stk_InStock_FInStockFin, Stk_InStock_FInStockEntry>
+    public class Stk_InStockSaveInputDto : Stk_InStockSaveInputDto<Stk_InStock_FInStockFin, Stk_InStock_FInStockEntry>
     {
 
     }
