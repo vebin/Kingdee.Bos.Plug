@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
 {
+    /// <summary>
+    /// 供应商
+    /// </summary>
     public class Bd_SupplierApi : BaseApi
     {
         protected override string formId => "BD_Supplier";

@@ -62,11 +62,5 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
                 //}
             };
         }
-
-        [TestMethod()]
-        public void SaveTest1()
-        {
-            Assert.
-        }
     }
 }

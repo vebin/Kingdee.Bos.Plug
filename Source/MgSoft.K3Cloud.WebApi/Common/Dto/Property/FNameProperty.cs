@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,6 +18,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Property
         {
             this.FName = FName;
         }
+        [JsonProperty("FName")]
         public string FName { get; set; }
     }
 }

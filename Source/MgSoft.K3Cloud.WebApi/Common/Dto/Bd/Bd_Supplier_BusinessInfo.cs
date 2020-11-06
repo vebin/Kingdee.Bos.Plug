@@ -16,7 +16,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         //    "FUserID": ""
         //},
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime FFreezeDate { get; set; }
+        public DateTime? FFreezeDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FPurchaserGroupId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
