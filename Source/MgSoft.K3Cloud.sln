@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgSoft.K3Cloud.Test", "MgSo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.K3Cloud.WebApi", "MgSoft.K3Cloud.WebApi\MgSoft.K3Cloud.WebApi.csproj", "{877D5122-DD78-44A6-A6D4-E8D2952FB764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgSoft", "MgSoft\MgSoft.csproj", "{E2AE9497-4B35-48F4-9968-D01A57B116EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft", "MgSoft\MgSoft.csproj", "{E2AE9497-4B35-48F4-9968-D01A57B116EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgSoft.K3Cloud.WebApiTests1", "MgSoft.K3Cloud.WebApiTests1\MgSoft.K3Cloud.WebApiTests1.csproj", "{6C880449-DDC2-4DA8-AD7B-2D2833DC47E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E2AE9497-4B35-48F4-9968-D01A57B116EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2AE9497-4B35-48F4-9968-D01A57B116EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2AE9497-4B35-48F4-9968-D01A57B116EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C880449-DDC2-4DA8-AD7B-2D2833DC47E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C880449-DDC2-4DA8-AD7B-2D2833DC47E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C880449-DDC2-4DA8-AD7B-2D2833DC47E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C880449-DDC2-4DA8-AD7B-2D2833DC47E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
