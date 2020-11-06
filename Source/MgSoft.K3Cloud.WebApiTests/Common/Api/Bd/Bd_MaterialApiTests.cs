@@ -11,7 +11,7 @@ using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {
     [TestClass()]
-    public class Bd_MaterialApiTests:BaseTest
+    public class Bd_MaterialApiTests : BaseTest
     {
         private Bd_MaterialApi bd_MaterialApi;
 
@@ -26,23 +26,23 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             bd_MaterialApi.Save(getSaveDto());
         }
 
-        //[TestMethod]
-        //public void SubmitTest()
-        //{
-        //    bd_MaterialApi.Submit(new SubmitInputDto() 
-        //    {
-        //        Numbers=new string[]{ "TestMaterial" }
-        //    });
-        //}
+        [TestMethod]
+        public void SubmitTest()
+        {
+            bd_MaterialApi.Submit(new SubmitInputDto()
+            {
+                Numbers = new string[] { "TestMaterial" }
+            });
+        }
 
         private Bd_MaterialSaveInputDto getSaveDto()
         {
             return new Bd_MaterialSaveInputDto()
             {
                 FName = "测试",
-                FNumber="TestMaterial",
+                FNumber = "TestMaterial",
                 FCreateOrgId = new FNumberProperty("100"),
-                FUseOrgId=new FNumberProperty("100"),
+                FUseOrgId = new FNumberProperty("100"),
                 //FCodeType_CMK
                 //FUnitId_CMK
                 //SubHeadEntity=new Bd_Material_SubHeadEntity()
@@ -61,6 +61,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
                 //    FSNManageType="1"
                 //}
             };
+        }
+
+        [TestMethod()]
+        public void SaveTest1()
+        {
+            Assert.
         }
     }
 }
