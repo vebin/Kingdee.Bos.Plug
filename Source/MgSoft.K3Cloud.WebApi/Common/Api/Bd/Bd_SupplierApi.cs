@@ -7,7 +7,7 @@ using System.Text;
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
 {
     /// <summary>
-    /// 供应商
+    /// 供应商Api
     /// </summary>
     public class Bd_SupplierApi : BaseApi
     {
@@ -29,7 +29,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
             });
         }
 
-        public List<SaveOutPutDto> Save<T>(T bd_SupplierSaveInputDto)
+        public List<SaveOutPutDto> Save<T>(T bd_SupplierSaveInputDto) where T : Bd_SupplierSaveInputDto
         {
             return base.Save(new SaveInputDto()
             {
