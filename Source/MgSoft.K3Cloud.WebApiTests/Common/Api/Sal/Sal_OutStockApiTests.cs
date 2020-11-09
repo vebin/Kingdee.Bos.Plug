@@ -6,6 +6,7 @@ using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Sal;
 using MgSoft.K3Cloud.WebApi.Common.Dto;
+using MgSoft.K3Cloud.WebApi.Dto;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal.Tests
 {
@@ -24,6 +25,25 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal.Tests
         {
             sal_OutStockApi.Save(GetSave());
         }
+
+        [TestMethod()]
+        public void QueryListTest()
+        {
+            var data = sal_OutStockApi.GetList<Sal_OutStockQueryListOutputDto>(new WebApi.Dto.GetListInputDto()
+            {
+                FormId = "SAL_OUTSTOCK"
+            });
+        }
+        [TestMethod()]
+        public void QueryTest()
+        {
+            var data = sal_OutStockApi.Get<Sal_OutStockQueryOutputDto>(new GetInputDto()
+            {
+                FormId = "SAL_OUTSTOCK",
+                Number = "XSCKD000034"
+            });
+        }
+
 
         private Sal_OutStockSaveInputDto GetSave()
         {
