@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 {
-    public class Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry> 
+    public class Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry>
         where Type_FInStockFin : Stk_InStock_FInStockFin
         where Type_FInStockEntry : Stk_InStock_FInStockEntry
     {

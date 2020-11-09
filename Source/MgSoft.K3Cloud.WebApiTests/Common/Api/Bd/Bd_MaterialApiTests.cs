@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Dto;
-using MgSoft.K3Cloud.WebApi.Common.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {

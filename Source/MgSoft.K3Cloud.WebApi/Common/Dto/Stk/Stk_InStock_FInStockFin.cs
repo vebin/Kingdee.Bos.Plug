@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,7 +47,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual FNumberProperty FExchangeTypeId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual decimal FExchangeRate { get; set; }
+        public virtual decimal? FExchangeRate { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool FISPRICEEXCLUDETAX { get; set; }
