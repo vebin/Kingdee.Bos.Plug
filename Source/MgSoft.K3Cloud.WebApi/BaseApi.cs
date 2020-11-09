@@ -111,9 +111,7 @@ namespace MgSoft.K3Cloud.WebApi
             var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(data);
+            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(GetData(apiResult));
         }
 
         public List<SubmitOutputDto> Submit(SubmitInputDto submitInputDto)
@@ -123,21 +121,37 @@ namespace MgSoft.K3Cloud.WebApi
             var apiResult = client.Submit(submitInputDto.FormId, JsonConvert.SerializeObject(submitInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(data);
+            return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(GetData(apiResult));
         }
 
-        public List<AuditOutpuDto> Audit(AuditInputDto auditInputDto)
+        public List<AuditOutputDto> Audit(AuditInputDto auditInputDto)
         {
             setFormId(auditInputDto);
 
             var apiResult = client.Audit(auditInputDto.FormId, JsonConvert.SerializeObject(auditInputDto));
             CheckGetIsSuccess(apiResult);
 
-            var jObject = JObject.Parse(apiResult);
-            var data = jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
-            return JsonConvert.DeserializeObject<List<AuditOutpuDto>>(data);
+            return JsonConvert.DeserializeObject<List<AuditOutputDto>>(GetData(apiResult));
+        }
+
+        public List<UnAuditOutputDto> UnAudit(UnAuditInputDto unAuditInputDto)
+        {
+            setFormId(unAuditInputDto);
+
+            var apiResult = client.UnAudit(unAuditInputDto.FormId, JsonConvert.SerializeObject(unAuditInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<UnAuditOutputDto>>(GetData(apiResult));
+        }
+
+        public List<DeleteOutputDto> Delete(DeleteInputDto deleteInputDto)
+        {
+            setFormId(deleteInputDto);
+
+            var apiResult = client.Delete(deleteInputDto.FormId, JsonConvert.SerializeObject(deleteInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<DeleteOutputDto>>(GetData(apiResult));
         }
 
 
@@ -189,7 +203,7 @@ namespace MgSoft.K3Cloud.WebApi
                 return;
             }
             var responseStatus = jResult["ResponseStatus"];
-            if(responseStatus.SelectToken("IsSuccess")!=null&& responseStatus["IsSuccess"].Value<bool>())
+            if (responseStatus.SelectToken("IsSuccess") != null && responseStatus["IsSuccess"].Value<bool>())
             {
                 return;
             }
@@ -197,6 +211,16 @@ namespace MgSoft.K3Cloud.WebApi
             {
                 throw new ApiException(responseStatus["Errors"].ToString());
             }
+        }
+
+        private string GetData(string apiResult)
+        {
+            if (!string.IsNullOrEmpty(apiResult))
+            {
+                var jObject = JObject.Parse(apiResult);
+                return jObject["Result"]["ResponseStatus"]["SuccessEntitys"].ToString();
+            }
+            return "";
         }
 
         private List<T> SerializeToPocoList<T>(string queryList, string fieldKeys) where T : class, new()

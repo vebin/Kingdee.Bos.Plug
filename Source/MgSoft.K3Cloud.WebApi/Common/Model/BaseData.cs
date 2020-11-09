@@ -1,16 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using MgSoft.K3Cloud.WebApi.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MgSoft.K3Cloud.WebApi.Model
+namespace MgSoft.K3Cloud.WebApi.Common.Model
 {
-    public class BaseData: BaseData<MultiLanguageText>
+    /// <summary>
+    /// 基础资料
+    /// </summary>
+    public class BaseData : BaseData<MultiLanguageText>
     {
 
     }
 
-    public class BaseData<T> where T: MultiLanguageText
+    public class BaseData<T> where T : MultiLanguageText
     {
         public object Id { get; set; }
 

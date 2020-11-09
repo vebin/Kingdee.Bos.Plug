@@ -7,6 +7,9 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
 {
+    /// <summary>
+    /// 销售出库单Api
+    /// </summary>
     public class Sal_OutStockApi : BaseApi
     {
         protected override string formId => "SAL_OUTSTOCK";

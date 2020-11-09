@@ -21,16 +21,16 @@ namespace MgSoft.K3Cloud.WebApi
         /// <summary>
         /// 登陆
         /// </summary>
-        public string ValidateUser(string dbid, string userName, string password, int lcid)
+        /// <param name="dbid">账套标示</param>
+        /// <param name="userName">用户名</param>
+        /// <param name="password">密码</param>
+        /// <param name="lcid">2052代表中文</param>
+        /// <returns></returns>
+        public string ValidateUser(string dbid, string userName, string password, int lcid = 2052)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            Parameters.Add(dbid);//账套标示
-            Parameters.Add(userName);//用户名
-            Parameters.Add(password);//密码
-            Parameters.Add(lcid);//2052代表中文
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(dbid, userName, password, lcid);
 
             return httpClient.SysncRequest();
         }
@@ -38,38 +38,27 @@ namespace MgSoft.K3Cloud.WebApi
         /// <summary>
         /// 保存
         /// </summary>
-        /// <param name="formId"></param>
-        /// <param name="content"></param>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
         /// <returns></returns>
         public string Save(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            //业务对象Id 
-            Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(formId, content);
             return httpClient.SysncRequest();
         }
 
         /// <summary>
         /// 提交
         /// </summary>
-        /// <param name="formId"></param>
-        /// <param name="content"></param>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
         /// <returns></returns>
         public string Submit(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc");
-
-            List<object> Parameters = new List<object>();
-            //业务对象Id 
-            Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(formId, content);
             return httpClient.SysncRequest();
         }
 
@@ -77,68 +66,64 @@ namespace MgSoft.K3Cloud.WebApi
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.ExecuteBillQuery.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            ////业务对象Id 
-            //Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(content);
             return httpClient.SysncRequest();
         }
 
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="formId"></param>
-        /// <param name="content"></param>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
         /// <returns></returns>
         public string Delete(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            //业务对象Id 
-            Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(formId, content);
+
             return httpClient.SysncRequest();
         }
 
         /// <summary>
         /// 审核
         /// </summary>
-        /// <param name="formId"></param>
-        /// <param name="content"></param>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
         /// <returns></returns>
         public string Audit(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Audit.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            //业务对象Id 
-            Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(formId, content);
+            return httpClient.SysncRequest();
+        }
+        /// <summary>
+        /// 审核
+        /// </summary>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
+        /// <returns></returns>
+        public string UnAudit(string formId, string content)
+        {
+            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UnAudit.common.kdsvc");
+
+            httpClient.Content = GetContents(formId, content);
+
             return httpClient.SysncRequest();
         }
         /// <summary>
         /// 查询
         /// </summary>
-        /// <param name="formId"></param>
-        /// <param name="content"></param>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求JSON串</param>
         /// <returns></returns>
         public string View(string formId, string content)
         {
             httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.View.common.kdsvc");
 
-            List<object> Parameters = new List<object>();
-            //业务对象Id 
-            Parameters.Add(formId);
-            //Json字串
-            Parameters.Add(content);
-            httpClient.Content = JsonConvert.SerializeObject(Parameters);
+            httpClient.Content = GetContents(formId, content);
+
             return httpClient.SysncRequest();
         }
 
@@ -155,5 +140,18 @@ namespace MgSoft.K3Cloud.WebApi
             httpClient.Content = JsonConvert.SerializeObject(args);
             return httpClient.SysncRequest();
         }
+
+
+        #region 私有方法
+        private string GetContents(params Object[] objs)
+        {
+            List<object> Parameters = new List<object>();
+            foreach (var obj in objs)
+            {
+                Parameters.Add(obj);
+            }
+            return JsonConvert.SerializeObject(Parameters);
+        }
+        #endregion
     }
 }
