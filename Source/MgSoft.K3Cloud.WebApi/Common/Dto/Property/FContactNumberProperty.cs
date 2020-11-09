@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MgSoft.K3Cloud.WebApi.Common.Dto
+namespace MgSoft.K3Cloud.WebApi.Common.Dto.Property
 {
     public class FContactNumberProperty
     {

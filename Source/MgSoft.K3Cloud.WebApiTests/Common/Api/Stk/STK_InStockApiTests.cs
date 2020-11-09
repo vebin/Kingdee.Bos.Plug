@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestPlatform.Common.Utilities;
-using MgSoft.K3Cloud.WebApi.Common.Dto;
 using MgSoft.K3Cloud.WebApi.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Api.Stk;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Stk;
 using MgSoft.K3Cloud.WebApiTests;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 
 namespace MgSoft.K3Cloud.WebApiTests.Common.Api.Stk
 {
