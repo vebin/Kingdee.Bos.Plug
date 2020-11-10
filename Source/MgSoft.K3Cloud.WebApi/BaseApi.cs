@@ -104,6 +104,11 @@ namespace MgSoft.K3Cloud.WebApi
         //    CheckGetIsSuccess(apiResult);
         //}
 
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="saveInputDto"></param>
+        /// <returns></returns>
         public List<SaveOutPutDto> Save(SaveInputDto saveInputDto)
         {
             setFormId(saveInputDto);
@@ -114,6 +119,11 @@ namespace MgSoft.K3Cloud.WebApi
             return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(GetData(apiResult));
         }
 
+        /// <summary>
+        /// 提交
+        /// </summary>
+        /// <param name="submitInputDto"></param>
+        /// <returns></returns>
         public List<SubmitOutputDto> Submit(SubmitInputDto submitInputDto)
         {
             setFormId(submitInputDto);
@@ -123,7 +133,11 @@ namespace MgSoft.K3Cloud.WebApi
 
             return JsonConvert.DeserializeObject<List<SubmitOutputDto>>(GetData(apiResult));
         }
-
+        /// <summary>
+        /// 审核
+        /// </summary>
+        /// <param name="auditInputDto"></param>
+        /// <returns></returns>
         public List<AuditOutputDto> Audit(AuditInputDto auditInputDto)
         {
             setFormId(auditInputDto);
@@ -133,7 +147,11 @@ namespace MgSoft.K3Cloud.WebApi
 
             return JsonConvert.DeserializeObject<List<AuditOutputDto>>(GetData(apiResult));
         }
-
+        /// <summary>
+        /// 反审核
+        /// </summary>
+        /// <param name="unAuditInputDto"></param>
+        /// <returns></returns>
         public List<UnAuditOutputDto> UnAudit(UnAuditInputDto unAuditInputDto)
         {
             setFormId(unAuditInputDto);
@@ -143,7 +161,11 @@ namespace MgSoft.K3Cloud.WebApi
 
             return JsonConvert.DeserializeObject<List<UnAuditOutputDto>>(GetData(apiResult));
         }
-
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="deleteInputDto"></param>
+        /// <returns></returns>
         public List<DeleteOutputDto> Delete(DeleteInputDto deleteInputDto)
         {
             setFormId(deleteInputDto);
