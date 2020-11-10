@@ -99,7 +99,7 @@ namespace MgSoft.K3Cloud.WebApi
             return httpClient.SysncRequest();
         }
         /// <summary>
-        /// 审核
+        /// 反审核
         /// </summary>
         /// <param name="formId">业务对象标识</param>
         /// <param name="content">请求JSON串</param>

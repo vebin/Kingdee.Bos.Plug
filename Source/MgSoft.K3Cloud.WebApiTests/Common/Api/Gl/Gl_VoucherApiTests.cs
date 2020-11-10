@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Gl;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl.Tests
@@ -29,9 +30,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl.Tests
             return new Gl_VoucherSaveInputDto()
             {
                 FDate = Convert.ToDateTime("2018/2/28"),
-                FAccountBookID = new Dto.FNumberProperty("003"),
-                FACCBOOKORGID = new Dto.FNumberProperty("102"),
-                FVOUCHERGROUPID = new Dto.FNumberProperty("PRE001"),
+                FAccountBookID = new FNumberProperty("003"),
+                FACCBOOKORGID = new FNumberProperty("102"),
+                FVOUCHERGROUPID = new FNumberProperty("PRE001"),
                 FVOUCHERGROUPNO = "1",
                 FYEAR = 2018,
                 FPERIOD = 2,
@@ -40,18 +41,18 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl.Tests
                     new Gl_Voucher_FEntity()
                     {
                         FEXPLANATION = "1",
-                        FACCOUNTID = new Dto.FNumberProperty("1001"),
-                        FCURRENCYID = new Dto.FNumberProperty("PRE001"),
-                        FEXCHANGERATETYPE = new Dto.FNumberProperty("HLTX01_SYS"),
+                        FACCOUNTID = new FNumberProperty("1001"),
+                        FCURRENCYID = new FNumberProperty("PRE001"),
+                        FEXCHANGERATETYPE = new FNumberProperty("HLTX01_SYS"),
                         FAMOUNTFOR = 10,
                         FDEBIT = 10
                     },
                     new Gl_Voucher_FEntity()
                     {
                         FEXPLANATION = "1",
-                        FACCOUNTID = new Dto.FNumberProperty("1002"),
-                        FCURRENCYID = new Dto.FNumberProperty("PRE001"),
-                        FEXCHANGERATETYPE = new Dto.FNumberProperty("HLTX01_SYS"),
+                        FACCOUNTID = new FNumberProperty("1002"),
+                        FCURRENCYID = new FNumberProperty("PRE001"),
+                        FEXCHANGERATETYPE = new FNumberProperty("HLTX01_SYS"),
                         FAMOUNTFOR = 10,
                         FCREDIT = 10
                     }

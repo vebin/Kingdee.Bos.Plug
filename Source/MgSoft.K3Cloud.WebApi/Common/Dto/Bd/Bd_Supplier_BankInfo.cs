@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;

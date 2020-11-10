@@ -1,4 +1,5 @@
 ﻿using MgSoft.K3Cloud.WebApi.Common.Dto;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Sal;
 using Newtonsoft.Json;
 using System;

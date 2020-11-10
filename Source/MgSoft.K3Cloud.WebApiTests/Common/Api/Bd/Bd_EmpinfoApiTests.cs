@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
+using MgSoft.K3Cloud.WebApi.Dto;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {
@@ -29,16 +31,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             return new Bd_EmpinfoSaveInputDto()
             {
                 FName = "Api测试员工",
-                FCreateOrgId = new Dto.FNumberProperty("100"),
-                FUseOrgId = new Dto.FNumberProperty("100"),
+                FCreateOrgId = new FNumberProperty("100"),
+                FUseOrgId = new FNumberProperty("100"),
                 FStaffNumber = "Test1",
                 FPostEntity = new List<Bd_Empinfo_PostEntity>()
                 {
                     new Bd_Empinfo_PostEntity()
                     {
-                        FPost = new Dto.FNumberProperty("Test1"),
-                        FPostDept = new Dto.FNumberProperty("BM000019"),
-                        FWorkOrgId = new Dto.FNumberProperty("106.2")
+                        FPost = new FNumberProperty("Test1"),
+                        FPostDept = new FNumberProperty("BM000019"),
+                        FWorkOrgId = new FNumberProperty("106.2")
                     }
                 }
             };
@@ -46,7 +48,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
         [TestMethod()]
         public void SubmitTest()
         {
-            bd_EmpinfoApi.Submit(new WebApi.Dto.SubmitInputDto()
+            bd_EmpinfoApi.Submit(new SubmitInputDto()
             {
                 Numbers = new string[] { "Test1" }
             });

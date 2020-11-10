@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
-using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
 using Newtonsoft.Json;
 using MgSoft.K3Cloud.WebApi.Dto;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Bd;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
 {
@@ -32,14 +33,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd.Tests
             return new Bd_DepartmentSaveInputDto()
             {
                 FName = "测试部门1",
-                FCreateOrgId = new Dto.FNumberProperty("100"),
-                FUseOrgId = new Dto.FNumberProperty("100")
+                FCreateOrgId = new FNumberProperty("100"),
+                FUseOrgId = new FNumberProperty("100")
             };
         }
         [TestMethod]
         public void SubmitTest()
         {
-            bd_DepartmentApi.Submit(new WebApi.Dto.SubmitInputDto()
+            bd_DepartmentApi.Submit(new SubmitInputDto()
             {
                 Numbers = new string[] { "BM000018" }
             });
