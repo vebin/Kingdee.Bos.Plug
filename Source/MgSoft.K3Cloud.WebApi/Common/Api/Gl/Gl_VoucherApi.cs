@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl
 {
+    /// <summary>
+    /// 凭证Api
+    /// </summary>
     public class Gl_VoucherApi : BaseApi
     {
         protected override string formId => "Gl_Voucher";
