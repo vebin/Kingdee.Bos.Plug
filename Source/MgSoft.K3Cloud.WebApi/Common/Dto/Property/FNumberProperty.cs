@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Property
 {
     public class FNumberProperty
