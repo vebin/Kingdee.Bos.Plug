@@ -12,20 +12,20 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_Receivable_SubHeadFinc
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FACCNTTIMEJUDGETIME { get; set; }
+        public virtual DateTime? FACCNTTIMEJUDGETIME { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleTypeID { get; set; }
+        public virtual FNumberProperty FSettleTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMAINBOOKSTDCURRID { get; set; }
+        public virtual FNumberProperty FMAINBOOKSTDCURRID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FEXCHANGETYPE { get; set; }
+        public virtual FNumberProperty FEXCHANGETYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FExchangeRate { get; set; }
+        public virtual decimal? FExchangeRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxAmountFor { get; set; }
+        public virtual decimal? FTaxAmountFor { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FNoTaxAmountFor { get; set; }
+        public virtual decimal? FNoTaxAmountFor { get; set; }
     }
 }

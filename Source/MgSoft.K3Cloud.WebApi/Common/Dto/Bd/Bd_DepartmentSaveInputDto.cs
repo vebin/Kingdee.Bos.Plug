@@ -12,37 +12,37 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_DepartmentSaveInputDto
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDEPTID { get; set; }
+        public virtual long? FDEPTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCreateOrgId { get; set; }
+        public virtual FNumberProperty FCreateOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNumber { get; set; }
+        public virtual string FNumber { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FUseOrgId { get; set; }
+        public virtual FNumberProperty FUseOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FName { get; set; }
+        public virtual string FName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FHelpCode { get; set; }
+        public virtual string FHelpCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty  FParentID { get; set; }
+        public virtual FNumberProperty  FParentID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FFullName { get; set; }
+        public virtual string FFullName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FEffectDate{ get; set; }
+        public virtual DateTime? FEffectDate{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime?  FLapseDate { get; set; }
+        public virtual DateTime?  FLapseDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty  FDeptProperty { get; set; }
+        public virtual FNumberProperty  FDeptProperty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDescription { get; set; }
+        public virtual string FDescription { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FGroup { get; set; }
+        public virtual FNumberProperty FGroup { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FIsCopyFlush { get; set; }
+        public virtual bool FIsCopyFlush { get; set; }
         /// <summary>
         /// SHR映射实体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Bd_Department_SHRMapEntity FSHRMapEntity { get; set; }
+        public virtual Bd_Department_SHRMapEntity FSHRMapEntity { get; set; }
     }
 }

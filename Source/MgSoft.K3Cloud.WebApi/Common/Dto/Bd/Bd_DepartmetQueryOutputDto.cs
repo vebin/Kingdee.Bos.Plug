@@ -9,14 +9,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_DepartmetQueryOutputDto
     {
         [JsonProperty(PropertyName = "MultiLanguageText")]
-        public MultiLanguageText[] MultiLanguageText { get; set; }
+        public virtual MultiLanguageText[] MultiLanguageText { get; set; }
 
         [JsonProperty(PropertyName = "Id")]
-        public long Id { get; set; }
+        public virtual long Id { get; set; }
         [JsonProperty(PropertyName = "Number")]
-        public string Number { get; set; }
+        public virtual string Number { get; set; }
         [JsonIgnore]
-        public string Name
+        public virtual string Name
         {
             get
             {

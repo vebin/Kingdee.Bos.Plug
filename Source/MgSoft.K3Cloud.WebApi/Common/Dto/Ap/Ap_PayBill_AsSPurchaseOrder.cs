@@ -11,6 +11,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_PayBill_AsSPurchaseOrder
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-         public long? FDetailID { get; set; }
+         public virtual long? FDetailID { get; set; }
     }
 }

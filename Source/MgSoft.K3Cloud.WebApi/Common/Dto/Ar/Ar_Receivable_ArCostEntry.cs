@@ -12,12 +12,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_Receivable_ArCostEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSEQSRC { get; set; }
+        public virtual string FSEQSRC { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDEntryID { get; set; }
+        public virtual string FDEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBASICUNIT { get; set; }
+        public virtual FNumberProperty FBASICUNIT { get; set; }
     }
 }

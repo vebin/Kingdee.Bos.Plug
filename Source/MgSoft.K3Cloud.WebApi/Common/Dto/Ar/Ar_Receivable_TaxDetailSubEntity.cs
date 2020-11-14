@@ -12,22 +12,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_Receivable_TaxDetailSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTaxRateId { get; set; }
+        public virtual FNumberProperty FTaxRateId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxRate { get; set; }
+        public virtual decimal? FTaxRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxAmount_T { get; set; }
+        public virtual decimal? FTaxAmount_T { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FCostPercent { get; set; }
+        public virtual decimal? FCostPercent { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FCostAmount { get; set; }
+        public virtual decimal? FCostAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FVAT { get; set; }
+        public virtual bool? FVAT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FSellerWithholding { get; set; }
+        public virtual bool? FSellerWithholding { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FBuyerWithholding { get; set; }
+        public virtual bool? FBuyerWithholding { get; set; }
     }
 }

@@ -12,29 +12,29 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_PayBill_SrcEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTAXAMOUNT { get; set; }
+        public virtual decimal? FTAXAMOUNT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYPURPOSEID { get; set; }
+        public virtual FNumberProperty FPAYPURPOSEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSRCCOSTID { get; set; }
+        public virtual FNumberProperty FSRCCOSTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FEXPENSEDEPTID { get; set; }
+        public virtual FNumberProperty FEXPENSEDEPTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSRCPRICEUNITID { get; set; }
+        public virtual FNumberProperty FSRCPRICEUNITID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCPRICE { get; set; }
+        public virtual decimal? FSRCPRICE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCQTY { get; set; }
+        public virtual decimal? FSRCQTY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTAXAMOUNTLOC { get; set; }
+        public virtual decimal? FTAXAMOUNTLOC { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPLANPAYAMOUNTLOC { get; set; }
+        public virtual decimal? FPLANPAYAMOUNTLOC { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREALPAYAMOUNTLOC { get; set; }
+        public virtual decimal? FREALPAYAMOUNTLOC { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSRCREMARK { get; set; }
+        public virtual string FSRCREMARK { get; set; }
 
     }
 }

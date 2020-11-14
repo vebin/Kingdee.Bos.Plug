@@ -11,6 +11,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_ReceiveBill_FAsSSalesOrder
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-       public long? FDetailID { get; set; }
+       public virtual long? FDetailID { get; set; }
     }
 }

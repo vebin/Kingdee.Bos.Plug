@@ -12,23 +12,23 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_Receivable_EntityPlan
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FENDDATE { get; set; }
+        public virtual DateTime? FENDDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPAYRATE { get; set; }
+        public virtual decimal? FPAYRATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPAYAMOUNTFOR { get; set; }
+        public virtual decimal? FPAYAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FORDERBILLNO { get; set; }
+        public virtual string FORDERBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSALEORDERID_S { get; set; }
+        public virtual decimal? FSALEORDERID_S { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRECEIVABLEENTRYID { get; set; }
+        public virtual decimal? FRECEIVABLEENTRYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FMATERIALSEQ { get; set; }
+        public virtual decimal? FMATERIALSEQ { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMATERIALID_S { get; set; }
+        public virtual FNumberProperty FMATERIALID_S { get; set; }
 
     }
 }

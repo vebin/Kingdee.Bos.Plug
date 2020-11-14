@@ -11,10 +11,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_SaleOrderTraceDetail
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTraceTime { get; set; }
+        public virtual string FTraceTime { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTraceDetail { get; set; }
+        public virtual string FTraceDetail { get; set; }
     }
 }

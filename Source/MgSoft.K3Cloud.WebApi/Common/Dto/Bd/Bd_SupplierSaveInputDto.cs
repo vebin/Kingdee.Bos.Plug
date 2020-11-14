@@ -15,63 +15,63 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         where Type_Bd_Supplier_SupplierContact : Bd_Supplier_SupplierContact
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FSupplierId { get; set; }
+        public virtual long? FSupplierId { get; set; }
         /// <summary>
         /// 必填项
         /// </summary>
-        public FNumberProperty FCreateOrgId { get; set; }
+        public virtual FNumberProperty FCreateOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNumber { get; set; }
+        public virtual string FNumber { get; set; }
         /// <summary>
         /// 必填项
         /// </summary>
-        public FNumberProperty FUseOrgId { get; set; }
+        public virtual FNumberProperty FUseOrgId { get; set; }
         /// <summary>
         /// 必填项
         /// </summary>
-        public string FName { get; set; }
+        public virtual string FName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FShortName { get; set; }
+        public virtual string FShortName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FGroup { get; set; }
+        public virtual FNumberProperty FGroup { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCorrespondOrgId { get; set; }
+        public virtual FNumberProperty FCorrespondOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDescription { get; set; }
+        public virtual string FDescription { get; set; }
         //"FForbiderId": {
         //    "FUserID": ""       
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FForbidDate { get; set; }
+        public virtual DateTime? FForbidDate { get; set; }
         /// <summary>
         /// 基本信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Bd_Supplier_BaseInfo FBaseInfo { get; set; }
+        public virtual Bd_Supplier_BaseInfo FBaseInfo { get; set; }
         /// <summary>
         /// 商务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Bd_Supplier_BusinessInfo FBusinessInfo { get; set; }
+        public virtual Bd_Supplier_BusinessInfo FBusinessInfo { get; set; }
         /// <summary>
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Bd_Supplier_FinanceInfo FFinanceInfo { get; set; }
+        public virtual Bd_Supplier_FinanceInfo FFinanceInfo { get; set; }
         /// <summary>
         /// 银行信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Bd_Supplier_BankInfo> FBankInfo { get; set; }
+        public virtual List<Bd_Supplier_BankInfo> FBankInfo { get; set; }
         /// <summary>
         /// 组织信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Bd_Supplier_LocationInfo> FLocationInfo { get; set; }
+        public virtual List<Bd_Supplier_LocationInfo> FLocationInfo { get; set; }
         /// <summary>
         /// 联系人
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Bd_Supplier_SupplierContact> FSupplierContacts { get; set; }
+        public virtual List<Bd_Supplier_SupplierContact> FSupplierContacts { get; set; }
     }
     public class Bd_SupplierSaveInputDto : Bd_SupplierSaveInputDto<
         Bd_Supplier_BankInfo,

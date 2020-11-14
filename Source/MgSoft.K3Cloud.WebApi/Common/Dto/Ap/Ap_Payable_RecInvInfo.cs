@@ -11,6 +11,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_Payable_RecInvInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
     }
 }

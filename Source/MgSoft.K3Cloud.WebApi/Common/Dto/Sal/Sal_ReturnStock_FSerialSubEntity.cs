@@ -8,15 +8,15 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
     /// <summary>
     /// (销售退库单)序列号子单据体
     /// </summary>
-    public class Sal_ReturnStock_FSerialSubEntity
+    public virtual class Sal_ReturnStock_FSerialSubEntity
     {
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSerialNo { get; set; }
+        public virtual string FSerialNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSerialNote { get; set; }
+        public virtual string FSerialNote { get; set; }
 
     }
 }

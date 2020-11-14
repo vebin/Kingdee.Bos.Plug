@@ -12,10 +12,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_Clause
     {        
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FClauseId { get; set; }
+        public virtual FNumberProperty FClauseId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FClauseDesc { get; set; }
+        public virtual string FClauseDesc { get; set; }
     }
 }

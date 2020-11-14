@@ -12,16 +12,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_OrderEntryPlan
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDetailLocId { get; set; }
+        public virtual FNumberProperty FDetailLocId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDetailLocAddress { get; set; }
+        public virtual string FDetailLocAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FPlanDate { get; set; }
+        public virtual DateTime? FPlanDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTransportLeadTime { get; set; }
+        public virtual decimal? FTransportLeadTime { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPlanQty { get; set; }
+        public virtual decimal? FPlanQty { get; set; }
     }
 }

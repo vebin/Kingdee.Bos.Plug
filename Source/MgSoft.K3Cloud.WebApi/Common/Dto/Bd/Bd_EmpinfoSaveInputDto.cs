@@ -14,62 +14,62 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         where Type_Bd_Empinfo_BankInfo : Bd_Empinfo_BankInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FName { get; set; }
+        public virtual string FName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FStaffNumber { get; set; }
+        public virtual string FStaffNumber { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMobile { get; set; }
+        public virtual string FMobile { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTel { get; set; }
+        public virtual string FTel { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FEmail { get; set; }
+        public virtual string FEmail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDescription { get; set; }
+        public virtual string FDescription { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FAddress { get; set; }
+        public virtual string FAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FUseOrgId { get; set; }
+        public virtual FNumberProperty FUseOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCreateOrgId { get; set; }
+        public virtual FNumberProperty FCreateOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBranchID { get; set; }
+        public virtual FNumberProperty FBranchID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FCreateSaler { get; set; }
+        public virtual bool FCreateSaler { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FCreateUser { get; set; }
+        public virtual bool FCreateUser { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FCreateCashie { get; set; }
+        public virtual bool FCreateCashie { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCashierGrp { get; set; }
+        public virtual FNumberProperty FCashierGrp { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSalerId { get; set; }
+        public virtual FNumberProperty FSalerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCashierId { get; set; }
+        public virtual FNumberProperty FCashierId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FUserId { get; set; }
+        public virtual FNumberProperty FUserId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPostId { get; set; }
+        public virtual FNumberProperty FPostId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FJoinDate { get; set; }
+        public virtual DateTime? FJoinDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FUniportalNo { get; set; }
+        public virtual string FUniportalNo { get; set; }
         /// <summary>
         /// SHR映射实体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Bd_Empinfo_SHRMapEntity FSHRMapEntity { get; set; }
+        public virtual Bd_Empinfo_SHRMapEntity FSHRMapEntity { get; set; }
         /// <summary>
         /// 岗位信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Bd_Empinfo_PostEntity> FPostEntity { get; set; }
+        public virtual List<Bd_Empinfo_PostEntity> FPostEntity { get; set; }
         /// <summary>
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Bd_Empinfo_BankInfo> FBankInfo { get; set; }
+        public virtual List<Bd_Empinfo_BankInfo> FBankInfo { get; set; }
     }
     public class Bd_EmpinfoSaveInputDto : Bd_EmpinfoSaveInputDto<Bd_Empinfo_PostEntity, Bd_Empinfo_BankInfo>
     { }

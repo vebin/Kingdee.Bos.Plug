@@ -12,9 +12,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
     public class Pur_Mrb_StrockLocModel
     {
         [JsonRequired]
-        public FNumberProperty FSTOCKLOCID__FF100001 { get; set; }
+        public virtual FNumberProperty FSTOCKLOCID__FF100001 { get; set; }
         [JsonRequired]
 
-        public FNumberProperty FSTOCKLOCID__FF100002 { get; set; }
+        public virtual FNumberProperty FSTOCKLOCID__FF100002 { get; set; }
     }
 }

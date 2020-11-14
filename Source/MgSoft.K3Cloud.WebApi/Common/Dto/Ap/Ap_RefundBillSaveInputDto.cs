@@ -22,119 +22,119 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         where Type_Ap_RefundBill_PayableEntry : Ap_RefundBill_PayableEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo { get; set; }
+        public virtual string FBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCONTACTUNITTYPE { get; set; }
+        public virtual string FCONTACTUNITTYPE { get; set; }
         /// <summary>
         /// 业务日期(必填)
         /// </summary>
         [JsonRequired]
-        public DateTime? FDATE { get; set; } = DateTime.Now;
+        public virtual DateTime? FDATE { get; set; } = DateTime.Now;
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCONTACTUNIT { get; set; }
+        public virtual FNumberProperty FCONTACTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDOCUMENTSTATUS { get; set; }
+        public virtual string FDOCUMENTSTATUS { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISINIT { get; set; }
+        public virtual bool? FISINIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBUSINESSTYPE { get; set; }
+        public virtual string FBUSINESSTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPAYUNITTYPE { get; set; }
+        public virtual string FPAYUNITTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSETTLERATE { get; set; }
+        public virtual decimal? FSETTLERATE { get; set; }
         /// <summary>
         /// 付款单位(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FPAYUNIT { get; set; }
+        public virtual FNumberProperty FPAYUNIT { get; set; }
         /// <summary>
         /// 币别(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCURRENCYID { get; set; } = new FNumberProperty("PRE001");//人民币
+        public virtual FNumberProperty FCURRENCYID { get; set; } = new FNumberProperty("PRE001");//人民币
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSETTLEORGID { get; set; }
+        public virtual FNumberProperty FSETTLEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDepartment { get; set; }
+        public virtual FNumberProperty FDepartment { get; set; }
         /// <summary>
         /// 采购组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FPURCHASEORGID { get; set; }
+        public virtual FNumberProperty FPURCHASEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurchaseDeptId { get; set; }
+        public virtual FNumberProperty FPurchaseDeptId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurchaserGroupId { get; set; }
+        public virtual FNumberProperty FPurchaserGroupId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurchaserId { get; set; }
+        public virtual FNumberProperty FPurchaserId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FEXCHANGERATE { get; set; }
+        public virtual decimal? FEXCHANGERATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCancelStatus { get; set; }
+        public virtual string FCancelStatus { get; set; }
         /// <summary>
         /// 付款组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FPAYORGID { get; set; }
+        public virtual FNumberProperty FPAYORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISSAMEORG { get; set; }
+        public virtual bool? FISSAMEORG { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FScanPoint { get; set; }
+        public virtual FNumberProperty FScanPoint { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLECUR { get; set; }
+        public virtual FNumberProperty FSETTLECUR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsWriteOff { get; set; }
+        public virtual bool? FIsWriteOff { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FMatchMethodID { get; set; }
+        public virtual decimal? FMatchMethodID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FREMARK { get; set; }
+        public virtual string FREMARK { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLEMAINBOOKID { get; set; }
+        public virtual FNumberProperty FSETTLEMAINBOOKID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTHIRDBILLNO { get; set; }
+        public virtual string FTHIRDBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FWBSETTLENO { get; set; }
+        public virtual string FWBSETTLENO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISCARRYRATE { get; set; }
+        public virtual bool? FISCARRYRATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FGYSHOPNAME { get; set; }
+        public virtual string FGYSHOPNAME { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FGYCUSTOMERID { get; set; }
+        public virtual FNumberProperty FGYCUSTOMERID { get; set; }
         /// <summary>
         /// 退款单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ap_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
+        public virtual List<Ap_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
         /// <summary>
         /// 退款单源单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ap_RefundBill_SrcEntry> FRefundBillSrcEntity { get; set; }
+        public virtual List<Ap_RefundBill_SrcEntry> FRefundBillSrcEntity { get; set; }
         /// <summary>
         /// 应收票据背书
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ap_RefundBill_RecEntry> FRefundBillRecEntry { get; set; }
+        public virtual List<Ap_RefundBill_RecEntry> FRefundBillRecEntry { get; set; }
         /// <summary>
         /// 应收票据明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ap_RefundBill_BillRefundRecEntry> FBILLREFUNDRECENTRY { get; set; }
+        public virtual List<Ap_RefundBill_BillRefundRecEntry> FBILLREFUNDRECENTRY { get; set; }
         /// <summary>
         /// 应付票据退票
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ap_RefundBill_PayableEntry> FREFUNDBILLPAYABLEENTRY { get; set; }
+        public virtual List<Ap_RefundBill_PayableEntry> FREFUNDBILLPAYABLEENTRY { get; set; }
 
     }
     public class Ap_RefundBillSaveInputDto : Ap_RefundBillSaveInputDto<

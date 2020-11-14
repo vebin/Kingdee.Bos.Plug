@@ -14,27 +14,27 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         where Type_Sal_SaleOrder_SaleOrderTraceDetail : Sal_SaleOrder_SaleOrderTraceDetail
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         //"FLogComId": {
         //    "FCODE": ""
         //},
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCarryBillNo { get; set; }
+        public virtual string FCarryBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPhoneNumber { get; set; }
+        public virtual string FPhoneNumber { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDelTime { get; set; }
+        public virtual DateTime? FDelTime { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTraceStatus { get; set; }
+        public virtual string FTraceStatus { get; set; }
         /// <summary>
         /// 物流详细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_SaleOrderTraceDetail> FSalOrderTraceDetail { get; set; }
+        public virtual List<Sal_SaleOrder_SaleOrderTraceDetail> FSalOrderTraceDetail { get; set; }
     }
     /// <summary>
     /// 物流跟踪明细
     /// </summary>
-    public class Sal_SaleOrder_Trace : Sal_SaleOrder_Trace<Sal_SaleOrder_SaleOrderTraceDetail>
+    public  class Sal_SaleOrder_Trace : Sal_SaleOrder_Trace<Sal_SaleOrder_SaleOrderTraceDetail>
     { }
 }

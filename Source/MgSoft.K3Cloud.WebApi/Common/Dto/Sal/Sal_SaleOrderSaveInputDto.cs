@@ -27,93 +27,93 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         where Type_Sal_SaleOrder_Trace : Sal_SaleOrder_Trace
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo { get; set; }
+        public virtual string FBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDate { get; set; }
+        public virtual DateTime? FDate { get; set; }
         /// <summary>
         /// 销售组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSaleOrgId { get; set; }
+        public virtual FNumberProperty FSaleOrgId { get; set; }
         /// <summary>
         /// 客户(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCustId { get; set; }
+        public virtual FNumberProperty FCustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FHeadDeliveryWay { get; set; }
+        public virtual FNumberProperty FHeadDeliveryWay { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FReceiveId { get; set; }
+        public virtual FNumberProperty FReceiveId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FHEADLOCID { get; set; }
+        public virtual FNumberProperty FHEADLOCID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCorrespondOrgId { get; set; }
+        public virtual FNumberProperty FCorrespondOrgId { get; set; }
         /// <summary>
         /// 销售部门(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSaleDeptId { get; set; }
+        public virtual FNumberProperty FSaleDeptId { get; set; }
         /// <summary>
         /// 销售组（必填）
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSaleGroupId { get; set; }
+        public virtual FNumberProperty FSaleGroupId { get; set; }
         /// <summary>
         /// 销售员(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSalerId { get; set; }
+        public virtual FNumberProperty FSalerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FReceiveAddress { get; set; }
+        public virtual string FReceiveAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleId { get; set; }
+        public virtual FNumberProperty FSettleId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNameProperty FReceiveContact { get; set; }
+        public virtual FNameProperty FReceiveContact { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FChargeId { get; set; }
+        public virtual FNumberProperty FChargeId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNetOrderBillNo { get; set; }
+        public virtual string FNetOrderBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FNetOrderBillId { get; set; }
+        public virtual long? FNetOrderBillId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FOppID { get; set; }
+        public virtual long? FOppID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSalePhaseID { get; set; }
+        public virtual FNumberProperty FSalePhaseID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISINIT { get; set; }
+        public virtual bool? FISINIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNote { get; set; }
+        public virtual string FNote { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsMobile { get; set; }
+        public virtual bool? FIsMobile { get; set; }
         /// <summary>
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Sal_SaleOrder_Finance FSaleOrderFinance { get; set; }
+        public virtual Sal_SaleOrder_Finance FSaleOrderFinance { get; set; }
         /// <summary>
         /// 订单条款
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_Clause> FSaleOrderClause { get; set; }
+        public virtual List<Sal_SaleOrder_Clause> FSaleOrderClause { get; set; }
         /// <summary>
         /// 订单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_Entry> FSaleOrderEntry { get; set; }
+        public virtual List<Sal_SaleOrder_Entry> FSaleOrderEntry { get; set; }
         /// <summary>
         /// 收款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_Plan> FSaleOrderPlan { get; set; }
+        public virtual List<Sal_SaleOrder_Plan> FSaleOrderPlan { get; set; }
         /// <summary>
         /// 物流跟踪明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_Trace> FSalOrderTrace { get; set; }
+        public virtual List<Sal_SaleOrder_Trace> FSalOrderTrace { get; set; }
     }
     /// <summary>
     /// 销售订单Dto

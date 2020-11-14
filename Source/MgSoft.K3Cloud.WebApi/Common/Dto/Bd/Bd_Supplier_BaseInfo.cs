@@ -12,50 +12,50 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_Supplier_BaseInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCountry { get; set; }
+        public virtual FNumberProperty FCountry { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FProvincial { get; set; }
+        public virtual FNumberProperty FProvincial { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FAddress { get; set; }
+        public virtual string FAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FZip { get; set; }
+        public virtual string FZip { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FLanguage { get; set; }
+        public virtual FNumberProperty FLanguage { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FWebSite { get; set; }
+        public virtual string FWebSite { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTrade { get; set; }
+        public virtual FNumberProperty FTrade { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime FFoundDate { get; set; }
+        public virtual DateTime FFoundDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FLegalPerson { get; set; }
+        public virtual string FLegalPerson { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FRegisterFund { get; set; }
+        public virtual decimal FRegisterFund { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRegisterCode { get; set; }
+        public virtual string FRegisterCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSOCIALCRECODE { get; set; }
+        public virtual string FSOCIALCRECODE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTendPermit { get; set; }
+        public virtual string FTendPermit { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRegisterAddress { get; set; }
+        public virtual string FRegisterAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDeptId { get; set; }
+        public virtual FNumberProperty FDeptId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStaffId { get; set; }
+        public virtual FNumberProperty FStaffId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSupplierClassify { get; set; }
+        public virtual FNumberProperty FSupplierClassify { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSupplyClassify { get; set; }
+        public virtual string FSupplyClassify { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSupplierGrade { get; set; }
+        public virtual FNumberProperty FSupplierGrade { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCompanyClassify { get; set; }
+        public virtual FNumberProperty FCompanyClassify { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCompanyNature { get; set; }
+        public virtual FNumberProperty FCompanyNature { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCompanyScale { get; set; }
+        public virtual FNumberProperty FCompanyScale { get; set; }
     }
 }

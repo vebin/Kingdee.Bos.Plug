@@ -12,26 +12,26 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_RefundBill_PayableEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYBILLID { get; set; }
+        public virtual FNumberProperty FPAYBILLID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPCONTACTUNITTYPE { get; set; }
+        public virtual string FPCONTACTUNITTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYCONTACTUNIT { get; set; }
+        public virtual FNumberProperty FPAYCONTACTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FBPBILLPARAMOUNT_T { get; set; }
+        public virtual decimal? FBPBILLPARAMOUNT_T { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRETURNBILLAMOUNT { get; set; }
+        public virtual decimal? FRETURNBILLAMOUNT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FKDBPBILLNO { get; set; }
+        public virtual string FKDBPBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYPURSEPAYID { get; set; }
+        public virtual FNumberProperty FPAYPURSEPAYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FKDBPPARAMOUNTFOR { get; set; }
+        public virtual decimal? FKDBPPARAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FBILLPARAMOUNTFOR { get; set; }
+        public virtual decimal? FBILLPARAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FINNERACCOUNTID_T { get; set; }
+        public virtual FNumberProperty FINNERACCOUNTID_T { get; set; }
     }
 }

@@ -12,37 +12,37 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
     public class Pur_Mrb_FPurmrbFin
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleOrgId { get; set; }
+        public virtual FNumberProperty FSettleOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLETYPEID { get; set; }
+        public virtual FNumberProperty FSETTLETYPEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleCurrId { get; set; }
+        public virtual FNumberProperty FSettleCurrId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYCONDITIONID { get; set; }
+        public virtual FNumberProperty FPAYCONDITIONID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsIncludedTax { get; set; }
+        public virtual bool? FIsIncludedTax { get; set; }
         /// <summary>
         /// 定价时点(必填)
         /// </summary>
         [JsonRequired]
-        public string FPRICETIMEPOINT { get; set; } = "系统日期";
+        public virtual string FPRICETIMEPOINT { get; set; } = "系统日期";
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPRICELISTID { get; set; }
+        public virtual FNumberProperty FPRICELISTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDISCOUNTLISTID { get; set; }
+        public virtual FNumberProperty FDISCOUNTLISTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FLOCALCURRID { get; set; }
+        public virtual FNumberProperty FLOCALCURRID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FEXCHANGETYPEID { get; set; }
+        public virtual FNumberProperty FEXCHANGETYPEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FEXCHANGERATE { get; set; }
+        public virtual decimal? FEXCHANGERATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISPRICEEXCLUDETAX { get; set; }
+        public virtual bool? FISPRICEEXCLUDETAX { get; set; }
 
     }
 }

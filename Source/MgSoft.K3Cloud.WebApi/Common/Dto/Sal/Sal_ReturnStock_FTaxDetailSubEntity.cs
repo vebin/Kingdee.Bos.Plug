@@ -11,9 +11,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
     public class Sal_ReturnStock_FTaxDetailSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)] 
-        public decimal FTaxRate { get; set; }
+        public virtual decimal FTaxRate { get; set; }
 
     }
 }

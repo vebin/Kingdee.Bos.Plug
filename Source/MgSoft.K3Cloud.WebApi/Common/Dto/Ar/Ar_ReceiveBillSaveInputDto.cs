@@ -20,110 +20,110 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         where Type_Ar_ReceiveBill_FBILLSKDRECENTRY : Ar_ReceiveBill_FBILLSKDRECENTRY
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo { get; set; }
+        public virtual string FBillNo { get; set; }
         /// <summary>
         /// 业务日期(必填)
         /// </summary>
         [JsonRequired]
-        public DateTime? FDATE { get; set; } = DateTime.Now;
+        public virtual DateTime? FDATE { get; set; } = DateTime.Now;
         /// <summary>
         /// 往来单位类型(必填) 备注:不需要给值，使用系统默认值
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCONTACTUNITTYPE { get; set; }
+        public virtual string FCONTACTUNITTYPE { get; set; }
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCONTACTUNIT { get; set; }
+        public virtual FNumberProperty FCONTACTUNIT { get; set; }
         /// <summary>
         /// 付款单位类型(必填) 备注:不需要给值，使用系统默认值
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPAYUNITTYPE { get; set; }
+        public virtual string FPAYUNITTYPE { get; set; }
         /// <summary>
         /// 付款单位(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FPAYUNIT { get; set; }
+        public virtual FNumberProperty FPAYUNIT { get; set; }
         /// <summary>
         /// 币别
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCURRENCYID { get; set; }
+        public virtual FNumberProperty FCURRENCYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYORGID { get; set; }
+        public virtual FNumberProperty FPAYORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSETTLERATE { get; set; }
+        public virtual decimal? FSETTLERATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLEORGID { get; set; }
+        public virtual FNumberProperty FSETTLEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEORGID { get; set; }
+        public virtual FNumberProperty FSALEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEDEPTID { get; set; }
+        public virtual FNumberProperty FSALEDEPTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEGROUPID { get; set; }
+        public virtual FNumberProperty FSALEGROUPID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEERID { get; set; }
+        public virtual FNumberProperty FSALEERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDOCUMENTSTATUS { get; set; }
+        public virtual string FDOCUMENTSTATUS { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDepartment { get; set; }
+        public virtual FNumberProperty FDepartment { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBUSINESSTYPE { get; set; }
+        public virtual string FBUSINESSTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISINIT { get; set; }
+        public virtual bool? FISINIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FEXCHANGERATE { get; set; }
+        public virtual decimal? FEXCHANGERATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCancelStatus { get; set; }
+        public virtual string FCancelStatus { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FScanPoint { get; set; }
+        public virtual FNumberProperty FScanPoint { get; set; }
         /// <summary>
         /// 结算币别(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSETTLECUR { get; set; }
+        public virtual FNumberProperty FSETTLECUR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISB2C { get; set; }
+        public virtual bool? FISB2C { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsWriteOff { get; set; }
+        public virtual bool? FIsWriteOff { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FMatchMethodID { get; set; }
+        public virtual decimal? FMatchMethodID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FKDPAYNO { get; set; }
+        public virtual string FKDPAYNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FREMARK { get; set; }
+        public virtual string FREMARK { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTHIRDBILLNO { get; set; }
+        public virtual string FTHIRDBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLEMAINBOOKID { get; set; }
+        public virtual FNumberProperty FSETTLEMAINBOOKID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FISCARRYRATE { get; set; }
+        public virtual decimal? FISCARRYRATE { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ar_ReceiveBill_Entry> FRECEIVEBILLENTRY { get; set; }
+        public virtual List<Ar_ReceiveBill_Entry> FRECEIVEBILLENTRY { get; set; }
         /// <summary>
         /// 收款单源单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ar_ReceiveBill_SrcEntry> FRECEIVEBILLSRCENTRY { get; set; }
+        public virtual List<Ar_ReceiveBill_SrcEntry> FRECEIVEBILLSRCENTRY { get; set; }
         /// <summary>
         /// 应收票据明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ar_ReceiveBill_FBillReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }
+        public virtual List<Ar_ReceiveBill_FBillReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }
         /// <summary>
         /// 应收票据背书
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ar_ReceiveBill_FBILLSKDRECENTRY> FBILLSKDRECENTRY { get; set; }
+        public virtual List<Ar_ReceiveBill_FBILLSKDRECENTRY> FBILLSKDRECENTRY { get; set; }
 
     }
 

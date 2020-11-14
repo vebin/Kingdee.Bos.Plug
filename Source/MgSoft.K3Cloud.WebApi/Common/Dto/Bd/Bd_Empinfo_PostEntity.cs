@@ -12,18 +12,18 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_Empinfo_PostEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FENTRYID { get; set; }
+        public virtual long? FENTRYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FWorkOrgId { get; set; }
+        public virtual FNumberProperty FWorkOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPostDept { get; set; }
+        public virtual FNumberProperty FPostDept { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPost { get; set; }
+        public virtual FNumberProperty FPost { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FStaffStartDate { get; set; }
+        public virtual DateTime? FStaffStartDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FIsFirstPost { get; set; }
+        public virtual bool FIsFirstPost { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FStaffDetails { get; set; }
+        public virtual decimal FStaffDetails { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_RefundBill_SrcEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREALREFUNDAMOUNTMB { get; set; }
+        public virtual decimal? FREALREFUNDAMOUNTMB { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPAYPURPOSEID { get; set; }
+        public virtual FNumberProperty FPAYPURPOSEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSRCREMARK { get; set; }
+        public virtual string FSRCREMARK { get; set; }
 
     }
 }

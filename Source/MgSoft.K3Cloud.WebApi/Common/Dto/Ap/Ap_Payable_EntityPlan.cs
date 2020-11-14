@@ -12,30 +12,30 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_Payable_EntityPlan
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FENDDATE { get; set; }
+        public virtual DateTime? FENDDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPAYAMOUNTFOR { get; set; }
+        public virtual decimal? FPAYAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPAYRATE { get; set; }
+        public virtual decimal? FPAYRATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPURCHASEORDERID { get; set; }
+        public virtual decimal? FPURCHASEORDERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPAYABLEENTRYID { get; set; }
+        public virtual decimal? FPAYABLEENTRYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMATERIALID_P { get; set; }
+        public virtual FNumberProperty FMATERIALID_P { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPRICEUNITID_P { get; set; }
+        public virtual FNumberProperty FPRICEUNITID_P { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPRICE_P { get; set; }
+        public virtual decimal? FPRICE_P { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FQTY_P { get; set; }
+        public virtual decimal? FQTY_P { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPURCHASEORDERNO { get; set; }
+        public virtual string FPURCHASEORDERNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FMATERIALSEQ { get; set; }
+        public virtual decimal? FMATERIALSEQ { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRELATEHADPAYQTY { get; set; }
+        public virtual decimal? FRELATEHADPAYQTY { get; set; }
     }
 }

@@ -11,12 +11,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_TaxDetailSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxRate { get; set; }
+        public virtual decimal? FTaxRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FSellerWithholding { get; set; }
+        public virtual bool? FSellerWithholding { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FBuyerWithholding { get; set; }
+        public virtual bool? FBuyerWithholding { get; set; }
     }
 }

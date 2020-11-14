@@ -13,20 +13,20 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     {
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FInnerAccountID_B { get; set; }
+        public virtual FNumberProperty FInnerAccountID_B { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBILLID { get; set; }
+        public virtual FNumberProperty FBILLID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FUSEDAMOUNTFOR { get; set; }
+        public virtual decimal? FUSEDAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FBILLPARAMOUNT { get; set; }
+        public virtual decimal? FBILLPARAMOUNT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPARLEFTAMOUNTSTD { get; set; }
+        public virtual decimal? FPARLEFTAMOUNTSTD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FUSEDAMOUNTSTD { get; set; }
+        public virtual decimal? FUSEDAMOUNTSTD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTempOrgId { get; set; }
+        public virtual FNumberProperty FTempOrgId { get; set; }
     }
 }

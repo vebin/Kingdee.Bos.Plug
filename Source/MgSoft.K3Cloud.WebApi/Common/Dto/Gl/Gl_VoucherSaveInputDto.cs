@@ -14,50 +14,50 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         where Type_Gl_Voucher_FEntity : Gl_Voucher_FEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FVOUCHERID { get; set; }
+        public virtual long? FVOUCHERID { get; set; }
         [JsonRequired]
-        public FNumberProperty FAccountBookID { get; set; }
+        public virtual FNumberProperty FAccountBookID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDate { get; set; }
+        public virtual DateTime? FDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FBUSDATE { get; set; }
+        public virtual DateTime? FBUSDATE { get; set; }
         /// <summary>
         /// 凭证字
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FVOUCHERGROUPID { get; set; }
+        public virtual FNumberProperty FVOUCHERGROUPID { get; set; }
         /// <summary>
         /// 凭证号
         /// </summary>
         [JsonRequired]
-        public string FVOUCHERGROUPNO { get; set; }
+        public virtual string FVOUCHERGROUPNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FATTACHMENTS { get; set; }
+        public virtual decimal FATTACHMENTS { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FISADJUSTVOUCHER { get; set; }
+        public virtual bool FISADJUSTVOUCHER { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDocumentStatus { get; set; }
+        public virtual string FDocumentStatus { get; set; }
         /// <summary>
         /// 会计年度（必填项）
         /// </summary>
         [JsonRequired]
-        public decimal? FYEAR { get; set; }
+        public virtual decimal? FYEAR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSourceBillKey { get; set; }
+        public virtual FNumberProperty FSourceBillKey { get; set; }
         /// <summary>
         /// 期间（必填项）
         /// </summary>
         [JsonRequired]
-        public decimal FPERIOD { get; set; }
+        public virtual decimal FPERIOD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FIMPORTVERSION { get; set; }
+        public virtual string FIMPORTVERSION { get; set; }
         /// <summary>
         /// 核算组织
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FACCBOOKORGID { get; set; }
+        public virtual FNumberProperty FACCBOOKORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Gl_Voucher_FEntity> FEntity { get; set; }
+        public virtual List<Gl_Voucher_FEntity> FEntity { get; set; }
 
     }
     public class Gl_VoucherSaveInputDto : Gl_VoucherSaveInputDto<Gl_Voucher_FEntity>

@@ -9,6 +9,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     /// </summary>
     public class Bd_Supplier_SupplierContact
     {
-        public long FContactId { get; set; }
+        public virtual long FContactId { get; set; }
     }
 }

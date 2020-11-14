@@ -12,54 +12,54 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_RefundBill_Entry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         /// <summary>
         /// 结算方式(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSETTLETYPEID { get; set; }
+        public virtual FNumberProperty FSETTLETYPEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPURPOSEID { get; set; }
+        public virtual FNumberProperty FPURPOSEID { get; set; }
         /// <summary>
         /// 应退金额(必填)
         /// </summary>
         [JsonRequired]
-        public decimal? FREFUNDAMOUNTFOR { get; set; }
+        public virtual decimal? FREFUNDAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREFUNDAMOUNTFOR_E { get; set; }
+        public virtual decimal? FREFUNDAMOUNTFOR_E { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FHANDLINGCHARGEFOR { get; set; }
+        public virtual decimal? FHANDLINGCHARGEFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FACCOUNTID { get; set; }
+        public virtual FNumberProperty FACCOUNTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FINNERACCOUNTID { get; set; }
+        public virtual FNumberProperty FINNERACCOUNTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOPPOSITEBANKNAME { get; set; }
+        public virtual string FOPPOSITEBANKNAME { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOPPOSITEBANKACCOUNT { get; set; }
+        public virtual string FOPPOSITEBANKACCOUNT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOPPOSITECCOUNTNAME { get; set; }
+        public virtual string FOPPOSITECCOUNTNAME { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCashAccount { get; set; }
+        public virtual FNumberProperty FCashAccount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSETTLENO { get; set; }
+        public virtual string FSETTLENO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNOTE { get; set; }
+        public virtual string FNOTE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCOSTID { get; set; }
+        public virtual FNumberProperty FCOSTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREFUNDAMOUNT_E { get; set; }
+        public virtual decimal? FREFUNDAMOUNT_E { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FPOSTDATE { get; set; }
+        public virtual DateTime? FPOSTDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPRICEUNITID { get; set; }
+        public virtual FNumberProperty FPRICEUNITID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPRICE { get; set; }
+        public virtual decimal? FPRICE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FQTY { get; set; }
+        public virtual decimal? FQTY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPURCHASEORDERNUMBER { get; set; }
+        public virtual string FPURCHASEORDERNUMBER { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FGYSALEORDERNO { get; set; }
+        public virtual string FGYSALEORDERNO { get; set; }
     }
 }

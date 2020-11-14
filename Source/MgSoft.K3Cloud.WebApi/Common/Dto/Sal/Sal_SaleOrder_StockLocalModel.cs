@@ -12,8 +12,8 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_StockLocalModel
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSOSTOCKLOCALID__FF100001 { get; set; }
+        public virtual FNumberProperty FSOSTOCKLOCALID__FF100001 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSOSTOCKLOCALID__FF100002 { get; set; }
+        public virtual FNumberProperty FSOSTOCKLOCALID__FF100002 { get; set; }
     }
 }

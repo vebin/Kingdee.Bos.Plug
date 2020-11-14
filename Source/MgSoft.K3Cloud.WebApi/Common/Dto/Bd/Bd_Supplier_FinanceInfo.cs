@@ -12,30 +12,30 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_Supplier_FinanceInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCustomerId { get; set; }
+        public virtual FNumberProperty FCustomerId { get; set; }
         /// <summary>
         /// 必填项
         /// </summary>
-        public FNumberProperty FPayCurrencyId { get; set; }
+        public virtual FNumberProperty FPayCurrencyId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPayCondition { get; set; }
+        public virtual FNumberProperty FPayCondition { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleId { get; set; }
+        public virtual FNumberProperty FSettleId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FPayAdvanceAmount { get; set; }
+        public virtual decimal FPayAdvanceAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTaxType { get; set; }
+        public virtual FNumberProperty FTaxType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTaxRegisterCode { get; set; }
+        public virtual string FTaxRegisterCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FChargeId { get; set; }
+        public virtual FNumberProperty FChargeId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FInvoiceType { get; set; }
+        public virtual string FInvoiceType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTaxRateId { get; set; }
+        public virtual FNumberProperty FTaxRateId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FFinanceDesc { get; set; }
+        public virtual string FFinanceDesc { get; set; }
     }
 }

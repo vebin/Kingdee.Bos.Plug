@@ -8,6 +8,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto
     public class SHRMapEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FMAPID { get; set; }
+        public virtual long? FMAPID { get; set; }
     }
 }

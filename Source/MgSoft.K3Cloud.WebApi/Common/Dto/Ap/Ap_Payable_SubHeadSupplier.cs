@@ -12,12 +12,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_Payable_SubHeadSupplier
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FORDERID { get; set; }
+        public virtual FNumberProperty FORDERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTRANSFERID { get; set; }
+        public virtual FNumberProperty FTRANSFERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FChargeId { get; set; }
+        public virtual FNumberProperty FChargeId { get; set; }
     }
 }

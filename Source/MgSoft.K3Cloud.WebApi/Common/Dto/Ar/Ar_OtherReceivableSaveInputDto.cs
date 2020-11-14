@@ -13,79 +13,79 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         where Type_Ar_OtherReceivable_Entry : Ar_OtherReceivable_Entry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID{ get; set; }
+        public virtual long? FID{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo{ get; set; }
+        public virtual string FBillNo{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDATE{ get; set; }
+        public virtual DateTime? FDATE{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FENDDATE_H{ get; set; }
+        public virtual DateTime? FENDDATE_H{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISINIT { get; set; }
+        public virtual bool? FISINIT { get; set; }
         /// <summary>
         /// 往来单位类型
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCONTACTUNITTYPE{ get; set; }
+        public virtual string FCONTACTUNITTYPE{ get; set; }
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FCONTACTUNIT { get; set; }
+        public virtual FNumberProperty FCONTACTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FAMOUNTFOR { get; set; }
+        public virtual FNumberProperty FAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCURRENCYID { get; set; }
+        public virtual FNumberProperty FCURRENCYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDEPARTMENTID { get; set; }
+        public virtual FNumberProperty FDEPARTMENTID { get; set; }
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSETTLEORGID { get; set; }
+        public virtual FNumberProperty FSETTLEORGID { get; set; }
         /// <summary>
         /// 收款组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FPAYORGID { get; set; }
+        public virtual FNumberProperty FPAYORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEDEPTID { get; set; }
+        public virtual FNumberProperty FSALEDEPTID { get; set; }
         /// <summary>
         /// 销售组织(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSALEORGID{ get; set; }
+        public virtual FNumberProperty FSALEORGID{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEGROUPID { get; set; }
+        public virtual FNumberProperty FSALEGROUPID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSALEERID { get; set; }
+        public virtual FNumberProperty FSALEERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FACCNTTIMEJUDGETIME{ get; set; }
+        public virtual DateTime? FACCNTTIMEJUDGETIME{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleTypeID { get; set; }
+        public virtual FNumberProperty FSettleTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMAINBOOKSTDCURRID { get; set; }
+        public virtual FNumberProperty FMAINBOOKSTDCURRID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FEXCHANGETYPE { get; set; }
+        public virtual FNumberProperty FEXCHANGETYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FExchangeRate{ get; set; }
+        public virtual decimal? FExchangeRate{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FNOTAXAMOUNT{ get; set; }
+        public virtual decimal? FNOTAXAMOUNT{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTAXAMOUNT{ get; set; }
+        public virtual decimal? FTAXAMOUNT{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCancelStatus{ get; set; }
+        public virtual string FCancelStatus{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FAR_OtherRemarks{ get; set; }
+        public virtual string FAR_OtherRemarks{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FScanPoint { get; set; }
+        public virtual FNumberProperty FScanPoint { get; set; }
         /// <summary>
         /// 单据体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Ar_OtherReceivable_Entry> FEntity { get; set; }
+        public virtual List<Ar_OtherReceivable_Entry> FEntity { get; set; }
     }
     public class Ar_OtherReceivableSaveInputDto : Ar_OtherReceivableSaveInputDto<Ar_OtherReceivable_Entry>
     { }

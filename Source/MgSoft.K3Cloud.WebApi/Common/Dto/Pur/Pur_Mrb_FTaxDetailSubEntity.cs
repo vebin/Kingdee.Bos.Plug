@@ -11,8 +11,8 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
     public class Pur_Mrb_FTaxDetailSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDetailID { get; set; }
+        public virtual long? FDetailID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxRate { get; set; }
+        public virtual decimal? FTaxRate { get; set; }
     }
 }

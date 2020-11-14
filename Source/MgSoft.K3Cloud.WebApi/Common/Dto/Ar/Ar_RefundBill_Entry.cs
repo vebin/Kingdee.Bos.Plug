@@ -12,73 +12,73 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_RefundBill_Entry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSETTLETYPEID { get; set; }
+        public virtual FNumberProperty FSETTLETYPEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPURPOSEID { get; set; }
+        public virtual FNumberProperty FPURPOSEID { get; set; }
         /// <summary>
         /// 应退金额(必填)
         /// </summary>
         [JsonRequired]
-        public decimal? FREFUNDAMOUNTFOR { get; set; }
+        public virtual decimal? FREFUNDAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREFUNDAMOUNTFOR_E { get; set; }
+        public virtual decimal? FREFUNDAMOUNTFOR_E { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FHANDLINGCHARGEFOR { get; set; }
+        public virtual decimal? FHANDLINGCHARGEFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FACCOUNTID { get; set; }
+        public virtual FNumberProperty FACCOUNTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FINNERACCOUNTID { get; set; }
+        public virtual FNumberProperty FINNERACCOUNTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCashAccount { get; set; }
+        public virtual FNumberProperty FCashAccount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSETTLENO { get; set; }
+        public virtual string FSETTLENO { get; set; }
         /// <summary>
         /// 备注(必填)
         /// </summary>
         [JsonRequired]
-        public string FNOTE { get; set; }
+        public virtual string FNOTE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOpenAddressRec { get; set; }
+        public virtual string FOpenAddressRec { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRecType { get; set; }
+        public virtual string FRecType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREFUNDAMOUNT_E { get; set; }
+        public virtual decimal? FREFUNDAMOUNT_E { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FPOSTDATE { get; set; }
+        public virtual DateTime? FPOSTDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FISPOST { get; set; }
+        public virtual bool? FISPOST { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSALEORDERNUMBER { get; set; }
+        public virtual string FSALEORDERNUMBER { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMATERIALID { get; set; }
+        public virtual FNumberProperty FMATERIALID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FMATERIALSEQ { get; set; }
+        public virtual decimal? FMATERIALSEQ { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FORDERENTRYID { get; set; }
+        public virtual decimal? FORDERENTRYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRuZhangType { get; set; }
+        public virtual string FRuZhangType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FEBMSG { get; set; }
+        public virtual string FEBMSG { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPayType { get; set; }
+        public virtual string FPayType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSwiftCode { get; set; }
+        public virtual string FSwiftCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNProvince { get; set; }
+        public virtual string FNProvince { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNCity { get; set; }
+        public virtual string FNCity { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FNDistrict { get; set; }
+        public virtual string FNDistrict { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDistrictCode { get; set; }
+        public virtual string FDistrictCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCountry { get; set; }
+        public virtual string FCountry { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBankDetail { get; set; }
+        public virtual FNumberProperty FBankDetail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSignature { get; set; }
+        public virtual string FSignature { get; set; }
 
     }
 }

@@ -12,20 +12,20 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_RefundBill_SrcEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREALREFUNDAMOUNTMB { get; set; }
+        public virtual decimal? FREALREFUNDAMOUNTMB { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FEXPENSEDEPTID { get; set; }
+        public virtual FNumberProperty FEXPENSEDEPTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSRCPRICEUNITID { get; set; }
+        public virtual FNumberProperty FSRCPRICEUNITID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCPRICE { get; set; }
+        public virtual decimal? FSRCPRICE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCQTY { get; set; }
+        public virtual decimal? FSRCQTY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FExpID { get; set; }
+        public virtual FNumberProperty FExpID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxAmt { get; set; }
+        public virtual decimal? FTaxAmt { get; set; }
     }
 }

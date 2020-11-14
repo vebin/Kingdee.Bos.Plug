@@ -12,28 +12,28 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_Supplier_BusinessInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryId { get; set; }
+        public virtual long? FEntryId { get; set; }
         //"FFreezeOperator": {
         //    "FUserID": ""
         //},
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FFreezeDate { get; set; }
+        public virtual DateTime? FFreezeDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurchaserGroupId { get; set; }
+        public virtual FNumberProperty FPurchaserGroupId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FParentSupplierId { get; set; }
+        public virtual FNumberProperty FParentSupplierId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleTypeId { get; set; }
+        public virtual FNumberProperty FSettleTypeId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPRICELISTID { get; set; }
+        public virtual FNumberProperty FPRICELISTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FDiscountListId { get; set; }
+        public virtual FNumberProperty FDiscountListId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FProviderId { get; set; }
+        public virtual FNumberProperty FProviderId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FWipStockId { get; set; }
+        public virtual FNumberProperty FWipStockId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FVmiBusiness { get; set; }
+        public virtual bool FVmiBusiness { get; set; }
         //"FWipStockPlaceId": {
         //    "FWIPSTOCKPLACEID__FF100001": {
         //        "FNumber": ""
@@ -43,10 +43,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         //    }
         //},
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FVmiStockId { get; set; }
+        public virtual FNumberProperty FVmiStockId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FEnableSL { get; set; }
+        public virtual bool FEnableSL { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FDepositRatio { get; set; }
+        public virtual decimal FDepositRatio { get; set; }
     }
 }

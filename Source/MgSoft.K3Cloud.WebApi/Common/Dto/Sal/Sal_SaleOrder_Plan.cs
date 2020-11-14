@@ -13,40 +13,40 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         where Type_Sal_SaleOrder_SaleOrderPlanEntry : Sal_SaleOrder_SaleOrderPlanEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FNeedRecAdvance { get; set; }
+        public virtual bool? FNeedRecAdvance { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FReceiveType { get; set; }
+        public virtual FNumberProperty FReceiveType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRecAdvanceRate { get; set; }
+        public virtual decimal? FRecAdvanceRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRecAdvanceAmount { get; set; }
+        public virtual decimal? FRecAdvanceAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FMustDate { get; set; }
+        public virtual DateTime? FMustDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRelBillNo { get; set; }
+        public virtual string FRelBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FRecAmount { get; set; }
+        public virtual decimal? FRecAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FControlSend { get; set; }
+        public virtual string FControlSend { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsOutStockByRecamount { get; set; }
+        public virtual bool? FIsOutStockByRecamount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FReMark { get; set; }
+        public virtual string FReMark { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPlanMaterialId { get; set; }
+        public virtual FNumberProperty FPlanMaterialId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? FMaterialSeq { get; set; }
+        public virtual int? FMaterialSeq { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMaterialRowID { get; set; }
+        public virtual string FMaterialRowID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? FOrderEntryId { get; set; }
+        public virtual int? FOrderEntryId { get; set; }
         /// <summary>
         /// 收款计划子单据体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_SaleOrderPlanEntry> FSaleOrderPlanEntry { get; set; }
+        public virtual List<Sal_SaleOrder_SaleOrderPlanEntry> FSaleOrderPlanEntry { get; set; }
     }
     public class Sal_SaleOrder_Plan : Sal_SaleOrder_Plan<Sal_SaleOrder_SaleOrderPlanEntry>
     { }

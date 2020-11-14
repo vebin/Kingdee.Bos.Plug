@@ -12,16 +12,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     public class Ar_ReceiveBill_SrcEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FORDERBILLNO { get; set; }
+        public virtual string FORDERBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSRCMATERIALID { get; set; }
+        public virtual FNumberProperty FSRCMATERIALID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCMATERIALSEQ { get; set; }
+        public virtual decimal? FSRCMATERIALSEQ { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FSRCORDERENTRYID { get; set; }
+        public virtual decimal? FSRCORDERENTRYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FREALRECAMOUNTFOR_S { get; set; }
+        public virtual decimal? FREALRECAMOUNTFOR_S { get; set; }
     }
 }

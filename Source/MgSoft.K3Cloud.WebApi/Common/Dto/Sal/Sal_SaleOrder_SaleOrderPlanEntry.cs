@@ -12,8 +12,8 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
     public class Sal_SaleOrder_SaleOrderPlanEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FDETAILID { get; set; }
+        public virtual long? FDETAILID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPESettleOrgId { get; set; }
+        public virtual FNumberProperty FPESettleOrgId { get; set; }
     }
 }

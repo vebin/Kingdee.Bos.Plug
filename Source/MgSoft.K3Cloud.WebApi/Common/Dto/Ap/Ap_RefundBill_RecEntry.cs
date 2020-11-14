@@ -12,26 +12,26 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
     public class Ap_RefundBill_RecEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillRecId { get; set; }
+        public virtual FNumberProperty FBillRecId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FKDBPARBILLNO { get; set; }
+        public virtual string FKDBPARBILLNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FParAmount { get; set; }
+        public virtual decimal? FParAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPARAMOUNTSTD { get; set; }
+        public virtual decimal? FPARAMOUNTSTD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPayPurseId { get; set; }
+        public virtual FNumberProperty FPayPurseId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FReTurnAmount { get; set; }
+        public virtual decimal? FReTurnAmount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FReTurnAmountSTD { get; set; }
+        public virtual decimal? FReTurnAmountSTD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FInnerActId { get; set; }
+        public virtual FNumberProperty FInnerActId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBCONTACTUNITTYPE { get; set; }
+        public virtual string FBCONTACTUNITTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBCONTACTUNIT { get; set; }
+        public virtual FNumberProperty FBCONTACTUNIT { get; set; }
     }
 }

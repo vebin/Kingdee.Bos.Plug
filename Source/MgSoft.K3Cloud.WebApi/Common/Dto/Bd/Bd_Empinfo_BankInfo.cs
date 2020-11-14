@@ -12,30 +12,30 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_Empinfo_BankInfo
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FBankId { get; set; }
+        public virtual long? FBankId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBankCountry { get; set; }
+        public virtual FNumberProperty FBankCountry { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBankCode { get; set; }
+        public virtual string FBankCode { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBankTypeRec { get; set; }
+        public virtual FNumberProperty FBankTypeRec { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBankHolder { get; set; }
+        public virtual string FBankHolder { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FTextBankDetail { get; set; }
+        public virtual string FTextBankDetail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBankDetail { get; set; }
+        public virtual FNumberProperty FBankDetail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOpenBankName { get; set; }
+        public virtual string FOpenBankName { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOpenAddressRec { get; set; }
+        public virtual string FOpenAddressRec { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCNAPS { get; set; }
+        public virtual string FCNAPS { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBankCurrencyId { get; set; }
+        public virtual FNumberProperty FBankCurrencyId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FBankIsDefault { get; set; }
+        public virtual bool FBankIsDefault { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBankDesc { get; set; }
+        public virtual string FBankDesc { get; set; }
     }
 }

@@ -14,78 +14,78 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         where Type_Pur_Mrb_FPurmrbEntry : Pur_Mrb_FPurmrbEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo { get; set; }
+        public virtual string FBillNo { get; set; }
         /// <summary>
         /// 退料日期(必填)
         /// </summary>
         [JsonRequired]
-        public DateTime? FDate { get; set; } = DateTime.Now;
+        public virtual DateTime? FDate { get; set; } = DateTime.Now;
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMRTYPE { get; set; }
+        public virtual string FMRTYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMRMODE { get; set; }
+        public virtual string FMRMODE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockOrgId { get; set; }
+        public virtual FNumberProperty FStockOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMRDeptId { get; set; }
+        public virtual FNumberProperty FMRDeptId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSTOCKERGROUPID { get; set; }
+        public virtual FNumberProperty FSTOCKERGROUPID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCorrespondOrgId { get; set; }
+        public virtual FNumberProperty FCorrespondOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSTOCKERID { get; set; }
+        public virtual FNumberProperty FSTOCKERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMRREASON { get; set; }
+        public virtual FNumberProperty FMRREASON { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FRequireOrgId { get; set; }
+        public virtual FNumberProperty FRequireOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurchaseOrgId { get; set; }
+        public virtual FNumberProperty FPurchaseOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPURCHASEDEPTID { get; set; }
+        public virtual FNumberProperty FPURCHASEDEPTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPURCHASERGROUPID { get; set; }
+        public virtual FNumberProperty FPURCHASERGROUPID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPURCHASERID { get; set; }
+        public virtual FNumberProperty FPURCHASERID { get; set; }
         /// <summary>
         /// 供应商(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSupplierID { get; set; }
+        public virtual FNumberProperty FSupplierID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FDESCRIPTION { get; set; }
+        public virtual string FDESCRIPTION { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FACCEPTORID { get; set; }
+        public virtual FNumberProperty FACCEPTORID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FAcceptAddress { get; set; }
+        public virtual string FAcceptAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleId { get; set; }
+        public virtual FNumberProperty FSettleId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCHARGEID { get; set; }
+        public virtual FNumberProperty FCHARGEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOwnerTypeIdHead { get; set; }
+        public virtual string FOwnerTypeIdHead { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FOwnerIdHead { get; set; }
+        public virtual FNumberProperty FOwnerIdHead { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FScanPoint { get; set; }
+        public virtual FNumberProperty FScanPoint { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FConfirmerId { get; set; }
+        public virtual FNumberProperty FConfirmerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FConfirmDate { get; set; }
+        public virtual DateTime? FConfirmDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FScanBox { get; set; }
+        public virtual string FScanBox { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCDateOffsetUnit { get; set; }
+        public virtual string FCDateOffsetUnit { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FCDateOffsetValue { get; set; }
+        public virtual decimal? FCDateOffsetValue { get; set; }
         /// <summary>
         /// 补料方式
         /// </summary>
         [JsonRequired]
-        public string FREPLENISHMODE { get; set; } = "创建补料订单";
+        public virtual string FREPLENISHMODE { get; set; } = "创建补料订单";
         //"FAcceptorContactID": {
         //    "FCONTACTNUMBER": ""
         //},
@@ -93,12 +93,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Pur_Mrb_FPurmrbFin FPURMRBFIN { get; set; }
+        public virtual Pur_Mrb_FPurmrbFin FPURMRBFIN { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Pur_Mrb_FPurmrbEntry> FPURMRBENTRY { get; set; }
+        public virtual List<Pur_Mrb_FPurmrbEntry> FPURMRBENTRY { get; set; }
     }
     public class Pur_MrbSaveInputDto : Pur_MrbSaveInputDto<Pur_Mrb_FPurmrbFin, Pur_Mrb_FPurmrbEntry>
     {

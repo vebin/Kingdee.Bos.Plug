@@ -21,126 +21,126 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         where Type_Sal_SaleOrder_TaxDetailSubEntity : Sal_SaleOrder_TaxDetailSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FReturnType { get; set; }
+        public virtual string FReturnType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FRowType { get; set; }
+        public virtual string FRowType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FMapId { get; set; }
+        public virtual FNumberProperty FMapId { get; set; }
         /// <summary>
         /// 物料编码(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FMaterialId { get; set; }
+        public virtual FNumberProperty FMaterialId { get; set; }
         //"FAuxPropId": {
         //    "FAUXPROPID__FF100002": {
         //        "FNumber": ""
         //                    }
         //},
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FParentMatId { get; set; }
+        public virtual FNumberProperty FParentMatId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FUnitID { get; set; }
+        public virtual FNumberProperty FUnitID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FInventoryQty { get; set; }
+        public virtual decimal? FInventoryQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FCurrentInventory { get; set; }
+        public virtual decimal? FCurrentInventory { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FAwaitQty { get; set; }
+        public virtual decimal? FAwaitQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FAvailableQty { get; set; }
+        public virtual decimal? FAvailableQty { get; set; }
         /// <summary>
         /// 销售数量(必填)
         /// </summary>
         [JsonRequired]
-        public decimal? FQty { get; set; }
+        public virtual decimal? FQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FOldQty { get; set; }
+        public virtual decimal? FOldQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPurPriceUnitId { get; set; }
+        public virtual FNumberProperty FPurPriceUnitId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPrice { get; set; }
+        public virtual decimal? FPrice { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FTaxPrice { get; set; }
+        public virtual decimal? FTaxPrice { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool? FIsFree { get; set; }
+        public virtual bool? FIsFree { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTaxCombination { get; set; }
+        public virtual FNumberProperty FTaxCombination { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FEntryTaxRate { get; set; }
+        public virtual decimal? FEntryTaxRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FProduceDate { get; set; }
+        public virtual DateTime? FProduceDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FExpPeriod { get; set; }
+        public virtual decimal? FExpPeriod { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FExpUnit { get; set; }
+        public virtual string FExpUnit { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FExpiryDate { get; set; }
+        public virtual DateTime? FExpiryDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FLot { get; set; }
+        public virtual FNumberProperty FLot { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPriceDiscount { get; set; }
+        public virtual decimal? FPriceDiscount { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FInStockPrice { get; set; }
+        public virtual decimal? FInStockPrice { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FDiscountRate { get; set; }
+        public virtual decimal? FDiscountRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDeliveryDate { get; set; }
+        public virtual DateTime? FDeliveryDate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockOrgId { get; set; }
+        public virtual FNumberProperty FStockOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleOrgIds { get; set; }
+        public virtual FNumberProperty FSettleOrgIds { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSupplyOrgId { get; set; }
+        public virtual FNumberProperty FSupplyOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOwnerTypeId { get; set; }
+        public virtual string FOwnerTypeId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FOwnerId { get; set; }
+        public virtual FNumberProperty FOwnerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FEntryNote { get; set; }
+        public virtual string FEntryNote { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FReserveType { get; set; }
+        public virtual string FReserveType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPriority { get; set; }
+        public virtual decimal? FPriority { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMtoNo { get; set; }
+        public virtual string FMtoNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FPromotionMatchType { get; set; }
+        public virtual string FPromotionMatchType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FNetOrderEntryId { get; set; }
+        public virtual long? FNetOrderEntryId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FPriceBaseQty { get; set; }
+        public virtual decimal? FPriceBaseQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockUnitID { get; set; }
+        public virtual FNumberProperty FStockUnitID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FStockQty { get; set; }
+        public virtual decimal? FStockQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FStockBaseQty { get; set; }
+        public virtual decimal? FStockBaseQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FServiceContext { get; set; }
+        public virtual string FServiceContext { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOUTLMTUNIT { get; set; }
+        public virtual string FOUTLMTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FOutLmtUnitID { get; set; }
+        public virtual FNumberProperty FOutLmtUnitID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSOStockId { get; set; }
+        public virtual FNumberProperty FSOStockId { get; set; }
         /// <summary>
         /// 仓位
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Sal_SaleOrder_StockLocalModel FSOStockLocalId { get; set; }
-        public bool? FISMRP { get; set; }
+        public virtual Sal_SaleOrder_StockLocalModel FSOStockLocalId { get; set; }
+        public virtual bool? FISMRP { get; set; }
         /// <summary>
         /// 交货明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_OrderEntryPlan> FOrderEntryPlan { get; set; }
+        public virtual List<Sal_SaleOrder_OrderEntryPlan> FOrderEntryPlan { get; set; }
         /// <summary>
         /// 税务明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_SaleOrder_TaxDetailSubEntity> FTaxDetailSubEntity { get; set; }
+        public virtual List<Sal_SaleOrder_TaxDetailSubEntity> FTaxDetailSubEntity { get; set; }
     }
     /// <summary>
     /// 订单明细

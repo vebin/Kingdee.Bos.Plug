@@ -8,12 +8,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
     public class Bd_DepartmentQueryListOutputDto
     {
         [JsonProperty(propertyName: "FDeptId")]
-        public virtual long Id { get; set; }
+        public virtual virtual long Id { get; set; }
 
         [JsonProperty(propertyName: "FNumber")]
-        public virtual string Number { get; set; }
+        public virtual virtual string Number { get; set; }
 
         [JsonProperty(propertyName: "FName")]
-        public virtual string Name { get; set; }
+        public virtual virtual string Name { get; set; }
     }
 }

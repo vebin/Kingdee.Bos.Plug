@@ -17,85 +17,85 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
         where Type_Sal_RetrunStock_FEntity : Sal_ReturnStock_FEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FID { get; set; }
+        public virtual long? FID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBillTypeID { get; set; }
+        public virtual FNumberProperty FBillTypeID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FBillNo { get; set; }
+        public virtual string FBillNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FDate { get; set; }
+        public virtual DateTime? FDate { get; set; }
         /// <summary>
         /// 销售组织(必填项)
         /// </summary>
-        public FNumberProperty FSaleOrgId { get; set; }
+        public virtual FNumberProperty FSaleOrgId { get; set; }
         /// <summary>
         /// 退货客户(必填项)
         /// </summary>        
-        public FNumberProperty FRetcustId { get; set; }
+        public virtual FNumberProperty FRetcustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSaledeptid { get; set; }
+        public virtual FNumberProperty FSaledeptid { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FReturnReason { get; set; }
+        public virtual FNumberProperty FReturnReason { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FHeadLocId { get; set; }
+        public virtual FNumberProperty FHeadLocId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FCorrespondOrgId { get; set; }
+        public virtual FNumberProperty FCorrespondOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FTransferBizType { get; set; }
+        public virtual FNumberProperty FTransferBizType { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSaleGroupId { get; set; }
+        public virtual FNumberProperty FSaleGroupId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSalesManId { get; set; }
+        public virtual FNumberProperty FSalesManId { get; set; }
         /// <summary>
         /// 库存组织(必填项)
         /// </summary>
-        public FNumberProperty FStockOrgId { get; set; }
+        public virtual FNumberProperty FStockOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockDeptId { get; set; }
+        public virtual FNumberProperty FStockDeptId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockerGroupId { get; set; }
+        public virtual FNumberProperty FStockerGroupId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FStockerId { get; set; }
+        public virtual FNumberProperty FStockerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FHeadNote { get; set; }
+        public virtual string FHeadNote { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FReceiveCustId { get; set; }
+        public virtual FNumberProperty FReceiveCustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FReceiveAddress { get; set; }
+        public virtual string FReceiveAddress { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSettleCustId { get; set; }
+        public virtual FNumberProperty FSettleCustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNameProperty FReceiveCusContact { get; set; }
+        public virtual FNameProperty FReceiveCusContact { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FPayCustId { get; set; }
+        public virtual FNumberProperty FPayCustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOwnerTypeIdHead { get; set; }
+        public virtual string FOwnerTypeIdHead { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FOwnerIdHead { get; set; }
+        public virtual FNumberProperty FOwnerIdHead { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FScanBox { get; set; }
+        public virtual string FScanBox { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FCDateOffsetUnit { get; set; }
+        public virtual string FCDateOffsetUnit { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal FCDateOffsetValue { get; set; }
+        public virtual decimal FCDateOffsetValue { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool FIsTotalServiceOrCost { get; set; }
+        public virtual bool FIsTotalServiceOrCost { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSHOPNUMBER { get; set; }
+        public virtual string FSHOPNUMBER { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FGYDATE { get; set; }
+        public virtual DateTime? FGYDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FSALECHANNEL { get; set; }
+        public virtual string FSALECHANNEL { get; set; }
         /// <summary>
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Sal_ReturnStock_SubHeadEntity SubHeadEntity { get; set; }
+        public virtual Sal_ReturnStock_SubHeadEntity SubHeadEntity { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Sal_ReturnStock_FEntity> FEntity { get; set; }
+        public virtual List<Sal_ReturnStock_FEntity> FEntity { get; set; }
 
     }
     public class Sal_ReturnStockSaveInputDto : Sal_ReturnStockSaveInputDto<Sal_ReturnStock_SubHeadEntity, Sal_ReturnStock_FEntity>
