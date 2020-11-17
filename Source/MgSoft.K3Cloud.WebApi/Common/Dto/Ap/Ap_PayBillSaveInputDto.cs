@@ -28,9 +28,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FDATE { get; set; }
         /// <summary>
-        /// 往来单位(必填)
+        /// 往来单位类型
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FCONTACTUNITTYPE { get; set; }
         /// <summary>
         /// 往来单位(必填)

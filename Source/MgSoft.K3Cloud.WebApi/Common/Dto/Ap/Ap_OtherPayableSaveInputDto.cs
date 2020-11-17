@@ -90,6 +90,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<Ap_OtherPayable_Entry> FEntity { get; set; }
     }
-    public virtual class Ap_OtherPayableSaveInputDto : Ap_OtherPayableSaveInputDto<Ap_OtherPayable_Entry>
+    public class Ap_OtherPayableSaveInputDto : Ap_OtherPayableSaveInputDto<Ap_OtherPayable_Entry>
     { }
 }

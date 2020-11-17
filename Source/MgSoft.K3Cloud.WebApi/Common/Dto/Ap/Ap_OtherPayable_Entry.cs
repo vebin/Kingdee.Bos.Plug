@@ -54,6 +54,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<Ap_OtherPayable_PaySubEntity> FPaySubEntity { get; set; }
     }
-    public virtual class Ap_OtherPayable_Entry : Ap_OtherPayable_Entry<Ap_OtherPayable_PaySubEntity>
+    public class Ap_OtherPayable_Entry : Ap_OtherPayable_Entry<Ap_OtherPayable_PaySubEntity>
     { }
 }
