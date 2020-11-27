@@ -175,7 +175,20 @@ namespace MgSoft.K3Cloud.WebApi
 
             return JsonConvert.DeserializeObject<List<DeleteOutputDto>>(GetData(apiResult));
         }
+        /// <summary>
+        /// 下推
+        /// </summary>
+        /// <param name="PushInputDto"></param>
+        /// <returns></returns>
+        public List<PushOutputDto> Push(PushInputDto PushInputDto)
+        {
+            setFormId(PushInputDto);
 
+            var apiResult = client.Push(PushInputDto.FormId, JsonConvert.SerializeObject(PushInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<PushOutputDto>>(GetData(apiResult));
+        }
 
 
         #region 私有方法
