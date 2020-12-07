@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\南宁兆吉\兆吉金蝶\Kingdee.Bos.Plug\Source\MgSoft.K3Cloud.WebApi\MgSoft.K3Cloud.WebApi.xml</DocumentationFile>
+    <DocumentationFile>bin\MgSoft.K3Cloud.WebApi.xml</DocumentationFile>
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 
