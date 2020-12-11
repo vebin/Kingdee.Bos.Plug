@@ -113,6 +113,20 @@ namespace MgSoft.K3Cloud.WebApi
             return httpClient.SysncRequest();
         }
         /// <summary>
+        /// 下推
+        /// </summary>
+        /// <param name="formId">业务对象标识</param>
+        /// <param name="content">请求Json串</param>
+        /// <returns></returns>
+        public string Push(string formId, string content)
+        {
+            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Push.common.kdsvc");
+
+            httpClient.Content = GetContents(formId, content);
+
+            return httpClient.SysncRequest();
+        }
+        /// <summary>
         /// 查询
         /// </summary>
         /// <param name="formId">业务对象标识</param>

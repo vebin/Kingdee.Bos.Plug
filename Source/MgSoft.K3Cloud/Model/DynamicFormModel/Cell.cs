@@ -1,4 +1,5 @@
-﻿using Kingdee.BOS.Core.DynamicForm;
+﻿
+using Kingdee.BOS.Core.DynamicForm;
 using Kingdee.BOS.Orm.DataEntity;
 using System;
 using System.Collections.Generic;
