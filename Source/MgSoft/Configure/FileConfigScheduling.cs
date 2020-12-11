@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MgSoft.Util
+namespace MgSoft.Configure
 {
 
-    public static class ConfigUtil
+    public class FileConfigScheduling : IConfigScheduling
     {
-        private static string _appPatch;
+        private string _appPatch;
         public const string DefaultConfigName = "AppConfig.json";
 
-        public static string AppPatch
+        public string AppPatch
         {
             get
             {
@@ -25,7 +25,7 @@ namespace MgSoft.Util
                 return _appPatch;
             }
         }
-        public static T GetConfig<T>(string configName = DefaultConfigName) where T : new()
+        public T GetConfig<T>(string configName = DefaultConfigName) where T : class,new()
         {
             string configFullName = GetConfigFileFullName(DefaultConfigName);
 
@@ -35,26 +35,26 @@ namespace MgSoft.Util
             }
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(configFullName));
         }
-        public static void SetConfig<T>(T config, string configName = DefaultConfigName)
+        public void SetConfig<T>(T config, string configName = DefaultConfigName)
         {
             File.WriteAllText(GetConfigFileFullName(DefaultConfigName), JsonConvert.SerializeObject(config));
         }
-        private static string GetConfigFileFullName(string fileName)
+        private string GetConfigFileFullName(string fileName)
         {
             return AppPatch + fileName;
         }
 
 
-        public static int? ToIntOrNull(this string o)
-        {
-            try
-            {
-                return Convert.ToInt32(o);
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        //public int? ToIntOrNull(this string o)
+        //{
+        //    try
+        //    {
+        //        return Convert.ToInt32(o);
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
     }
 }
