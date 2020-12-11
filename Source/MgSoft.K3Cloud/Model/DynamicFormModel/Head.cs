@@ -39,7 +39,7 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
 
         public override long Id
         {
-            get => (long)ToDynamicObject()[FIdKey];
+            get => ToDynamicObject()==null?0:(long)ToDynamicObject()[FIdKey];
             set => DynamicFormModel.SetItemValueByID(HeadName, value, 0);
         }
 

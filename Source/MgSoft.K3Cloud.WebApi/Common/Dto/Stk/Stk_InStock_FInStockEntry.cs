@@ -45,6 +45,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPrice { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public virtual decimal? FAmount { get; set; }
+
         public virtual FNumberProperty FTaxCombination { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

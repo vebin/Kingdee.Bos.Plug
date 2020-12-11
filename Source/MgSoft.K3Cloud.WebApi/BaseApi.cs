@@ -98,6 +98,24 @@ namespace MgSoft.K3Cloud.WebApi
             var data = jObject["Result"]["Result"].ToString();
             return JsonConvert.DeserializeObject<T>(data);
         }
+
+        public bool Exist(string filterString, string fileds = "FId")
+        {
+            var getListInputDto = new GetListInputDto()
+            {
+                FieldKeys = fileds,
+                FilterString = filterString
+            };
+
+            setFormId(getListInputDto);
+            var apiResult = client.ExecuteBillQuery(JsonConvert.SerializeObject(getListInputDto));
+
+            CheckGetListIsSuccess(apiResult);
+
+            var result = JsonConvert.DeserializeObject<List<string>>(apiResult);
+            return result.Count > 0;
+        }
+
         //public SaveOutPutDto Save(SaveInputDto saveInputDto)
         //{
         //    var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));

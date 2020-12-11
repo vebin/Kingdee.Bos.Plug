@@ -27,6 +27,12 @@ namespace MgSoft.K3Cloud.WebApiTests.Common.Api.Stk
             inStockApi.Save(getSaveDto());
         }
 
+        [TestMethod]
+        public void Exist()
+        {
+            inStockApi.Exist("FBillNo='BC2009000010'");
+        }
+
         private Stk_InStockSaveInputDto getSaveDto()
         {
             var result = new Stk_InStockSaveInputDto()

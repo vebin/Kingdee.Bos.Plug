@@ -28,13 +28,13 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
                 var entity = DynamicFormModel.DataObject[entityName];
 
                 var rows = (entity as DynamicObjectCollection);
-                if (rows == null||rows.Count<=Row.RowIndex)
+                if (rows == null || rows.Count <= Row.RowIndex)
                 {
                     throw new ArgumentException($"行下标越界{Row.RowIndex}");
                 }
 
-                var row=rows[Row.RowIndex];
-                if(!row.DynamicObjectType.Properties.ContainsKey(ColumnName))
+                var row = rows[Row.RowIndex];
+                if (!row.DynamicObjectType.Properties.ContainsKey(ColumnName))
                 {
                     throw new ArgumentException($"单据体{entityName}不存在列{ColumnName}");
                 }
@@ -52,7 +52,7 @@ namespace MgSoft.K3Cloud.Model.DynamicFormModel
 
         public override long Id
         {
-            get => (long)ToDynamicObject()[FIdKey];
+            get => ToDynamicObject() == null ? 0 : (long)ToDynamicObject()[FIdKey];
             set => DynamicFormModel.SetItemValueByID(ColumnName, value, Row.RowIndex);
         }
 
