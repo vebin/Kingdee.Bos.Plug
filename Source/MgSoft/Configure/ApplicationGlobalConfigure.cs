@@ -20,7 +20,7 @@ namespace MgSoft.Configure
             return configScheduling.GetConfig<T>();
         }
 
-        public static void SetConfig(object config)
+        public static void SetConfig<T>(T config)
         {
             configScheduling.SetConfig(config);
         }
