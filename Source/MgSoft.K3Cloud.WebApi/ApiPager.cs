@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.WebApi
 {
-    public class Pager
+    public class ApiPager
     {
         public int PageIndex { get; set; } = 0;
 
+        /// <summary>
+        /// 获取数据条数
+        /// </summary>
         public int RowCount { get; set; } = 100;
 
         public int StartRow

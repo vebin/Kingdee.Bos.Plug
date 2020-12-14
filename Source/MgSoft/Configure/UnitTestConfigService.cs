@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Configure
 {
-    public class UnitTestConfig : IConfigScheduling
+    public class UnitTestConfigService : IConfigService
     {
         private object config;
 

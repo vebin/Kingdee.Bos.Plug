@@ -8,9 +8,9 @@ namespace MgSoft.Configure
 {
     public static class ApplicationGlobalConfigure
     {
-        private static IConfigScheduling configScheduling=new FileConfigScheduling();//默认使用文件配置
+        private static IConfigService configScheduling=new FileConfigService();//默认使用文件配置
 
-        public static void SetConfigScheduling(IConfigScheduling configScheduling)
+        public static void SetConfigScheduling(IConfigService configScheduling)
         {
             ApplicationGlobalConfigure.configScheduling = configScheduling;
         }
