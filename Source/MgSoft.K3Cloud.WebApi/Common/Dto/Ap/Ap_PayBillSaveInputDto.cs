@@ -118,13 +118,13 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FGYCUSTOMERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_PayBill_Entry> FPAYBILLENTRY { get; set; }
+        public virtual List<Type_Ap_PayBill_Entry> FPAYBILLENTRY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_PayBill_SrcEntry> FPAYBILLSRCENTRY { get; set; }
+        public virtual List<Type_Ap_PayBill_SrcEntry> FPAYBILLSRCENTRY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_PayBill_PayableEntry> FBILLPAYABLEENTRY { get; set; }
+        public virtual List<Type_Ap_PayBill_PayableEntry> FBILLPAYABLEENTRY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_PayBill_ReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }         
+        public virtual List<Type_Ap_PayBill_ReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }         
     
     }
     public class Ap_PayBillSaveInputDto : Ap_PayBillSaveInputDto<

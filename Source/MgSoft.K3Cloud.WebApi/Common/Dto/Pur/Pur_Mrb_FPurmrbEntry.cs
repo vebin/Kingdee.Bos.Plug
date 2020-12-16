@@ -1,4 +1,5 @@
 ﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using MgSoft.K3Cloud.WebApi.Common.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 仓位
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Pur_Mrb_StrockLocModel FSTOCKLOCID { get; set; }
+        public virtual StockLocModel FSTOCKLOCID { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockStatusId { get; set; }

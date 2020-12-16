@@ -1,6 +1,7 @@
 ﻿using MgSoft.K3Cloud.WebApi.Common.Dto;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Sal;
+using MgSoft.K3Cloud.WebApi.Common.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
         public virtual FNumberProperty FOwnerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockId { get; set; }
-        public virtual Sal_FStockLocIdModel FStocklocId { get; set; }
+        public virtual StockLocModel FStocklocId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockstatusId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

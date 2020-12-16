@@ -57,7 +57,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         [JsonRequired]
         public virtual FNumberProperty FACCBOOKORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Gl_Voucher_FEntity> FEntity { get; set; }
+        public virtual List<Type_Gl_Voucher_FEntity> FEntity { get; set; }
 
     }
     public class Gl_VoucherSaveInputDto : Gl_VoucherSaveInputDto<Gl_Voucher_FEntity>

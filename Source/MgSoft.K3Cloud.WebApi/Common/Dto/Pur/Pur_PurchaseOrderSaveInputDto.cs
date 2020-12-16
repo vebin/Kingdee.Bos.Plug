@@ -69,22 +69,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Pur_PurchaseOrder_Finace FPOOrderFinance { get; set; }
+        public virtual Type_Pur_PurchaseOrder_Finace FPOOrderFinance { get; set; }
         /// <summary>
         /// 订单条款
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pru_PurchaseOrder_Clause> FPOOrderClause { get; set; }
+        public virtual List<Type_Pru_PurchaseOrder_Clause> FPOOrderClause { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_PurchaseOrder_Entry> FPOOrderEntry { get; set; }
+        public virtual List<Type_Pur_PurchaseOrder_Entry> FPOOrderEntry { get; set; }
         /// <summary>
         /// 付款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_PurchaseOrder_Iinstallment> FIinstallment { get; set; }
+        public virtual List<Type_Pur_PurchaseOrder_Iinstallment> FIinstallment { get; set; }
     }
     /// <summary>
     /// 采购订单dto

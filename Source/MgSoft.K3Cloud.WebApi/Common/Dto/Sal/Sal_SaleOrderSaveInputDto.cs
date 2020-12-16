@@ -98,22 +98,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// 订单条款
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sal_SaleOrder_Clause> FSaleOrderClause { get; set; }
+        public virtual List<Type_Sal_SaleOrder_Clause> FSaleOrderClause { get; set; }
         /// <summary>
         /// 订单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sal_SaleOrder_Entry> FSaleOrderEntry { get; set; }
+        public virtual List<Type_Sal_SaleOrder_Entry> FSaleOrderEntry { get; set; }
         /// <summary>
         /// 收款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sal_SaleOrder_Plan> FSaleOrderPlan { get; set; }
+        public virtual List<Type_Sal_SaleOrder_Plan> FSaleOrderPlan { get; set; }
         /// <summary>
         /// 物流跟踪明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sal_SaleOrder_Trace> FSalOrderTrace { get; set; }
+        public virtual List<Type_Sal_SaleOrder_Trace> FSalOrderTrace { get; set; }
     }
     /// <summary>
     /// 销售订单Dto

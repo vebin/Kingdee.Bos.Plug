@@ -85,7 +85,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// 单据体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_OtherReceivable_Entry> FEntity { get; set; }
+        public virtual List<Type_Ar_OtherReceivable_Entry> FEntity { get; set; }
     }
     public class Ar_OtherReceivableSaveInputDto : Ar_OtherReceivableSaveInputDto<Ar_OtherReceivable_Entry>
     { }

@@ -7,9 +7,15 @@ using System.Text;
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
 {
     public class Bd_SupplierSaveInputDto<
+        Type_Bd_Supplier_BaseInfo,
+        Type_Bd_Supplier_BusinessInfo,
+        Type_Bd_Supplier_FinanceInfo,
         Type_Bd_Supplier_BankInfo, 
         Type_Bd_Supplier_LocationInfo,
         Type_Bd_Supplier_SupplierContact>
+        where Type_Bd_Supplier_BaseInfo : Bd_Supplier_BaseInfo
+        where Type_Bd_Supplier_BusinessInfo : Bd_Supplier_BusinessInfo
+        where Type_Bd_Supplier_FinanceInfo : Bd_Supplier_FinanceInfo
         where Type_Bd_Supplier_BankInfo : Bd_Supplier_BankInfo
         where Type_Bd_Supplier_LocationInfo : Bd_Supplier_LocationInfo
         where Type_Bd_Supplier_SupplierContact : Bd_Supplier_SupplierContact
@@ -46,36 +52,39 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         /// 基本信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Bd_Supplier_BaseInfo FBaseInfo { get; set; }
+        public virtual Type_Bd_Supplier_BaseInfo FBaseInfo { get; set; }
         /// <summary>
         /// 商务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Bd_Supplier_BusinessInfo FBusinessInfo { get; set; }
+        public virtual Type_Bd_Supplier_BusinessInfo FBusinessInfo { get; set; }
         /// <summary>
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Bd_Supplier_FinanceInfo FFinanceInfo { get; set; }
+        public virtual Type_Bd_Supplier_FinanceInfo FFinanceInfo { get; set; }
         /// <summary>
         /// 银行信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Bd_Supplier_BankInfo> FBankInfo { get; set; }
+        public virtual List<Type_Bd_Supplier_BankInfo> FBankInfo { get; set; }
         /// <summary>
         /// 组织信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Bd_Supplier_LocationInfo> FLocationInfo { get; set; }
+        public virtual List<Type_Bd_Supplier_LocationInfo> FLocationInfo { get; set; }
         /// <summary>
         /// 联系人
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Bd_Supplier_SupplierContact> FSupplierContacts { get; set; }
+        public virtual List<Type_Bd_Supplier_SupplierContact> FSupplierContacts { get; set; }
     }
     public class Bd_SupplierSaveInputDto : Bd_SupplierSaveInputDto<
+        Bd_Supplier_BaseInfo,
+        Bd_Supplier_BusinessInfo,
+        Bd_Supplier_FinanceInfo,
         Bd_Supplier_BankInfo,
-        Bd_Supplier_LocationInfo, 
-        Bd_Supplier_SupplierContact> 
+        Bd_Supplier_LocationInfo,
+        Bd_Supplier_SupplierContact>
     { }
 }

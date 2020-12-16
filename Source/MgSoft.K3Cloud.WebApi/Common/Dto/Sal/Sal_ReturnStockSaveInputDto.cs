@@ -12,9 +12,11 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
     /// </summary>
     /// <typeparam name="Type_Sal_ReturnStock_SubHeadEntity"></typeparam>
     /// <typeparam name="Type_Sal_RetrunStock_FEntity"></typeparam>
-    public class Sal_ReturnStockSaveInputDto<Type_Sal_ReturnStock_SubHeadEntity, Type_Sal_RetrunStock_FEntity>
+    public class Sal_ReturnStockSaveInputDto
+        <Type_Sal_ReturnStock_SubHeadEntity,
+        Type_Sal_ReturnStock_FEntity>
         where Type_Sal_ReturnStock_SubHeadEntity : Sal_ReturnStock_SubHeadEntity
-        where Type_Sal_RetrunStock_FEntity : Sal_ReturnStock_FEntity
+        where Type_Sal_ReturnStock_FEntity : Sal_ReturnStock_FEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual long? FID { get; set; }
@@ -90,12 +92,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Sal_ReturnStock_SubHeadEntity SubHeadEntity { get; set; }
+        public virtual Type_Sal_ReturnStock_SubHeadEntity SubHeadEntity { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sal_ReturnStock_FEntity> FEntity { get; set; }
+        public virtual List<Type_Sal_ReturnStock_FEntity> FEntity { get; set; }
 
     }
     public class Sal_ReturnStockSaveInputDto : Sal_ReturnStockSaveInputDto<Sal_ReturnStock_SubHeadEntity, Sal_ReturnStock_FEntity>

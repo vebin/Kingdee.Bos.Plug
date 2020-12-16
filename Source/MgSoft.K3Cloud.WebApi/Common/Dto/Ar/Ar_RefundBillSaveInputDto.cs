@@ -10,16 +10,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
     /// 收款退款单
     /// </summary>
     public class Ar_RefundBillSaveInputDto<
-        Type_Ar_Refund_Entry,
-        Type_Ar_Refund_SrcEntry,
-        Type_Ar_Refund_PayEntry,
-        Type_Ar_Refund_BillRefundPayEntry,
-        Type_Ar_Refund_RefundBillReceiveEntry>
-        where Type_Ar_Refund_Entry : Ar_RefundBill_Entry
-        where Type_Ar_Refund_SrcEntry : Ar_RefundBill_SrcEntry
-        where Type_Ar_Refund_PayEntry : Ar_RefundBill_PayEntry
-        where Type_Ar_Refund_BillRefundPayEntry : Ar_RefundBill_BillRefundPayEntry
-        where Type_Ar_Refund_RefundBillReceiveEntry : Ar_RefundBill_RefundBillReceiveEntry
+        Type_Ar_RefundBill_Entry,
+        Type_Ar_RefundBill_SrcEntry,
+        Type_Ar_RefundBill_PayEntry,
+        Type_Ar_RefundBill_BillRefundPayEntry,
+        Type_Ar_RefundBill_RefundBillReceiveEntry>
+        where Type_Ar_RefundBill_Entry : Ar_RefundBill_Entry
+        where Type_Ar_RefundBill_SrcEntry : Ar_RefundBill_SrcEntry
+        where Type_Ar_RefundBill_PayEntry : Ar_RefundBill_PayEntry
+        where Type_Ar_RefundBill_BillRefundPayEntry : Ar_RefundBill_BillRefundPayEntry
+        where Type_Ar_RefundBill_RefundBillReceiveEntry : Ar_RefundBill_RefundBillReceiveEntry
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual long? FID { get; set; }
@@ -119,27 +119,27 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// 退款单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
+        public virtual List<Type_Ar_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
         /// <summary>
         /// 退款单源单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_RefundBill_SrcEntry> FREFUNDBILLSRCENTRY { get; set; }
+        public virtual List<Type_Ar_RefundBill_SrcEntry> FREFUNDBILLSRCENTRY { get; set; }
         /// <summary>
         /// 应付票据明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_RefundBill_PayEntry> FREFUNDBILLPAYENTRY { get; set; }
+        public virtual List<Type_Ar_RefundBill_PayEntry> FREFUNDBILLPAYENTRY { get; set; }
         /// <summary>
         /// 应收票据背书
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_RefundBill_BillRefundPayEntry> FBillRefundPayEntry { get; set; }
+        public virtual List<Type_Ar_RefundBill_BillRefundPayEntry> FBillRefundPayEntry { get; set; }
         /// <summary>
         /// 应收票据退票
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_RefundBill_RefundBillReceiveEntry> FREFUNDBILLRECEIVENTRY { get; set; }
+        public virtual List<Type_Ar_RefundBill_RefundBillReceiveEntry> FREFUNDBILLRECEIVENTRY { get; set; }
     }
 
     public class Ar_RefundSaveInputDtp : Ar_RefundBillSaveInputDto<
