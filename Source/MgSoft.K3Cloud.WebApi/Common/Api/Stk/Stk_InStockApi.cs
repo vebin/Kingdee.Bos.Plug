@@ -38,5 +38,16 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
                 Model = inStockSaveInputDto
             });
         }
+
+
+        public List<SaveOutPutDto> Save<T,Type_FInStockFin, Type_FInStockEntry>(T inStockSaveInputDto) where T : Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry>
+            where Type_FInStockFin : Stk_InStock_FInStockFin
+            where Type_FInStockEntry: Stk_InStock_FInStockEntry
+        {
+            return base.Save(new SaveInputDto()
+            {
+                Model = inStockSaveInputDto
+            });
+        }
     }
 }
