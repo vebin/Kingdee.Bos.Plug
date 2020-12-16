@@ -6,6 +6,7 @@ using System.Text;
 using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Pur;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using MgSoft.K3Cloud.WebApi.Common.Model;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur.Tests
 {
@@ -54,7 +55,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur.Tests
                         FRMREALQTY = 5m,
                         FPRICEUNITID = new FNumberProperty("Pcs"),
                         FSTOCKID = new FNumberProperty("CK001"),
-                        FSTOCKLOCID = new Pur_Mrb_StrockLocModel()
+                        FSTOCKLOCID = new StockLocModel()
                         {
                             FSTOCKLOCID__FF100001 = new FNumberProperty("001"),
                             FSTOCKLOCID__FF100002 = new FNumberProperty("002")
