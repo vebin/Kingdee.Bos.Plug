@@ -103,27 +103,27 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// 表头供应商
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Ap_Payable_SubHeadSupplier FsubHeadSuppiler { get; set; }
+        public virtual Type_Ap_Payable_SubHeadSupplier FsubHeadSuppiler { get; set; }
         /// <summary>
         /// 表头财务
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Ap_Payable_SubHeadFinc FsubHeadFinc { get; set; }
+        public virtual Type_Ap_Payable_SubHeadFinc FsubHeadFinc { get; set; }
         /// <summary>
         /// 明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_Payable_EntryDetail> FEntityDetail { get; set; }
+        public virtual List<Type_Ap_Payable_EntryDetail> FEntityDetail { get; set; }
         /// <summary>
         /// 付款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_Payable_EntityPlan> FEntityPlan { get; set; }
+        public virtual List<Type_Ap_Payable_EntityPlan> FEntityPlan { get; set; }
         /// <summary>
         /// Ap_Payable_RecInvInfo
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_Payable_RecInvInfo> FRecInvInfo { get; set; }
+        public virtual List<Type_Ap_Payable_RecInvInfo> FRecInvInfo { get; set; }
     }
 
     public class Ap_PayableSaveInputDto : Ap_PayableSaveInputDto<

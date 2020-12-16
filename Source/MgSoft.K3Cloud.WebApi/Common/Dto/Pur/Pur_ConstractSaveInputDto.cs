@@ -63,22 +63,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Pur_Constract_ContractFin FContractFin { get; set; }
+        public Type_Pur_Constract_ContractFin FContractFin { get; set; }
         /// <summary>
         /// 合同条款
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Pur_Constract_ContractClause> FContractClause { get; set; }
+        public List<Type_Pur_Constract_ContractClause> FContractClause { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Pur_Constract_ContractEntry> FContractEntry { get; set; }
+        public List<Type_Pur_Constract_ContractEntry> FContractEntry { get; set; }
         /// <summary>
         /// 付款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Pur_Constract_PayPlanEntry> FPayPlanEntry { get; set; }
+        public List<Type_Pur_Constract_PayPlanEntry> FPayPlanEntry { get; set; }
     }
     /// <summary>
     /// 采购合同保存InputDto

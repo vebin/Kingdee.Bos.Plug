@@ -114,27 +114,27 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// 退款单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
+        public virtual List<Type_Ap_RefundBill_Entry> FREFUNDBILLENTRY { get; set; }
         /// <summary>
         /// 退款单源单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_RefundBill_SrcEntry> FRefundBillSrcEntity { get; set; }
+        public virtual List<Type_Ap_RefundBill_SrcEntry> FRefundBillSrcEntity { get; set; }
         /// <summary>
         /// 应收票据背书
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_RefundBill_RecEntry> FRefundBillRecEntry { get; set; }
+        public virtual List<Type_Ap_RefundBill_RecEntry> FRefundBillRecEntry { get; set; }
         /// <summary>
         /// 应收票据明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_RefundBill_BillRefundRecEntry> FBILLREFUNDRECENTRY { get; set; }
+        public virtual List<Type_Ap_RefundBill_BillRefundRecEntry> FBILLREFUNDRECENTRY { get; set; }
         /// <summary>
         /// 应付票据退票
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ap_RefundBill_PayableEntry> FREFUNDBILLPAYABLEENTRY { get; set; }
+        public virtual List<Type_Ap_RefundBill_PayableEntry> FREFUNDBILLPAYABLEENTRY { get; set; }
 
     }
     public class Ap_RefundBillSaveInputDto : Ap_RefundBillSaveInputDto<

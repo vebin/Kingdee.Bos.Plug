@@ -108,22 +108,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_ReceiveBill_Entry> FRECEIVEBILLENTRY { get; set; }
+        public virtual List<Type_Ar_ReceiveBill_Entry> FRECEIVEBILLENTRY { get; set; }
         /// <summary>
         /// 收款单源单明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_ReceiveBill_SrcEntry> FRECEIVEBILLSRCENTRY { get; set; }
+        public virtual List<Type_Ar_ReceiveBill_SrcEntry> FRECEIVEBILLSRCENTRY { get; set; }
         /// <summary>
         /// 应收票据明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_ReceiveBill_FBillReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }
+        public virtual List<Type_Ar_ReceiveBill_FBillReceivableEntry> FBILLRECEIVABLEENTRY { get; set; }
         /// <summary>
         /// 应收票据背书
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_ReceiveBill_FBILLSKDRECENTRY> FBILLSKDRECENTRY { get; set; }
+        public virtual List<Type_Ar_ReceiveBill_FBILLSKDRECENTRY> FBILLSKDRECENTRY { get; set; }
 
     }
 

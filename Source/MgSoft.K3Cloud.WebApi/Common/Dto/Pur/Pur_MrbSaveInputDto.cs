@@ -93,12 +93,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 财务信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Pur_Mrb_FPurmrbFin FPURMRBFIN { get; set; }
+        public virtual Type_Pur_Mrb_FPurmrbFin FPURMRBFIN { get; set; }
         /// <summary>
         /// 明细信息
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_Mrb_FPurmrbEntry> FPURMRBENTRY { get; set; }
+        public virtual List<Type_Pur_Mrb_FPurmrbEntry> FPURMRBENTRY { get; set; }
     }
     public class Pur_MrbSaveInputDto : Pur_MrbSaveInputDto<Pur_Mrb_FPurmrbFin, Pur_Mrb_FPurmrbEntry>
     {

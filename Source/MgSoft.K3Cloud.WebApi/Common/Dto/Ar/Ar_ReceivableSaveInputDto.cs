@@ -103,27 +103,27 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// 表头客户
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Ar_Receivable_SubHeadSupplier FsubHeadSuppile { get; set; }
+        public virtual Type_Ar_Receivable_SubHeadSupplier FsubHeadSuppile { get; set; }
         /// <summary>
         /// 表头财务
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual Ar_Receivable_SubHeadFinc FsubHeadFinc { get; set; }
+        public virtual Type_Ar_Receivable_SubHeadFinc FsubHeadFinc { get; set; }
         /// <summary>
         /// 明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_Receivable_EntityDetail> FEntityDetail { get; set; }
+        public virtual List<Type_Ar_Receivable_EntityDetail> FEntityDetail { get; set; }
         /// <summary>
         /// 收款计划
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_Receivable_EntityPlan> FEntityPlan { get; set; }
+        public virtual List<Type_Ar_Receivable_EntityPlan> FEntityPlan { get; set; }
         /// <summary>
         /// 成本明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Ar_Receivable_ArCostEntry> FARCOSTENTRY { get; set; }
+        public virtual List<Type_Ar_Receivable_ArCostEntry> FARCOSTENTRY { get; set; }
     }
     public class Ar_ReceivableSaveInputDto : Ar_ReceivableSaveInputDto<
         Ar_Receivable_SubHeadSupplier,
