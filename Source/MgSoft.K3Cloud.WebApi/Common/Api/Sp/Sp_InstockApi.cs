@@ -28,15 +28,15 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp
         }
 
 
-        public bool Save<T>(T sp_InstockSaveInputDto) where T : Sp_InstockSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = sp_InstockSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T sp_InstockSaveInputDto) where T : Sp_InstockSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = sp_InstockSaveInputDto
+        //    });
+        //    return true;
+        //}
 
     }
 }

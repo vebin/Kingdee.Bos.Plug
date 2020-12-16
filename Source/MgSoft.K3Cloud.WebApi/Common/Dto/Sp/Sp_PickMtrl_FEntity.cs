@@ -27,8 +27,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// </summary>
         [JsonRequired]
         public FNumberProperty FUnitID { get; set; }
+        /// <summary>
+        /// 申请数量
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public decimal? FAppQty { get; set; }
+        /// <summary>
+        /// 实发数量
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public decimal? FActualQty { get; set; }
         /// <summary>
@@ -36,6 +42,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// </summary>
         [JsonRequired]
         public FNumberProperty FStockId { get; set; }
+        /// <summary>
+        /// 仓位
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public StockLocModel FStockLocId { get; set; }
         /// <summary>

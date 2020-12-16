@@ -31,14 +31,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ap
         }
 
 
-        public bool Save<T>(T Ap_RefundBillSaveInputDto) where T : Ap_RefundBillSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = Ap_RefundBillSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T Ap_RefundBillSaveInputDto) where T : Ap_RefundBillSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = Ap_RefundBillSaveInputDto
+        //    });
+        //    return true;
+        //}
     }
 }

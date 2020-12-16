@@ -1,5 +1,5 @@
-﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Sp;
-using MgSoft.K3Cloud.WebApi.Dto;
+﻿using MgSoft.K3Cloud.WebApi.Dto;
+using MgSoft.K3Cloud.WebApi.Common.Dto.Sp;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,14 +31,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp
         }
 
 
-        public bool Save<T>(T sp_PickMtrlSaveInputDto) where T : Sp_PickMtrlSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = sp_PickMtrlSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T sp_PickMtrlSaveInputDto) where T : Sp_PickMtrlSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = sp_PickMtrlSaveInputDto
+        //    });
+        //    return true;
+        //}
     }
 }

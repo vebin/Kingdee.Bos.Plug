@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MgSoft.K3Cloud.WebApi.Common.Api.Sp;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +6,8 @@ using MgSoft.K3Cloud.WebApi.Common.Dto.Sp;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Common.Model;
+using MgSoft.K3Cloud.WebApi.Dto;
+using MgSoft.K3Cloud.WebApi.Common.Api.Sp;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp.Tests
 {
@@ -29,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp.Tests
         {
             return new Sp_PickMtrlSaveInputDto()
             {
-                FBillNo = "测试1111",
+                FBillNo = "测试22222",
                 FStockOrgId = new FNumberProperty("102"),
                 FPrdOrgId = new FNumberProperty("102"),
                 FOwnerTypeId0 = "Bd_Supplier",
@@ -40,6 +41,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp.Tests
                     {
                         FMaterialId = new FNumberProperty("1.01.002"),
                         FUnitID = new FNumberProperty("Pcs"),
+                        FAppQty = 20m,
                         FActualQty = 10m,
                         FStockId = new FNumberProperty("CK001"),
                         FStockLocId = new StockLocModel()

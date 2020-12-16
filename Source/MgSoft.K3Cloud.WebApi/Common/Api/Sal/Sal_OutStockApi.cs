@@ -33,14 +33,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
         }
 
 
-        public bool Save<T>(T OutStockSaveInputDTO) where T : Sal_OutStockSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = OutStockSaveInputDTO
-            });
-            return true;
-        }        
+        //public bool Save<T>(T OutStockSaveInputDTO) where T : Sal_OutStockSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = OutStockSaveInputDTO
+        //    });
+        //    return true;
+        //}        
     }
 }

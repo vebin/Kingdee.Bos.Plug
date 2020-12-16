@@ -28,14 +28,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur
         }
 
 
-        public bool Save<T>(T Pur_ConstractSaveInputDto) where T : Pur_ConstractSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = Pur_ConstractSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T Pur_ConstractSaveInputDto) where T : Pur_ConstractSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = Pur_ConstractSaveInputDto
+        //    });
+        //    return true;
+        //}
     }
 }
