@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
 {
+    /// <summary>
+    /// 其他入库单
+    /// </summary>
     public class Stk_MiscellaneousApi : BaseApi
     {
         protected override string formId => "Stk_Miscellaneous";

@@ -14,66 +14,66 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         where Type_Stk_Miscellaneous_SerialSubEntity : Stk_Miscellaneous_SerialSubEntity
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public long? FEntryID { get; set; }
+        public virtual long? FEntryID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FInStockType { get; set; }
+        public virtual string FInStockType { get; set; }
         /// <summary>
         /// 物料编码(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FMATERIALID { get; set; }
+        public virtual FNumberProperty FMATERIALID { get; set; }
         //"FAuxPropId": { "FAUXPROPID__FF100002": {"FNumber": ""}},
         /// <summary>
         /// 单位（必填）
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FUnitID { get; set; }
+        public virtual FNumberProperty FUnitID { get; set; }
         /// <summary>
         /// 收货仓库(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FSTOCKID { get; set; }
+        public virtual FNumberProperty FSTOCKID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public StockLocModel FStockLocId { get; set; }
+        public virtual StockLocModel FStockLocId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FSTOCKSTATUSID { get; set; }
+        public virtual FNumberProperty FSTOCKSTATUSID { get; set; }
         /// <summary>
         /// 批号
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FLOT { get; set; }
+        public virtual FNumberProperty FLOT { get; set; }
         /// <summary>
         /// 实收数量
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FQty { get; set; }
+        public virtual decimal? FQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FEntryNote { get; set; }
+        public virtual string FEntryNote { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FBOMID { get; set; }
+        public virtual FNumberProperty FBOMID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? FPRODUCEDATE { get; set; }
+        public virtual DateTime? FPRODUCEDATE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FMTONO { get; set; }
+        public virtual string FMTONO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FExtAuxUnitId { get; set; }
+        public virtual FNumberProperty FExtAuxUnitId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public decimal? FExtAuxUnitQty { get; set; }
+        public virtual decimal? FExtAuxUnitQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FProjectNo { get; set; }
+        public virtual string FProjectNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FOWNERTYPEID { get; set; }
+        public virtual string FOWNERTYPEID { get; set; }
         /// <summary>
         /// 货主(必填)
         /// </summary>
         [JsonRequired]
-        public FNumberProperty FOWNERID { get; set; }
+        public virtual FNumberProperty FOWNERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string FKEEPERTYPEID { get; set; }
+        public virtual string FKEEPERTYPEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public FNumberProperty FKEEPERID { get; set; }
+        public virtual FNumberProperty FKEEPERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public List<Type_Stk_Miscellaneous_SerialSubEntity> FSerialSubEntity { get; set; }
+        public virtual List<Type_Stk_Miscellaneous_SerialSubEntity> FSerialSubEntity { get; set; }
     }
     public class Stk_Miscellaneous_FEntity : Stk_Miscellaneous_FEntity<Stk_Miscellaneous_SerialSubEntity>
     { }
