@@ -50,7 +50,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FScanBox{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Sp_Instock_FEntity> FEntity { get; set; }
+        public virtual List<Type_Sp_Instock_FEntity> FEntity { get; set; }
     }
     /// <summary>
     /// 简单生产入库单
