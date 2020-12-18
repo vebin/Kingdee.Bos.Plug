@@ -7,6 +7,7 @@ using MgSoft.K3Cloud.WebApiTests;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock;
 using MgSoft.K3Cloud.WebApi.Common.Dto.Sal;
+using MgSoft.K3Cloud.WebApi.Common.Model;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal_ReturnStock.Tests
 {
@@ -49,7 +50,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal_ReturnStock.Tests
                         FStockstatusId = new FNumberProperty("KCZT01_SYS"),
                         FReturnType = new FNumberProperty("THLX01_SYS"),
                         FLot = new FNumberProperty("123456"),
-                        FStocklocId = new Sal_FStockLocIdModel()
+                        FStocklocId = new StockLocModel()
                         {
                             FSTOCKLOCID__FF100001 = new FNumberProperty("001"),
                             FSTOCKLOCID__FF100002= new FNumberProperty("001"),
@@ -64,7 +65,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal_ReturnStock.Tests
                         FStockId = new FNumberProperty("CK001"),
                         FStockstatusId = new FNumberProperty("KCZT01_SYS"),
                         FReturnType = new FNumberProperty("THLX01_SYS"),
-                        FStocklocId = new Sal_FStockLocIdModel()
+                        FStocklocId = new StockLocModel()
                         {
                             FSTOCKLOCID__FF100001 = new FNumberProperty("001"),
                             FSTOCKLOCID__FF100002= new FNumberProperty("001"),

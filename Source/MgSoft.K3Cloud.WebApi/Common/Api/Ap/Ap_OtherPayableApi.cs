@@ -31,15 +31,15 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ap
         }
 
 
-        public bool Save<T>(T Ap_OtherPayableSaveInputDto) where T : Ap_OtherPayableSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = Ap_OtherPayableSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T Ap_OtherPayableSaveInputDto) where T : Ap_OtherPayableSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = Ap_OtherPayableSaveInputDto
+        //    });
+        //    return true;
+        //}
         
 
     }

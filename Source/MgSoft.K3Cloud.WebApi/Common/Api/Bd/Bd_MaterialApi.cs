@@ -26,12 +26,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
             });
         }
 
-        public List<SaveOutPutDto> Save<T>(T bd_MaterialSaveInputDto)
-        {
-            return base.Save(new SaveInputDto()
-            {
-                Model = bd_MaterialSaveInputDto
-            });
-        }
+        //public List<SaveOutPutDto> Save<T>(T bd_MaterialSaveInputDto)
+        //{
+        //    return base.Save(new SaveInputDto()
+        //    {
+        //        Model = bd_MaterialSaveInputDto
+        //    });
+        //}
     }
 }

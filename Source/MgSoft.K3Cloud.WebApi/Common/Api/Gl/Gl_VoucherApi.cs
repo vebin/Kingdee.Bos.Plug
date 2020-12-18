@@ -31,14 +31,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl
         }
 
 
-        public bool Save<T>(T Gl_VoucherSaveInputDto) where T : Gl_VoucherSaveInputDto
-        {
-            base.Save(new SaveInputDto
-            {
-                FormId = formId,
-                Model = Gl_VoucherSaveInputDto
-            });
-            return true;
-        }
+        //public bool Save<T>(T Gl_VoucherSaveInputDto) where T : Gl_VoucherSaveInputDto
+        //{
+        //    base.Save(new SaveInputDto
+        //    {
+        //        FormId = formId,
+        //        Model = Gl_VoucherSaveInputDto
+        //    });
+        //    return true;
+        //}
     }
 }
