@@ -127,7 +127,22 @@ namespace MgSoft.K3Cloud.WebApi
         /// </summary>
         /// <param name="saveInputDto"></param>
         /// <returns></returns>
-        public List<SaveOutPutDto> Save(SaveInputDto saveInputDto)
+        public virtual List<SaveOutPutDto> Save(SaveInputDto saveInputDto)
+        {
+            setFormId(saveInputDto);
+
+            var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
+            CheckGetIsSuccess(apiResult);
+
+            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(GetData(apiResult));
+        }
+
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="saveInputDto"></param>
+        /// <returns></returns>
+        public List<SaveOutPutDto> Save1(SaveInputDto saveInputDto)
         {
             setFormId(saveInputDto);
 
