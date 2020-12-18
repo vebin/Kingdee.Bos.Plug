@@ -39,7 +39,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual decimal? FRealQty { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 计价单位（必填）
         /// </summary>
         public virtual FNumberProperty FPriceUnitID { get; set; }
 
@@ -110,7 +110,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual FNumberProperty FSetPriceUnitID { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 采购单位(必填)
         /// </summary>
         public virtual FNumberProperty FRemainInStockUnitId { get; set; }
 
