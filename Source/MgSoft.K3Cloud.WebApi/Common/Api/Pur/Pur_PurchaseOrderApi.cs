@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur
     /// <summary>
     /// 采购订单Api
     /// </summary>
-    public class Pur_PurchaseOrderApi : BaseApi
+    public class Pur_PurchaseOrderApi : BaseApi, IPur_PurchaseOrderApi
     {
         protected override string formId => "PUR_PurchaseOrder";
         public Pur_PurchaseOrderApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

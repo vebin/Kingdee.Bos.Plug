@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Gl
     /// <summary>
     /// 凭证Api
     /// </summary>
-    public class Gl_VoucherApi : BaseApi
+    public class Gl_VoucherApi : BaseApi, IGl_VoucherApi
     {
         protected override string formId => "Gl_Voucher";
         public Gl_VoucherApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

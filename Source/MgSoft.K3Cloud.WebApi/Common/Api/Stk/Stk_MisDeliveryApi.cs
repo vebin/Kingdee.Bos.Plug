@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
     /// <summary>
     /// 其他出库单
     /// </summary>
-    public class Stk_MisDeliveryApi : BaseApi
+    public class Stk_MisDeliveryApi : BaseApi, IStk_MisDeliveryApi
     {
         protected override string formId => "Stk_MisDelivery";
         public Stk_MisDeliveryApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

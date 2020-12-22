@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal_ReturnStock
     /// <summary>
     /// 销售退库单Api
     /// </summary>
-    public class Sal_ReturnStockApi : BaseApi
+    public class Sal_ReturnStockApi : BaseApi, ISal_ReturnStockApi
     {
         protected override string formId => "SAL_RETURNSTOCK";
         public Sal_ReturnStockApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

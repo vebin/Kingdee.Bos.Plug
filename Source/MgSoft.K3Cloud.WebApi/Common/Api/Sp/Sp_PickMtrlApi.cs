@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp
     /// <summary>
     /// 简单生产领料ApI
     /// </summary>
-    public class Sp_PickMtrlApi : BaseApi
+    public class Sp_PickMtrlApi : BaseApi, ISp_PickMtrlApi
     {
         protected override string formId => "Sp_PickMtrl";
         public Sp_PickMtrlApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

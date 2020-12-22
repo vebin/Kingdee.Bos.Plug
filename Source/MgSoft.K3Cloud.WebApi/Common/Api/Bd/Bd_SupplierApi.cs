@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
     /// <summary>
     /// 供应商Api
     /// </summary>
-    public class Bd_SupplierApi : BaseApi
+    public class Bd_SupplierApi : BaseApi, IBd_SupplierApi
     {
         protected override string formId => "BD_Supplier";
         public Bd_SupplierApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

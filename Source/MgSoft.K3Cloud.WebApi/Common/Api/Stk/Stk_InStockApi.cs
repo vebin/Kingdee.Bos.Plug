@@ -11,7 +11,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
     /// <summary>
     /// 采购入库单
     /// </summary>
-    public class Stk_InStockApi : BaseApi
+    public class Stk_InStockApi : BaseApi, IStk_InStockApi
     {
         protected override string formId => "STK_InStock";
 

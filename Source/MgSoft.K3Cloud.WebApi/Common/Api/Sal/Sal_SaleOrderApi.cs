@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal
     /// <summary>
     /// 销售订单Api
     /// </summary>
-    public class Sal_SaleOrderApi : BaseApi
+    public class Sal_SaleOrderApi : BaseApi, ISal_SaleOrderApi
     {
         protected override string formId => "Sal_SaleOrder";
         public Sal_SaleOrderApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

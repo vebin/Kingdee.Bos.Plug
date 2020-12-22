@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ap
     /// <summary>
     /// 付款单Api
     /// </summary>
-    public class Ap_PayBillApi : BaseApi
+    public class Ap_PayBillApi : BaseApi, IAp_PayBillApi
     {
         protected override string formId => "AP_PAYBILL";
         public Ap_PayBillApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

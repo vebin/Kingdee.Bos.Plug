@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ar
     /// <summary>
     /// 收款退款单Api
     /// </summary>
-    public class Ar_RefundBillApi : BaseApi
+    public class Ar_RefundBillApi : BaseApi, IAr_RefundBillApi
     {
         protected override string formId => "AR_REFUNDBILL";
         public Ar_RefundBillApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

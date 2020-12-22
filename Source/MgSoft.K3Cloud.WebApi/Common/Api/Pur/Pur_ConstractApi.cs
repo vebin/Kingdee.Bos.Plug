@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur
 {
-    public class Pur_ConstractApi : BaseApi
+    public class Pur_ConstractApi : BaseApi, IPur_ConstractApi
     {
         protected override string formId => "PUR_Contract";
         public Pur_ConstractApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

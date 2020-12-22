@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ar
     /// <summary>
     /// 应收单Api
     /// </summary>
-    public class Ar_ReceivableApi : BaseApi
+    public class Ar_ReceivableApi : BaseApi, IAr_ReceivableApi
     {
         protected override string formId => "AR_receivable";
         public Ar_ReceivableApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

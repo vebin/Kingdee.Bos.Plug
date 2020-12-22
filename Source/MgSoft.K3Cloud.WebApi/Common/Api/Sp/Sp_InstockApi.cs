@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Sp
 {
-    public class Sp_InstockApi : BaseApi
+    public class Sp_InstockApi : BaseApi, ISp_InstockApi
     {
         protected override string formId => "Sp_Instock";
         public Sp_InstockApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

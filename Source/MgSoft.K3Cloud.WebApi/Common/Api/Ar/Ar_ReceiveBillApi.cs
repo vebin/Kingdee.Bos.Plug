@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ar
     /// <summary>
     /// 收款单Api
     /// </summary>
-    public class Ar_ReceiveBillApi : BaseApi
+    public class Ar_ReceiveBillApi : BaseApi, IAr_ReceiveBillApi
     {
         protected override string formId => "AR_RECEIVEBILL";
         public Ar_ReceiveBillApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

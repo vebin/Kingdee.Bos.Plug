@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.WebApi
 {
-    public abstract class BaseApi
+    public abstract class BaseApi : IWebApi
     {
         protected K3CloudApiClient client;
 
@@ -128,21 +128,6 @@ namespace MgSoft.K3Cloud.WebApi
         /// <param name="saveInputDto"></param>
         /// <returns></returns>
         public virtual List<SaveOutPutDto> Save(SaveInputDto saveInputDto)
-        {
-            setFormId(saveInputDto);
-
-            var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
-            CheckGetIsSuccess(apiResult);
-
-            return JsonConvert.DeserializeObject<List<SaveOutPutDto>>(GetData(apiResult));
-        }
-
-        /// <summary>
-        /// 保存
-        /// </summary>
-        /// <param name="saveInputDto"></param>
-        /// <returns></returns>
-        public List<SaveOutPutDto> Save1(SaveInputDto saveInputDto)
         {
             setFormId(saveInputDto);
 

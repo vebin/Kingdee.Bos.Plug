@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ap
     /// <summary>
     /// 其他应付单Api
     /// </summary>
-    public class Ap_OtherPayableApi : BaseApi
+    public class Ap_OtherPayableApi : BaseApi, IAp_OtherPayableApi
     {
         protected override string formId => "Ap_OtherPayable";
         public Ap_OtherPayableApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)
@@ -40,7 +40,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Ap
         //    });
         //    return true;
         //}
-        
+
 
     }
 }

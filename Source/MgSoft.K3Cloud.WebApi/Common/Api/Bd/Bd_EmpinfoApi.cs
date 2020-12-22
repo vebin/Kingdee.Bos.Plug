@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
     /// <summary>
     /// 员工Api
     /// </summary>
-    public class Bd_EmpinfoApi : BaseApi
+    public class Bd_EmpinfoApi : BaseApi, IBd_EmpinfoApi
     {
         protected override string formId => "BD_Empinfo";
         public Bd_EmpinfoApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Stk
     /// <summary>
     /// 其他入库单
     /// </summary>
-    public class Stk_MiscellaneousApi : BaseApi
+    public class Stk_MiscellaneousApi : BaseApi, IStk_MiscellaneousApi
     {
         protected override string formId => "Stk_Miscellaneous";
         public Stk_MiscellaneousApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)

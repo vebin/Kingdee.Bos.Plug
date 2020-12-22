@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
 {
-    public class Bd_MaterialApi : BaseApi
+    public class Bd_MaterialApi : BaseApi, IBd_MaterialApi
     {
         protected override string formId => "BD_MATERIAL";
 
@@ -17,7 +17,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Bd
         public Bd_MaterialApi(string serverUrl, string dbid, string userName, string password, int lcid = 2052) : base(serverUrl, dbid, userName, password, lcid)
         {
         }
-        
+
         public List<SaveOutPutDto> Save(Bd_MaterialSaveInputDto bd_MaterialSaveInputDto)
         {
             return base.Save(new SaveInputDto()

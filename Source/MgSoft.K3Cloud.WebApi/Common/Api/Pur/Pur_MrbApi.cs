@@ -9,7 +9,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Pur
     /// <summary>
     /// 采购退料单Api
     /// </summary>
-    public class Pur_MrbApi : BaseApi
+    public class Pur_MrbApi : BaseApi, IPur_MrbApi
     {
         protected override string formId => "PUR_MRB";
         public Pur_MrbApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)
