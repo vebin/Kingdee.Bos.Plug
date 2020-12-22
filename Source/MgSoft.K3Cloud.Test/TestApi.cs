@@ -17,6 +17,8 @@ namespace MgSoft.K3Cloud.Test
         {
         }
 
+        protected override string formId => throw new NotImplementedException();
+
         public List<DeliveryNoticeListOutPutDto> GetList()
         {
             GetListInputDto queryApiDto = new GetListInputDto()

@@ -8,4 +8,8 @@
     <PackageReference Include="Autofac" Version="6.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MgSoft.K3Cloud.WebApi\MgSoft.K3Cloud.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
