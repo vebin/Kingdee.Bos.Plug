@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 
 namespace MgSoft.Util
 {
@@ -72,6 +73,22 @@ namespace MgSoft.Util
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 根据枚举值，获取描述
+        /// </summary>
+        /// <param name="enumValue"></param>
+        /// <returns></returns>
+        public static string GetEnumDes(Enum enumValue)
+        {
+            string value = enumValue.ToString();
+            FieldInfo field = enumValue.GetType().GetField(value);
+            object[] objs = field.GetCustomAttributes(typeof(DescriptionAttribute), false);    //获取描述属性
+            if (objs == null || objs.Length == 0)    //当描述属性没有时，直接返回名称
+                return value;
+            DescriptionAttribute descriptionAttribute = (DescriptionAttribute)objs[0];
+            return descriptionAttribute.Description;
         }
     }
 }
