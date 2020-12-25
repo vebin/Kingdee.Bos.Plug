@@ -24,11 +24,20 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// </summary>
         [JsonRequired]
         public virtual DateTime? FDate { get; set; } = DateTime.Now;
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        /// <summary>
+        /// 退料类型（必填）
+        /// </summary>
+        [JsonRequired]
         public virtual string FMRTYPE { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        /// <summary>
+        /// 退料方式（必填）
+        /// </summary>
+        [JsonRequired]
         public virtual string FMRMODE { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        /// <summary>
+        /// 库存组织(必填)
+        /// </summary>
+        [JsonRequired]
         public virtual FNumberProperty FStockOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMRDeptId { get; set; }
@@ -40,9 +49,15 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         public virtual FNumberProperty FSTOCKERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMRREASON { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        /// <summary>
+        /// 需求组织(必填)
+        /// </summary>
+        [JsonRequired]
         public virtual FNumberProperty FRequireOrgId { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        /// <summary>
+        /// 采购组织(必填)
+        /// </summary>
+        [JsonRequired]
         public virtual FNumberProperty FPurchaseOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURCHASEDEPTID { get; set; }

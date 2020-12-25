@@ -140,19 +140,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// 费用明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_Mrb_FEntryPruCost> FEntryPruCost { get; set; }
+        public virtual List<Type_Pur_Mrb_FEntryPruCost> FEntryPruCost { get; set; }
         /// <summary>
         /// 税务明细
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_Mrb_FTaxDetailSubEntity> FTaxDetailSubEntity { get; set; }
+        public virtual List<Type_Pur_Mrb_FTaxDetailSubEntity> FTaxDetailSubEntity { get; set; }
         /// <summary>
         /// 序列号子单据体
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public virtual List<Pur_Mrb_FSerialSubEntity> FSerialSubEntity { get; set; }
+        public virtual List<Type_Pur_Mrb_FSerialSubEntity> FSerialSubEntity { get; set; }
     }
-    public class Pur_Mrb_FPurmrbEntry : Pur_Mrb_FPurmrbEntry<Pur_Mrb_FEntryPruCost, Pur_Mrb_FTaxDetailSubEntity, Pur_Mrb_FSerialSubEntity>
+    public class Pur_Mrb_FPurmrbEntry : 
+        Pur_Mrb_FPurmrbEntry<Pur_Mrb_FEntryPruCost, 
+            Pur_Mrb_FTaxDetailSubEntity, 
+            Pur_Mrb_FSerialSubEntity>
     {
 
     }

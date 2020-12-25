@@ -41,6 +41,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         public virtual FNumberProperty FStockId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual StockLocModel FStockLocId { get; set; }
+        /// <summary>
+        /// 批号
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FLot { get; set; }
         /// <summary>

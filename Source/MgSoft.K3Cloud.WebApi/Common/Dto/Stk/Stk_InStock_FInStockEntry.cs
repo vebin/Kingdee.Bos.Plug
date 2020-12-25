@@ -1,4 +1,5 @@
 ﻿using MgSoft.K3Cloud.WebApi.Common.Dto.Property;
+using MgSoft.K3Cloud.WebApi.Common.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -34,14 +35,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FParentMatId { get; set; }
+        /// <summary>
+        /// 实收数量(必填)
+        /// </summary>
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonRequired]
         public virtual decimal? FRealQty { get; set; }
 
         /// <summary>
         /// 计价单位（必填）
         /// </summary>
         public virtual FNumberProperty FPriceUnitID { get; set; }
+        /// <summary>
+        /// 计价数量(必填)
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public virtual decimal? FPriceUnitQty { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPrice { get; set; }
@@ -57,14 +66,8 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FDisPriceQty { get; set; }
-        //"FStockLocId": {
-        //    "FSTOCKLOCID__FF100001": {
-        //        "FNumber": ""
-        //    },
-        //    "FSTOCKLOCID__FF100002": {
-        //        "FNumber": ""
-        //    }
-        //},
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public virtual StockLocModel FStockLocId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockStatusId { get; set; }
 
@@ -81,7 +84,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual DateTime? FProduceDate { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 货主类型（必填）
         /// </summary>
         public virtual string FOWNERTYPEID { get; set; }
 
@@ -151,7 +154,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual decimal? FAuxUnitQty { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 货主（必填）
         /// </summary>
         public virtual FNumberProperty FOWNERID { get; set; }
 
