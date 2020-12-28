@@ -52,6 +52,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FLot { get; set; }
+        /// <summary>
+        /// 生产对象(影响成本计算)
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FProductId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
