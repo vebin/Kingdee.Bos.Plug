@@ -67,6 +67,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         public FNumberProperty FStockUnitId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public decimal? FStockActualQty { get; set; }
+        /// <summary>
+        /// 货主类型
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FOwnerTypeId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

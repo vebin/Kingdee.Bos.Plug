@@ -53,6 +53,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         public virtual FNumberProperty FWorkShopId1 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FShiftGroupId { get; set; }
+        /// <summary>
+        /// 生产编号(会影响成本核算)
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FProductNo { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
