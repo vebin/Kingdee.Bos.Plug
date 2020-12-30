@@ -6,7 +6,10 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
 {
-    public class Sal_OutStockQueryListOutputDto
+    /// <summary>
+    /// 销售出库单查询列表Dto
+    /// </summary>
+    public class Sal_OutStockGetListOutputDto
     {
         /// <summary>
         /// 单据内码
@@ -50,6 +53,11 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// </summary>
         [JsonProperty(propertyName: ("FSettleOrgID.FName"))]
         public virtual string SettleOrg { get; set; }
+        /// <summary>
+        /// 分录内码
+        /// </summary>
+        [JsonProperty(propertyName: ("FEntity_FEntryId"))]
+        public virtual string FEntryId { get; set; }
         /// <summary>
         /// 物料编码
         /// </summary>
