@@ -57,7 +57,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// 分录内码
         /// </summary>
         [JsonProperty(propertyName: ("FEntity_FEntryId"))]
-        public virtual string FEntryId { get; set; }
+        public virtual long FEntryId { get; set; }
         /// <summary>
         /// 物料编码
         /// </summary>

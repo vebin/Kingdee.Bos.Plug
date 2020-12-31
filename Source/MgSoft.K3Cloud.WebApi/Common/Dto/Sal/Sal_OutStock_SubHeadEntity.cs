@@ -19,6 +19,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual FNumberProperty FLocalCurrID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FExchangeTypeID { get; set; }
+        /// <summary>
+        /// 汇率
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal FExchangeRate { get; set; }
         /// <summary>
