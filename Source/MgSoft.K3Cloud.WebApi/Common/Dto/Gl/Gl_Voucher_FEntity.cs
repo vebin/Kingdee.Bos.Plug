@@ -14,7 +14,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         /// <summary>
         /// 摘要
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FEXPLANATION { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FACCOUNTID { get; set; }
@@ -26,12 +26,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         /// <summary>
         /// 币别
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; }
         /// <summary>
         /// 汇率类型
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FEXCHANGERATETYPE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FEXCHANGERATE { get; set; }

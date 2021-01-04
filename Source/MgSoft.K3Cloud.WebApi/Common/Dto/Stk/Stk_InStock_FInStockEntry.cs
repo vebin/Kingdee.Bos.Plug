@@ -39,7 +39,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// 实收数量(必填)
         /// </summary>
 
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FRealQty { get; set; }
 
         /// <summary>

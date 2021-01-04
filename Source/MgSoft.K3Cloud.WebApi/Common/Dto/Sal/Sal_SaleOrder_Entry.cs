@@ -31,7 +31,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// <summary>
         /// 物料编码(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMaterialId { get; set; }
         //"FAuxPropId": {
         //    "FAUXPROPID__FF100002": {
@@ -53,7 +53,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// <summary>
         /// 销售数量(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FOldQty { get; set; }

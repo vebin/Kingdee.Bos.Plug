@@ -31,24 +31,24 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 业务日期(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FDATE { get; set; } = DateTime.Now;
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool? FISINIT { get; set; }
         /// <summary>
         /// 到期日(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FENDDATE_H { get; set; }
         /// <summary>
         /// 客户(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCUSTOMERID { get; set; }
         /// <summary>
         /// 币别(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; } = new FNumberProperty("PRE001");//人民币
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPayConditon { get; set; }
@@ -59,17 +59,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLEORGID { get; set; }
         /// <summary>
         /// 收款组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYORGID { get; set; }
         /// <summary>
         /// 销售组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSALEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool? FISTAX { get; set; }

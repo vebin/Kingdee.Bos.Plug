@@ -23,12 +23,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 入库组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockOrgId { get; set; }
         /// <summary>
         /// 生产组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPrdOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockerGroupId { get; set; }
@@ -41,7 +41,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 货主(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FOwnerId0 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FDescription{ get; set; }

@@ -18,13 +18,13 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 物料编码(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMaterialId { get; set; }
         //"FAuxPropId": {"FAUXPROPID__FF100002": {"FNumber": ""}},
         /// <summary>
         /// 单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FUnitID { get; set; }
         /// <summary>
         /// 实发数量
@@ -36,7 +36,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 发货仓库(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockId { get; set; }
         /// <summary>
         /// 仓位
@@ -55,7 +55,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 货主(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FOwnerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FEntryNote { get; set; }

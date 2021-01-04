@@ -24,7 +24,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 汇率(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal FExchangeRate { get; set; } = 1m;
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPriceListId { get; set; }

@@ -20,12 +20,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 单据类型(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FBillTypeID { get; set; }
         /// <summary>
         /// 库存组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockOrgId { get; set; }
         /// <summary>
         /// 领用组织
@@ -56,7 +56,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 货主类型(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FOwnerTypeIdHead{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FOwnerIdHead { get; set; }

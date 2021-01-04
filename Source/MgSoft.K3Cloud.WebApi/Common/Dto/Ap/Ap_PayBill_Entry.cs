@@ -18,12 +18,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 结算方式(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLETYPEID { get; set; }
         /// <summary>
         /// 付款用途(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURPOSEID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FPAYITEMTYPE { get; set; }
@@ -32,7 +32,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 应付金额(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPAYTOTALAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPAYAMOUNTFOR_E { get; set; }

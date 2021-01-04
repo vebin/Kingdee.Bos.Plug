@@ -20,7 +20,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 应退金额(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FREFUNDAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FREFUNDAMOUNTFOR_E { get; set; }
@@ -37,7 +37,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 备注(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FNOTE { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FOpenAddressRec { get; set; }

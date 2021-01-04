@@ -21,17 +21,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 库存组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FStockOrgId { get; set; }
         /// <summary>
         /// 库存方向(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FStockDirect { get; set; }
         /// <summary>
         /// 日期(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? FDate { get; set; }
         /// <summary>
         /// 供应商
@@ -51,7 +51,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 货主类型(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FOwnerTypeIdHead { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FOwnerIdHead { get; set; }
@@ -64,7 +64,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 明细信息
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<Type_Stk_Miscellaneous_FEntity> FEntity { get; set; }
     }
     /// <summary>
