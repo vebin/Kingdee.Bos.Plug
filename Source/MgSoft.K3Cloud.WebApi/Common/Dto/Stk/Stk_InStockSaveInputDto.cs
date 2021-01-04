@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 {
+    /// <summary>
+    /// 采购入库单
+    /// </summary>
+    /// <typeparam name="Type_FInStockFin"></typeparam>
+    /// <typeparam name="Type_FInStockEntry"></typeparam>
     public class Stk_InStockSaveInputDto<Type_FInStockFin, Type_FInStockEntry>
         where Type_FInStockFin : Stk_InStock_FInStockFin
         where Type_FInStockEntry : Stk_InStock_FInStockEntry
@@ -16,7 +21,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual long? FID { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 单据类型(必填)
         /// </summary>
         public virtual FNumberProperty FBillTypeID { get; set; }
 
@@ -24,12 +29,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual string FBillNo { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 入库日期(必填)
         /// </summary>
         public virtual DateTime FDate { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 收料组织(必填)
         /// </summary>
         public virtual FNumberProperty FStockOrgId { get; set; }
 
@@ -49,7 +54,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual FNumberProperty FCorrespondOrgId { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 采购组织(必填)
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPurchaseOrgId { get; set; }
@@ -64,7 +69,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual FNumberProperty FPurchaserId { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 供应商(必填)
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSupplierId { get; set; }
@@ -82,12 +87,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual FNumberProperty FChargeId { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 货主类型(必填)
         /// </summary>
         public virtual string FOwnerTypeIdHead { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 货主(必填)
         /// </summary>
         public virtual FNumberProperty FOwnerIdHead { get; set; }
 
@@ -111,14 +116,23 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FSplitBillType { get; set; }
+        /// <summary>
+        /// 财务信息
+        /// </summary>
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual Type_FInStockFin FInStockFin { get; set; }
+        /// <summary>
+        /// 明细信息
+        /// </summary>
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<Type_FInStockEntry> FInStockEntry { get; set; }
     }
 
+    /// <summary>
+    /// 采购入库单
+    /// </summary>
     public class Stk_InStockSaveInputDto : Stk_InStockSaveInputDto<Stk_InStock_FInStockFin, Stk_InStock_FInStockEntry>
     {
 

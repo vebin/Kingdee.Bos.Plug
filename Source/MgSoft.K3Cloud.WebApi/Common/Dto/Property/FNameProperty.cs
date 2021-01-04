@@ -16,7 +16,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Property
 
         public FNameProperty(string FName)
         {
-            this.FName = FName;
+            this.FName = string.IsNullOrEmpty(FName) ?  "" : FName;
         }
         [JsonProperty("FName")]
         public string FName { get; set; }

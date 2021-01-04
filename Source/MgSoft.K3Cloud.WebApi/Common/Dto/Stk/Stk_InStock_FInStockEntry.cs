@@ -19,12 +19,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual string FWWInType { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 物料编码(必填)
         /// </summary>
         public virtual FNumberProperty FMaterialId { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 库存单位(必填)
         /// </summary>
         public virtual FNumberProperty FUnitID { get; set; }
         //"FAuxPropId": {
@@ -62,6 +62,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FLot { get; set; }
+        /// <summary>
+        /// 仓库
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
