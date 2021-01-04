@@ -31,7 +31,8 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 入库日期(必填)
         /// </summary>
-        public virtual DateTime FDate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public virtual DateTime? FDate { get; set; }
 
         /// <summary>
         /// 收料组织(必填)
@@ -46,6 +47,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockerId { get; set; }
+        /// <summary>
+        /// 需求组织
+        /// </summary>
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FDemandOrgId { get; set; }

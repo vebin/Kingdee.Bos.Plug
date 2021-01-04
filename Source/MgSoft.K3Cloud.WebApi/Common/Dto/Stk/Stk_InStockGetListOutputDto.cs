@@ -15,11 +15,11 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// 分录内码
         /// </summary>
         [JsonProperty("FInStockEntry_FEntryId")]
-        public long? FEntryId { get; set; }
+        public long FEntryId { get; set; }
         /// <summary>
         /// 财务信息内码
         /// </summary>
         [JsonProperty("FInStockFin_FEntryId")]
-        public long? FInStockFinId { get; set; }
+        public long FInStockFinId { get; set; }
     }
 }
