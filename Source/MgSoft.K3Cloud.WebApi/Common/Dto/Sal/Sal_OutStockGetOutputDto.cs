@@ -8,8 +8,8 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
 {
-    public class Sal_OutStockQueryOutputDto<Type_Entry>
-        where Type_Entry : Sal_QutStockEntryQueryOutputDto
+    public class Sal_OutStockGetOutputDto<Type_Entry>
+        where Type_Entry : Sal_QutStockEntryGetOutputDto
     {
         [JsonProperty(PropertyName = "MultiLanguageText")]
         public MultiLanguageText[] MultiLanguageText { get; set; }
@@ -59,7 +59,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// 明细信息
         /// </summary>
         [JsonProperty(propertyName: ("SAL_OUTSTOCKENTRY"))]
-        public List<Sal_QutStockEntryQueryOutputDto> Entry { get; set; }
+        public List<Sal_QutStockEntryGetOutputDto> Entry { get; set; }
         /// <summary>
         /// 单价
         /// </summary>
@@ -67,6 +67,6 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         public virtual decimal Price { get; set; }
     }
 
-    public class Sal_OutStockQueryOutputDto : Sal_OutStockQueryOutputDto<Sal_QutStockEntryQueryOutputDto>
+    public class Sal_OutStockQueryOutputDto : Sal_OutStockGetOutputDto<Sal_QutStockEntryGetOutputDto>
     { }
 }
