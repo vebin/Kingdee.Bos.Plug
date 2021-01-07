@@ -10,7 +10,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Org
     /// </summary>
     public class Org_OrganizationsApi : BaseApi, IOrg_OrganizationsApi
     {
-        protected override string formId => "ORG_OrganizationsApi";
+        protected override string formId => "ORG_Organizations";
 
         public Org_OrganizationsApi(ApiServerInfo apiServerInfo) : base(apiServerInfo)
         {
