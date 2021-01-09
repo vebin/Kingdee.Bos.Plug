@@ -18,7 +18,6 @@ namespace MgSoft.Model
         /// </summary>
         public int RowCount { get; set; } = 0;
 
-
         /// <summary>
         /// 页数
         /// </summary>
@@ -26,9 +25,8 @@ namespace MgSoft.Model
         {
             get
             {
-                return RowCount / PageSize;
+                return (int)Math.Ceiling((decimal)RowCount / (decimal)PageSize);
             }
-
         }
     }
 }
