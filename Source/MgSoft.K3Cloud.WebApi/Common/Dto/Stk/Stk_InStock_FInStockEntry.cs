@@ -32,6 +32,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         //        "FNumber": ""
         //    }
         //},
+
+        /// <summary>
+        /// 基本单位
+        /// </summary>
         public virtual FNumberProperty FBaseUnitID { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
