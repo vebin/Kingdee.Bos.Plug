@@ -35,5 +35,11 @@ namespace MgSoft.K3Cloud.Model
         int TryToIntOrDefault(int defaultValue);
         long TryToLongOrDefault(long defaultValue);
         long? TryToLongOrNull(long? defaultValue);
+
+        bool ToBoolean();
+
+        bool TryToBooleanOrDefault(bool defaultValue);
+
+        bool? TryToBooleanOrDefault(bool? defaultValue);
     }
 }

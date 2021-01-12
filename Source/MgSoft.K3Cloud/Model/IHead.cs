@@ -9,8 +9,8 @@ namespace MgSoft.K3Cloud.Model
 
         string HeadName { get; }
         IHeads Heads { get; }
-        long Id { get; set; }
-        string Number { get; set; }
-        object Value { get; set; }
+        //long Id { get; set; }
+        //string Number { get; set; }
+        //object Value { get; set; }
     }
 }
