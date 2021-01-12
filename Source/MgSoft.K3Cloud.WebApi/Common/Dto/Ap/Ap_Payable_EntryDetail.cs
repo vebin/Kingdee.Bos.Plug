@@ -19,7 +19,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 物料编码(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMATERIALID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FMaterialDesc { get; set; }
@@ -32,12 +32,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 计价数量(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPriceQty { get; set; }
         /// <summary>
         /// 含税单价(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FTaxPrice { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FPriceWithTax { get; set; }

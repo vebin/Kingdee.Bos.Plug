@@ -28,7 +28,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 业务日期(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FDATE { get; set; } = DateTime.Now;
         /// <summary>
         /// 往来单位类型(必填) 备注:不需要给值，使用系统默认值
@@ -38,7 +38,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCONTACTUNIT { get; set; }
         /// <summary>
         /// 付款单位类型(必填) 备注:不需要给值，使用系统默认值
@@ -48,12 +48,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 付款单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYUNIT { get; set; }
         /// <summary>
         /// 币别
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYORGID { get; set; }
@@ -86,7 +86,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 结算币别(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLECUR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool? FISB2C { get; set; }

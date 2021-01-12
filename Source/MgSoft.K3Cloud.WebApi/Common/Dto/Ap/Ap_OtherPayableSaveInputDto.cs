@@ -29,7 +29,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCONTACTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; }
@@ -42,17 +42,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLEORGID { get; set; }
         /// <summary>
         /// 采购组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURCHASEORGID { get; set; }
         /// <summary>
         /// 付款组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURCHASEDEPTID { get; set; }

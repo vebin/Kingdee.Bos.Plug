@@ -92,7 +92,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
         /// <summary>
         /// 必填
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FSalUnitQty { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FSalBaseQty { get; set; }

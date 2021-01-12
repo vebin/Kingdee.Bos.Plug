@@ -16,7 +16,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Property
 
         public FNumberProperty(string fnumber)
         {
-            FNumber = fnumber;
+            FNumber = string.IsNullOrEmpty(fnumber) ? "" : fnumber;
         }
 
         [JsonProperty("FNumber")]

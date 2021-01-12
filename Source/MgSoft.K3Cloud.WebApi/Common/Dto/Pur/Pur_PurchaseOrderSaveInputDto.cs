@@ -34,7 +34,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 供应商(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSupplierId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPurchaseOrgId { get; set; }

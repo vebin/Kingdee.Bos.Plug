@@ -38,7 +38,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 供应商(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSUPPLIERID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; }
@@ -55,17 +55,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLEORGID { get; set; }
         /// <summary>
         /// 付款组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYORGID { get; set; }
         /// <summary>
         /// 采购组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURCHASEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FSetAccountType { get; set; }

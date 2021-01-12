@@ -16,14 +16,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 结算组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSettleOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLETYPEID { get; set; }
         /// <summary>
         /// 结算币别(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSettleCurrId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYCONDITIONID { get; set; }
@@ -32,7 +32,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 定价时点(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FPRICETIMEPOINT { get; set; } = "系统日期";
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPRICELISTID { get; set; }

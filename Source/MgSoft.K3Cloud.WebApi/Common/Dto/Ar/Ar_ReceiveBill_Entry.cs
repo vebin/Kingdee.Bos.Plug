@@ -16,12 +16,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 结算方式(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLETYPEID { get; set; }
         /// <summary>
         /// 收款用途(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPURPOSEID { get; set; } = new FNumberProperty("SFKYT01_SYS");
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FRECEIVEITEMTYPE { get; set; }

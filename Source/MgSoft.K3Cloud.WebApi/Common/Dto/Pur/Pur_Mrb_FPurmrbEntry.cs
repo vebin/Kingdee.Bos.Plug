@@ -25,7 +25,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 物料
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FMATERIALID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FMaterialDesc { get; set; }
@@ -36,12 +36,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 库存单位
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FUnitID { get; set; }
         /// <summary>
         /// 实退数量(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FRMREALQTY { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FREPLENISHQTY { get; set; }
@@ -50,7 +50,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 计价单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPRICEUNITID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSTOCKID { get; set; }
@@ -87,7 +87,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Pur
         /// <summary>
         /// 采购单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCarryUnitId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FCarryQty { get; set; }

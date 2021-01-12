@@ -37,12 +37,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// <summary>
         /// 销售组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSaleOrgId { get; set; }
         /// <summary>
         /// 客户(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCustId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FHeadDeliveryWay { get; set; }
@@ -55,17 +55,17 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal
         /// <summary>
         /// 销售部门(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSaleDeptId { get; set; }
         /// <summary>
         /// 销售组（必填）
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSaleGroupId { get; set; }
         /// <summary>
         /// 销售员(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSalerId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FReceiveAddress { get; set; }

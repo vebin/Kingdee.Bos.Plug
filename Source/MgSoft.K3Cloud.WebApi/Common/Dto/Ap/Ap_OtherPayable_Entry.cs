@@ -19,7 +19,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 费用承担部门(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCOSTDEPARTMENTID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FINVOICETYPE { get; set; }
@@ -30,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ap
         /// <summary>
         /// 税额(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FTAXAMOUNTFOR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FTOTALAMOUNTFOR { get; set; }

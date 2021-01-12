@@ -30,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 业务日期(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FDATE { get; set; } = DateTime.Now;
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FCONTACTUNITTYPE { get; set; }
@@ -41,7 +41,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 往来单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCONTACTUNIT { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FSETTLERATE { get; set; }
@@ -52,22 +52,22 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 收款单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FRECTUNIT { get; set; }
         /// <summary>
         /// 币别(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FCURRENCYID { get; set; } = new FNumberProperty("PRE001");//人民币
         /// <summary>
         /// 结算组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLEORGID { get; set; }
         /// <summary>
         /// 销售组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSALEORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSALEDEPTID { get; set; }
@@ -86,14 +86,14 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Ar
         /// <summary>
         /// 付款组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPAYORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool? FISSAMEORG { get; set; }
         /// <summary>
         /// 结算币别(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSETTLECUR { get; set; } = new FNumberProperty("PRE001");//人民币
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual bool? FISB2C { get; set; }

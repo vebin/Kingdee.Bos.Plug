@@ -15,7 +15,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual long? FVOUCHERID { get; set; }
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FAccountBookID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual DateTime? FDate { get; set; }
@@ -24,12 +24,12 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         /// <summary>
         /// 凭证字
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FVOUCHERGROUPID { get; set; }
         /// <summary>
         /// 凭证号
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FVOUCHERGROUPNO { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal FATTACHMENTS { get; set; }
@@ -40,21 +40,21 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Gl
         /// <summary>
         /// 会计年度（必填项）
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FYEAR { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FSourceBillKey { get; set; }
         /// <summary>
         /// 期间（必填项）
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal FPERIOD { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FIMPORTVERSION { get; set; }
         /// <summary>
         /// 核算组织
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FACCBOOKORGID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<Type_Gl_Voucher_FEntity> FEntity { get; set; }

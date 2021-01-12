@@ -20,24 +20,24 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 入库类型(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FInStockType { get; set; }
         /// <summary>
         /// 单位(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FUnitID { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? MustQty { get; set; }
         /// <summary>
         /// 实收数量(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FRealQty { get; set; }
         /// <summary>
         /// 仓库(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FStockId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual StockLocModel FStockLocId { get; set; }
@@ -49,7 +49,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 生产车间(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FWorkShopId1 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FShiftGroupId { get; set; }

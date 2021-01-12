@@ -30,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Api.Sal.Tests
         [TestMethod()]
         public void QueryListTest()
         {
-            var data = sal_OutStockApi.GetList<Sal_OutStockQueryListOutputDto>(new WebApi.Dto.GetListInputDto()
+            var data = sal_OutStockApi.GetList<Sal_OutStockGetListOutputDto>(new WebApi.Dto.GetListInputDto()
             {
                 FormId = "SAL_OUTSTOCK"
             });

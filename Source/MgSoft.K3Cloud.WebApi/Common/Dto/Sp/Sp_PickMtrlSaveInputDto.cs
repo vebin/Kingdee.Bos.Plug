@@ -26,7 +26,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 发料组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FStockOrgId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FStockerGroupId { get; set; }
@@ -39,19 +39,19 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         /// <summary>
         /// 货主类型(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FOwnerTypeId0{ get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FOwnerId0 { get; set; }
         /// <summary>
         /// 生产组织(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FPrdOrgId { get; set; }
         /// <summary>
         /// 生产车间(必填)
         /// </summary>
-        [JsonRequired]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FWorkShopId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public FNumberProperty FTransferBizTypeId { get; set; }

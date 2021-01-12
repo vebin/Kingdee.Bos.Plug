@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal.Query
 {
-    public class Sal_QutStockEntryQueryOutputDto
+    public class Sal_QutStockEntryGetOutputDto
     {
         /// <summary>
         /// 物料

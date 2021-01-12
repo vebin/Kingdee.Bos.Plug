@@ -262,7 +262,8 @@ namespace MgSoft.K3Cloud.WebApi
             }
             if (responseStatus.SelectToken("Errors") != null)
             {
-                throw new ApiException(responseStatus["Errors"].ToString());
+                //throw new ApiException(responseStatus["Errors"].ToString());
+                throw new ApiException(getErrorMessage(responseStatus));
             }
         }
 
@@ -297,6 +298,19 @@ namespace MgSoft.K3Cloud.WebApi
 
             return result;
         }
+
+
+        private string getErrorMessage(JToken errorToken)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < errorToken["Errors"].Count(); i++)
+            {
+                sb.Append($"{i + 1}、{errorToken["Errors"][i]["Message"]}\r\n");
+            }
+
+            return sb.ToString();
+        }
+
 
         //private object JTokenToObject(JToken jtoken)
         //{

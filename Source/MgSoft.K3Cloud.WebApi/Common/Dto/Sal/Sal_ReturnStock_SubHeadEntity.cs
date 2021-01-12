@@ -40,6 +40,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sal_ReturnStock
         public virtual FNumberProperty FLocalCurrId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FExchangeTypeId { get; set; }
+        /// <summary>
+        /// 汇率
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal FExchangeRate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

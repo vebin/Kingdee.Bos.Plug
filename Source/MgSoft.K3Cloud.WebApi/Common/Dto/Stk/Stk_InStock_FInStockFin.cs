@@ -12,7 +12,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual long? FEntryId { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 结算组织(必填)
         /// </summary>
         public virtual FNumberProperty FSettleOrgId { get; set; }
 
@@ -22,7 +22,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FPayConditionId { get; set; }
         /// <summary>
-        /// 必填
+        /// 结算币别(必填)
         /// </summary>
         public virtual FNumberProperty FSettleCurrId { get; set; }
 
@@ -30,7 +30,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         public virtual bool FIsIncludedTax { get; set; }
 
         /// <summary>
-        /// 必填
+        /// 定价时点(必填)
         /// </summary>
         public virtual string FPriceTimePoint { get; set; }
 
