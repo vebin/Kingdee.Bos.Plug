@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MgSoft.DependenceInjection.Autofac\MgSoft.DependenceInjection.Autofac.csproj" />
+    <ProjectReference Include="..\MgSoft.Import\MgSoft.Import.csproj" />
+    <ProjectReference Include="..\MgSoft\MgSoft.csproj" />
+  </ItemGroup>
+
+</Project>

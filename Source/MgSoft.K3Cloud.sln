@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.K3Cloud.WebApiTests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.DependenceInjection.Autofac", "MgSoft.DependenceInjection.Autofac\MgSoft.DependenceInjection.Autofac.csproj", "{9C55C571-4968-419B-A42E-9B2ABC00891E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac", "MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac\MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac.csproj", "{6707B9ED-7EB4-4DD6-994D-4670D6817FA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac", "MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac\MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac.csproj", "{6707B9ED-7EB4-4DD6-994D-4670D6817FA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.Import", "MgSoft.Import\MgSoft.Import.csproj", "{D137A644-EFEC-4906-BDBF-CCF63585979B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MgSoft.Import.Excel", "MgSoft.Import.Excel\MgSoft.Import.Excel.csproj", "{BBFC680C-B8BE-445A-816A-9BD6C640A0E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgSoft.Component", "MgSoft.Component\MgSoft.Component.csproj", "{1963FD92-6985-430A-8F36-01AD9044EB8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{6707B9ED-7EB4-4DD6-994D-4670D6817FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6707B9ED-7EB4-4DD6-994D-4670D6817FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6707B9ED-7EB4-4DD6-994D-4670D6817FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D137A644-EFEC-4906-BDBF-CCF63585979B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D137A644-EFEC-4906-BDBF-CCF63585979B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D137A644-EFEC-4906-BDBF-CCF63585979B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D137A644-EFEC-4906-BDBF-CCF63585979B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFC680C-B8BE-445A-816A-9BD6C640A0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFC680C-B8BE-445A-816A-9BD6C640A0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFC680C-B8BE-445A-816A-9BD6C640A0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFC680C-B8BE-445A-816A-9BD6C640A0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1963FD92-6985-430A-8F36-01AD9044EB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1963FD92-6985-430A-8F36-01AD9044EB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1963FD92-6985-430A-8F36-01AD9044EB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1963FD92-6985-430A-8F36-01AD9044EB8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

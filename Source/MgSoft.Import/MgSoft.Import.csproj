@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MgSoft.DependenceInjection.Autofac\MgSoft.DependenceInjection.Autofac.csproj" />
     <ProjectReference Include="..\MgSoft\MgSoft.csproj" />
   </ItemGroup>
 

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MgSoft.DependenceInjection.Autofac
 {
     /// <summary>
-    /// 瞬态，每次都获取到一个新实例
+    /// 在一个scope范围内拿到都是同一个实例
     /// </summary>
-    public interface IDependency
+    public interface IPerLifetimeScope
     {
     }
 }
