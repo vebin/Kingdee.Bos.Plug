@@ -243,6 +243,35 @@ namespace MgSoft.K3Cloud.Model
                 return defaultValue;
             }
         }
+
+        public bool TryToBooleanOrDefault(bool defaultValue)
+        {
+            try
+            {
+                return this.ToBoolean();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
+        public bool? TryToBooleanOrDefault(bool? defaultValue)
+        {
+            try
+            {
+                return this.ToBoolean();
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
+        public bool ToBoolean()
+        {
+            return (bool)this.Value;
+        }
         #endregion
     }
 }

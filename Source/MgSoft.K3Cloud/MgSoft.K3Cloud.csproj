@@ -69,8 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DynamicObjectModel\Head.cs" />
-    <Compile Include="Model\DynamicObjectModel\Heads.cs" />
     <Compile Include="Model\FormBillModelPlugIn.cs" />
     <Compile Include="Model\DynamicFormModel\Entities.cs" />
     <Compile Include="Model\DynamicFormModel\Entity.cs" />
@@ -94,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\DynamicObjectModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

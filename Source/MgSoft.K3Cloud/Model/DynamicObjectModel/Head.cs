@@ -144,5 +144,20 @@ namespace MgSoft.K3Cloud.Model.DynamicObjectModel
         {
             throw new NotImplementedException();
         }
+
+        public bool ToBoolean()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryToBooleanOrDefault(bool defaultValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool? TryToBooleanOrDefault(bool? defaultValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
