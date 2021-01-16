@@ -14,7 +14,7 @@ namespace MgSoft.K3Cloud.WebApi
     public abstract class BaseApi : IWebApi
     {
         private static List<K3CloudApiClient> k3CloudApiClientCache = new List<K3CloudApiClient>();
-        private object cacheLockObj = new object();
+        private static object cacheLockObj = new object();
 
         protected K3CloudApiClient client;
 
@@ -35,7 +35,10 @@ namespace MgSoft.K3Cloud.WebApi
 
         protected BaseApi(ApiServerInfo apiServerInfo)
         {
-            client = GetK3CloudApiClient(apiServerInfo);
+            lock (cacheLockObj)
+            {
+                client = GetK3CloudApiClient(apiServerInfo);
+            }
         }
 
         private K3CloudApiClient GetK3CloudApiClient(ApiServerInfo apiServerInfo)
@@ -51,7 +54,7 @@ namespace MgSoft.K3Cloud.WebApi
                 throw new Exception(loginResult);
             }
 
-            set3CloudApiClientCache(result);
+            setk3CloudApiClientCache(result);
 
             return result;
         }
@@ -59,20 +62,23 @@ namespace MgSoft.K3Cloud.WebApi
         #region cache
         private K3CloudApiClient GetK3CloudApiClientFromCache(ApiServerInfo apiServerInfo)
         {
-            K3CloudApiClient result = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(apiServerInfo)).SingleOrDefault();
-
-            if (result == null) return null; ;
-
-            if (result.IsTimeOut())
+            K3CloudApiClient result;
+            lock (cacheLockObj)
             {
-                removeCache(result);
-                return null;
-            }
+                result = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(apiServerInfo)).SingleOrDefault();
 
+                if (result == null) return null; ;
+
+                if (result.IsTimeOut())
+                {
+                    removeCache(result);
+                    return null;
+                }
+            }
             return result;
         }
 
-        private void set3CloudApiClientCache(K3CloudApiClient k3CloudApiClient)
+        private void setk3CloudApiClientCache(K3CloudApiClient k3CloudApiClient)
         {
             lock (cacheLockObj)
             {
@@ -84,7 +90,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             lock (cacheLockObj)
             {
-                var cache=k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(k3CloudApiClient.ApiServerInfo)).SingleOrDefault();
+                var cache = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(k3CloudApiClient.ApiServerInfo)).SingleOrDefault();
                 if (cache == null) return;
                 k3CloudApiClientCache.Remove(cache);
             }
