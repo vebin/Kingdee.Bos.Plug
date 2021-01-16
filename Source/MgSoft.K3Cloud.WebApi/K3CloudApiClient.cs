@@ -3,18 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ConsoleApplication.WebAPI;
+using MgSoft.K3Cloud.WebApi.Dto;
 using Newtonsoft.Json;
 
 namespace MgSoft.K3Cloud.WebApi
 {
     public class K3CloudApiClient
     {
-        private string url;//K/3 Cloud 业务站点地址
-        private HttpClient httpClient;
-
-        public K3CloudApiClient(string url)
+        /// <summary>
+        /// //K/3 Cloud 业务站点地址
+        /// </summary>
+        private string url
         {
-            this.url = url;
+            get
+            {
+                return ApiServerInfo.ServerUrl;
+            }
+        }
+        private HttpClient httpClient;
+        public ApiServerInfo ApiServerInfo { get; private set; }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { get; private set; } = DateTime.Now;
+
+        public int TimeOutSecond = 60 * 10;
+
+        public bool IsTimeOut()
+        {
+            return (DateTime.Now - CreateTime).Seconds > TimeOutSecond;
+        }
+
+        public K3CloudApiClient(ApiServerInfo apiServerInfo)
+        {
+            this.ApiServerInfo = apiServerInfo;
             httpClient = new HttpClient();
         }
 
