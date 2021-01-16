@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ConsoleApplication.WebAPI;
+using MgSoft.K3Cloud.WebApi.Dto;
 using Newtonsoft.Json;
 
 namespace MgSoft.K3Cloud.WebApi
@@ -12,9 +13,22 @@ namespace MgSoft.K3Cloud.WebApi
         private string url;//K/3 Cloud 业务站点地址
         private HttpClient httpClient;
 
-        public K3CloudApiClient(string url)
+        public ApiServerInfo ApiServerInforl { get; private set; }
+
+        public DateTime CreateTime { get; private set; } = DateTime.Now;
+
+        //public int LoginTimeOutSecond = 5 * 60;
+
+        //public bool IsTimeOut()
+        //{
+        //    if (!LastLoginTime.HasValue) return true;
+        //    return (DateTime.Now - LastLoginTime.Value).Seconds > LoginTimeOutSecond;
+        //}
+
+        public K3CloudApiClient(ApiServerInfo apiServerInforl)
         {
-            this.url = url;
+            this.ApiServerInforl = apiServerInforl;
+            this.url = apiServerInforl.ServerUrl;
             httpClient = new HttpClient();
         }
 
@@ -31,7 +45,6 @@ namespace MgSoft.K3Cloud.WebApi
             var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc");
 
             var httpContent = GetContents(dbid, userName, password, lcid);
-
             return httpClient.SysncRequest(httpUrl, httpContent);
         }
 

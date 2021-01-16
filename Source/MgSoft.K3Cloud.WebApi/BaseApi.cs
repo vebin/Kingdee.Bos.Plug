@@ -13,7 +13,29 @@ namespace MgSoft.K3Cloud.WebApi
 {
     public abstract class BaseApi : IWebApi
     {
-        protected static K3CloudApiClient client;
+        private static List<K3CloudApiClient> k3CloudApiClientCache = new List<K3CloudApiClient>();
+        private static object lockObject = new object();
+        public ApiServerInfo ApiServerInfo { get; private set; }
+        private const int TimeOutSecond = 5 * 60;
+        public DateTime CreateTime { get; private set; } = DateTime.Now;
+
+        protected K3CloudApiClient client
+        {
+            get
+            {
+                lock (lockObject)
+                {
+                    var result = getK3CloudApiClientFormCache(this.ApiServerInfo);
+
+                    if (result == null)
+                    {
+                        result = createK3CloudApiClient();
+                        setK3CloudApiClientFormCache(result);
+                    }
+                    return result;
+                }
+            }
+        }
 
         protected abstract string formId { get; }
 
@@ -25,23 +47,57 @@ namespace MgSoft.K3Cloud.WebApi
         /// <param name="password">密码</param>
         /// <param name="lcid">语言Id，默认为中文2052</param>
         public BaseApi(string serverUrl, string dbid, string userName, string password, int lcid = 2052)
+            : this(new ApiServerInfo() { ServerUrl = serverUrl, Dbid = dbid, UserName = userName, Password = password, Lcid = lcid })
         {
-            if (client == null)
-            {
-                client = new K3CloudApiClient(serverUrl);
-                var loginResult = client.ValidateUser(dbid, userName, password, lcid);
-                var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
-                if (resultType != 1)
-                {
-                    throw new Exception(loginResult);
-                }
-            }
         }
 
         protected BaseApi(ApiServerInfo apiServerInfo)
-            : this(apiServerInfo.ServerUrl, apiServerInfo.Dbid, apiServerInfo.UserName, apiServerInfo.Password, apiServerInfo.Lcid)
         {
+            this.ApiServerInfo = apiServerInfo;
         }
+
+        private K3CloudApiClient getK3CloudApiClientFormCache(ApiServerInfo apiServerInfo)
+        {
+            var cacheObj = k3CloudApiClientCache.Where(p => p.ApiServerInforl.Equals(p.ApiServerInforl)).SingleOrDefault();
+            if (cacheObj == null) return null;
+            if (isClientTimeOut())
+            {
+                removeK3CloudApiClientFormCache(cacheObj);
+                return null;
+            }
+            return cacheObj;
+        }
+        private void setK3CloudApiClientFormCache(K3CloudApiClient k3CloudApiClient)
+        {
+            k3CloudApiClientCache.Add(k3CloudApiClient);
+        }
+
+        private void removeK3CloudApiClientFormCache(K3CloudApiClient k3CloudApiClient)
+        {
+            var removeObj = k3CloudApiClientCache.Where(p => p.ApiServerInforl.Equals(p.ApiServerInforl)).SingleOrDefault();
+            if (removeObj == null) return;
+
+            k3CloudApiClientCache.Remove(removeObj);
+        }
+
+        private bool isClientTimeOut()
+        {
+            return (DateTime.Now - this.CreateTime).Seconds > TimeOutSecond;
+        }
+
+        private K3CloudApiClient createK3CloudApiClient()
+        {
+            var result = new K3CloudApiClient(this.ApiServerInfo);
+            var loginResult = result.ValidateUser(this.ApiServerInfo.Dbid, this.ApiServerInfo.UserName, this.ApiServerInfo.Password, this.ApiServerInfo.Lcid);
+            var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
+            if (resultType != 1)
+            {
+                throw new Exception(loginResult);
+            }
+
+            return result;
+        }
+
 
         /// <summary>
         /// 获取列表
