@@ -43,7 +43,8 @@ namespace MgSoft.K3Cloud.WebApi
 
         private K3CloudApiClient GetK3CloudApiClient(ApiServerInfo apiServerInfo)
         {
-            K3CloudApiClient result = GetK3CloudApiClientFromCache(apiServerInfo);
+            K3CloudApiClient result;
+            result = GetK3CloudApiClientFromCache(apiServerInfo);
             if (result != null) return result;
 
             result = new K3CloudApiClient(apiServerInfo);
