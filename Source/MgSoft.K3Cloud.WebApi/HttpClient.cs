@@ -11,25 +11,25 @@ namespace ConsoleApplication.WebAPI
 {
     class HttpClient
     {
-        /// <summary>
-        /// Seivice URL
-        /// </summary>
-        public string Url { get; set; }
-        /// <summary>
-        /// 内容
-        /// </summary>
-        public string Content { get; set; }
+        ///// <summary>
+        ///// Seivice URL
+        ///// </summary>
+        //public string Url { get; set; }
+        ///// <summary>
+        ///// 内容
+        ///// </summary>
+        //public string Content { get; set; }
         /// <summary>
         /// Cookie，保证登录后，所有访问持有一个Cookie；
         /// </summary>
-        static CookieContainer Cookie = new CookieContainer();
+        CookieContainer Cookie = new CookieContainer();
 
         /// <summary>
         /// HTTP访问
         /// </summary>
-        public string SysncRequest()
+        public string SysncRequest(string url, string content)
         {
-            HttpWebRequest httpRequest = HttpWebRequest.Create(Url) as HttpWebRequest;
+            HttpWebRequest httpRequest = HttpWebRequest.Create(url) as HttpWebRequest;
             httpRequest.Method = "POST";
             httpRequest.ContentType = "application/json";
             httpRequest.CookieContainer = Cookie;
@@ -41,7 +41,7 @@ namespace ConsoleApplication.WebAPI
                 jObj.Add("format", 1);
                 jObj.Add("useragent", "ApiClient");
                 jObj.Add("rid", Guid.NewGuid().ToString().GetHashCode().ToString());
-                jObj.Add("parameters", Content);
+                jObj.Add("parameters", content);
                 jObj.Add("timestamp", DateTime.Now);
                 jObj.Add("v", "1.0");
                 string sContent = jObj.ToString();

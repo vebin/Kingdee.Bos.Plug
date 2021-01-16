@@ -13,7 +13,7 @@ namespace MgSoft.K3Cloud.WebApi
 {
     public abstract class BaseApi : IWebApi
     {
-        protected K3CloudApiClient client;
+        protected static K3CloudApiClient client;
 
         protected abstract string formId { get; }
 
@@ -26,12 +26,15 @@ namespace MgSoft.K3Cloud.WebApi
         /// <param name="lcid">语言Id，默认为中文2052</param>
         public BaseApi(string serverUrl, string dbid, string userName, string password, int lcid = 2052)
         {
-            client = new K3CloudApiClient(serverUrl);
-            var loginResult = client.ValidateUser(dbid, userName, password, lcid);
-            var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
-            if (resultType != 1)
+            if (client == null)
             {
-                throw new Exception(loginResult);
+                client = new K3CloudApiClient(serverUrl);
+                var loginResult = client.ValidateUser(dbid, userName, password, lcid);
+                var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
+                if (resultType != 1)
+                {
+                    throw new Exception(loginResult);
+                }
             }
         }
 
