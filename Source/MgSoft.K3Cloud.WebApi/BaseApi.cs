@@ -13,10 +13,7 @@ namespace MgSoft.K3Cloud.WebApi
 {
     public abstract class BaseApi : IWebApi
     {
-        private static List<K3CloudApiClient> k3CloudApiClientCache = new List<K3CloudApiClient>();
-        private static object cacheLockObj = new object();
-
-        protected K3CloudApiClient client;
+        protected static K3CloudApiClient client;
 
         protected abstract string formId { get; }
 
@@ -28,75 +25,23 @@ namespace MgSoft.K3Cloud.WebApi
         /// <param name="password">密码</param>
         /// <param name="lcid">语言Id，默认为中文2052</param>
         public BaseApi(string serverUrl, string dbid, string userName, string password, int lcid = 2052)
-            : this(new ApiServerInfo() { ServerUrl = serverUrl, Dbid = dbid, UserName = userName, Password = password, Lcid = lcid })
         {
-
+            if (client == null)
+            {
+                client = new K3CloudApiClient(serverUrl);
+                var loginResult = client.ValidateUser(dbid, userName, password, lcid);
+                var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
+                if (resultType != 1)
+                {
+                    throw new Exception(loginResult);
+                }
+            }
         }
 
         protected BaseApi(ApiServerInfo apiServerInfo)
+            : this(apiServerInfo.ServerUrl, apiServerInfo.Dbid, apiServerInfo.UserName, apiServerInfo.Password, apiServerInfo.Lcid)
         {
-            lock (cacheLockObj)
-            {
-                client = GetK3CloudApiClient(apiServerInfo);
-            }
         }
-
-        private K3CloudApiClient GetK3CloudApiClient(ApiServerInfo apiServerInfo)
-        {
-            K3CloudApiClient result;
-            result = GetK3CloudApiClientFromCache(apiServerInfo);
-            if (result != null) return result;
-
-            result = new K3CloudApiClient(apiServerInfo);
-            var loginResult = result.ValidateUser(apiServerInfo.Dbid, apiServerInfo.UserName, apiServerInfo.Password, apiServerInfo.Lcid);
-            var resultType = JObject.Parse(loginResult)["LoginResultType"].Value<int>();
-            if (resultType != 1)
-            {
-                throw new Exception(loginResult);
-            }
-
-            setk3CloudApiClientCache(result);
-
-            return result;
-        }
-
-        #region cache
-        private K3CloudApiClient GetK3CloudApiClientFromCache(ApiServerInfo apiServerInfo)
-        {
-            K3CloudApiClient result;
-            lock (cacheLockObj)
-            {
-                result = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(apiServerInfo)).SingleOrDefault();
-
-                if (result == null) return null; ;
-
-                if (result.IsTimeOut())
-                {
-                    removeCache(result);
-                    return null;
-                }
-            }
-            return result;
-        }
-
-        private void setk3CloudApiClientCache(K3CloudApiClient k3CloudApiClient)
-        {
-            lock (cacheLockObj)
-            {
-                k3CloudApiClientCache.Add(k3CloudApiClient);
-            }
-        }
-
-        private void removeCache(K3CloudApiClient k3CloudApiClient)
-        {
-            lock (cacheLockObj)
-            {
-                var cache = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(k3CloudApiClient.ApiServerInfo)).SingleOrDefault();
-                if (cache == null) return;
-                k3CloudApiClientCache.Remove(cache);
-            }
-        }
-        #endregion
 
         /// <summary>
         /// 获取列表

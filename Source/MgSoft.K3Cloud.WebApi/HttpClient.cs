@@ -6,7 +6,6 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Diagnostics;
 
 namespace ConsoleApplication.WebAPI
 {
@@ -23,24 +22,12 @@ namespace ConsoleApplication.WebAPI
         /// <summary>
         /// Cookie，保证登录后，所有访问持有一个Cookie；
         /// </summary>
-        private CookieContainer Cookie = new CookieContainer();
+        CookieContainer Cookie = new CookieContainer();
 
         /// <summary>
         /// HTTP访问
         /// </summary>
         public string SysncRequest(string url, string content)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            var result = sysncRequest(url,content);
-            stopwatch.Stop();
-            System.Diagnostics.Debug.WriteLine(url);
-            System.Diagnostics.Debug.WriteLine($"秒:{stopwatch.ElapsedMilliseconds / 1000},实际用时毫秒:{stopwatch.ElapsedMilliseconds}");
-            return result;
-
-        }
-
-        private string sysncRequest(string url, string content)
         {
             HttpWebRequest httpRequest = HttpWebRequest.Create(url) as HttpWebRequest;
             httpRequest.Method = "POST";
@@ -62,8 +49,6 @@ namespace ConsoleApplication.WebAPI
                 reqStream.Write(bytes, 0, bytes.Length);
                 reqStream.Flush();
             }
-
-
             using (var repStream = httpRequest.GetResponse().GetResponseStream())
             {
                 using (var reader = new StreamReader(repStream))
