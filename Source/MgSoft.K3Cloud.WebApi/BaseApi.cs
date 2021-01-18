@@ -1,4 +1,5 @@
 ﻿using MgSoft.K3Cloud.WebApi.Dto;
+using MgSoft.Log;
 using MgSoft.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,6 +19,7 @@ namespace MgSoft.K3Cloud.WebApi
         public ApiServerInfo ApiServerInfo { get; private set; }
         private const int TimeOutSecond = 5 * 60;
         public DateTime CreateTime { get; private set; } = DateTime.Now;
+        protected ILog log;
 
         protected K3CloudApiClient client
         {
@@ -51,9 +53,17 @@ namespace MgSoft.K3Cloud.WebApi
         {
         }
 
-        protected BaseApi(ApiServerInfo apiServerInfo)
+        protected BaseApi(ApiServerInfo apiServerInfo, ILogger logger = null)
         {
             this.ApiServerInfo = apiServerInfo;
+            if (logger != null)
+            {
+                log = logger.CreateLog();
+            }
+            else
+            {
+                log = new NullLog();
+            }
         }
 
         private K3CloudApiClient getK3CloudApiClientFormCache(ApiServerInfo apiServerInfo)
