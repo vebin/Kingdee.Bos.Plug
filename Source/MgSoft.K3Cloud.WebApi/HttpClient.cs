@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace ConsoleApplication.WebAPI
 {
@@ -28,6 +29,24 @@ namespace ConsoleApplication.WebAPI
         /// HTTP访问
         /// </summary>
         public string SysncRequest(string url, string content)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var result=SysncRequestDo(url, content);
+
+            stopwatch.Stop();
+            System.Diagnostics.Debug.WriteLine($"{url}");
+            System.Diagnostics.Debug.WriteLine($"用时:{stopwatch.ElapsedMilliseconds}");
+
+            if(stopwatch.ElapsedMilliseconds>500)
+            {
+                System.Diagnostics.Debug.WriteLine($"{content}");
+            }
+
+            return result;
+        }
+        private string SysncRequestDo(string url, string content)
         {
             HttpWebRequest httpRequest = HttpWebRequest.Create(url) as HttpWebRequest;
             httpRequest.Method = "POST";
