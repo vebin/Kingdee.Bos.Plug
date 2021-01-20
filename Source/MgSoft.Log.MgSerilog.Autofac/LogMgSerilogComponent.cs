@@ -22,6 +22,9 @@ namespace MgSoft.Log.MgSerilog.Autofac
                 throw new MgException("builder need type is ContainerBuilder");
             }
             RegisterLog(containerBuilder);
+            containerBuilder.RegisterType<MgSerilogger>().As<IMgLogger>();
+            containerBuilder.RegisterType<MgSerilog>().As<IMgSerilog>(); 
+
         }
 
         private static void RegisterLog(ContainerBuilder builder)
