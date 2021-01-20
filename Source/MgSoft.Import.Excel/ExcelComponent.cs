@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MgSoft.Import.Excel.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,8 +14,8 @@ namespace MgSoft.Import.Excel
 
         public abstract string Describe { get; }
 
+        public abstract List<ExcelTaskType> GetAllExcelTaskType(IContainer container);
+
         public abstract IExcelScheme GetScheme(IContainer container);
-
-
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 namespace MgSoft.Import
 {
     /// <summary>
-    /// 任务类型
+    /// 任务
     /// </summary>
-    public interface IBusinessTaskManager
+    public interface ITask
     {
     }
 }

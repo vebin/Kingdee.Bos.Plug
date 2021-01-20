@@ -1,6 +1,16 @@
-﻿namespace MgSoft.Import.Excel
+﻿using MgSoft.Import.Excel.Model;
+
+namespace MgSoft.Import.Excel
 {
-    internal interface IExcelTaskManager: IExcelScheme
+    public interface IExcelTaskManager
     {
+        string Name { get; }
+
+        string Title { get; }
+
+        string Describe { get; }
+
+        void Do(ref AggregateExcelMessage aggregateExcelMessage);
+        void SetExcelFilePath(string excelFilePath);
     }
 }

@@ -4,10 +4,7 @@ using System.Text;
 
 namespace MgSoft.Import
 {
-    /// <summary>
-    /// 任务
-    /// </summary>
-    public interface IBusinessTask
+    public abstract class TaskManager : ITaskManager
     {
     }
 }
