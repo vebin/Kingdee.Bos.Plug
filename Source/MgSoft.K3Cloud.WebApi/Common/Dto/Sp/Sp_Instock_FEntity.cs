@@ -100,6 +100,11 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         public virtual FNumberProperty FKeeperId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<Sp_Instock_SerialSubEntity> FSerialSubEntity { get; set; }
+        /// <summary>
+        /// 应收数量
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public virtual decimal? FMustQty { get; set; }
     }
     public class Sp_Instock_FEntity : Sp_Instock_FEntity<Sp_Instock_SerialSubEntity>
     { }
