@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public abstract class ComponentExcel: Component, IComponentExcel
+    public abstract class ExcelComponent : Component, IExcelComponent
     {
         public abstract string Name { get; }
 
@@ -13,7 +13,7 @@ namespace MgSoft.Import.Excel
 
         public abstract string Describe { get; }
 
-        public abstract ITaskManager GetTaskManager(IContainer container);
+        public abstract IExcelScheme GetScheme(IContainer container);
 
 
     }

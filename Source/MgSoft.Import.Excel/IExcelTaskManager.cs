@@ -1,6 +1,6 @@
 ﻿namespace MgSoft.Import.Excel
 {
-    internal interface IExcelTaskManager: ITaskManager
+    internal interface IExcelTaskManager: IExcelScheme
     {
     }
 }

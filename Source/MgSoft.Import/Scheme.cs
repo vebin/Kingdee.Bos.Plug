@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Import
 {
-    public abstract class TaskManager : ITaskManager
+    public abstract class Scheme : IScheme
     {
     }
 }

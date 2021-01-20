@@ -5,13 +5,13 @@ using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public interface IComponentExcel
+    public interface IExcelComponent
     {
         string Describe { get; }
         string Name { get; }
         string Title { get; }
 
-        ITaskManager GetTaskManager(IContainer container);
+        IExcelScheme GetScheme(IContainer container);
 
         void Register(object builder);
     }
