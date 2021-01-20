@@ -34,5 +34,23 @@ namespace MgSoft.K3Cloud.WebApi.Dto
         /// 默认中文
         /// </summary>
         public int Lcid { get; set; } = 2052;
+
+        public override bool Equals(object obj)
+        {
+            var target = obj as ApiServerInfo;
+            if (target == null) return false;
+            if (this.ServerUrl != target.ServerUrl) return false;
+            if (this.Dbid != target.Dbid) return false;
+            if (this.UserName != target.UserName) return false;
+            if (this.Password != target.Password) return false;
+            if (this.Lcid != target.Lcid) return false;
+
+            return true;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }

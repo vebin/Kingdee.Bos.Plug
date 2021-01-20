@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ConsoleApplication.WebAPI;
+using MgSoft.K3Cloud.WebApi.Dto;
 using Newtonsoft.Json;
 
 namespace MgSoft.K3Cloud.WebApi
@@ -12,9 +13,22 @@ namespace MgSoft.K3Cloud.WebApi
         private string url;//K/3 Cloud 业务站点地址
         private HttpClient httpClient;
 
-        public K3CloudApiClient(string url)
+        public ApiServerInfo ApiServerInforl { get; private set; }
+
+        public DateTime CreateTime { get; private set; } = DateTime.Now;
+
+        //public int LoginTimeOutSecond = 5 * 60;
+
+        //public bool IsTimeOut()
+        //{
+        //    if (!LastLoginTime.HasValue) return true;
+        //    return (DateTime.Now - LastLoginTime.Value).Seconds > LoginTimeOutSecond;
+        //}
+
+        public K3CloudApiClient(ApiServerInfo apiServerInforl)
         {
-            this.url = url;
+            this.ApiServerInforl = apiServerInforl;
+            this.url = apiServerInforl.ServerUrl;
             httpClient = new HttpClient();
         }
 
@@ -28,11 +42,10 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string ValidateUser(string dbid, string userName, string password, int lcid = 2052)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc");
 
-            httpClient.Content = GetContents(dbid, userName, password, lcid);
-
-            return httpClient.SysncRequest();
+            var httpContent = GetContents(dbid, userName, password, lcid);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         /// <summary>
@@ -43,10 +56,10 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string Save(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
-            return httpClient.SysncRequest();
+            var httpContent = GetContents(formId, content);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         /// <summary>
@@ -57,17 +70,17 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string Submit(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc");
-            httpClient.Content = GetContents(formId, content);
-            return httpClient.SysncRequest();
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Submit.common.kdsvc");
+            var httpContent = GetContents(formId, content);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         public string ExecuteBillQuery(string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.ExecuteBillQuery.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.ExecuteBillQuery.common.kdsvc");
 
-            httpClient.Content = GetContents(content);
-            return httpClient.SysncRequest();
+            var httpContent = GetContents(content);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         /// <summary>
@@ -78,11 +91,11 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string Delete(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Delete.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
+            var httpContent = GetContents(formId, content);
 
-            return httpClient.SysncRequest();
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         /// <summary>
@@ -93,10 +106,10 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string Audit(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Audit.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Audit.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
-            return httpClient.SysncRequest();
+            var httpContent = GetContents(formId, content);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
         /// <summary>
         /// 反审核
@@ -106,11 +119,11 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string UnAudit(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UnAudit.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UnAudit.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
+            var httpContent = GetContents(formId, content);
 
-            return httpClient.SysncRequest();
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
         /// <summary>
         /// 下推
@@ -120,11 +133,11 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string Push(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Push.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Push.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
+            var httpContent = GetContents(formId, content);
 
-            return httpClient.SysncRequest();
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
         /// <summary>
         /// 查询
@@ -134,11 +147,11 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string View(string formId, string content)
         {
-            httpClient.Url = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.View.common.kdsvc");
+            var httpUrl = string.Concat(url, "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.View.common.kdsvc");
 
-            httpClient.Content = GetContents(formId, content);
+            var httpContent = GetContents(formId, content);
 
-            return httpClient.SysncRequest();
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
         /// <summary>
@@ -149,10 +162,10 @@ namespace MgSoft.K3Cloud.WebApi
         /// <returns></returns>
         public string AbstractWebApiBusinessService(string key, List<object> args)
         {
-            httpClient.Url = string.Concat(url, key, ".common.kdsvc");
+            var httpUrl = string.Concat(url, key, ".common.kdsvc");
 
-            httpClient.Content = JsonConvert.SerializeObject(args);
-            return httpClient.SysncRequest();
+            var httpContent = JsonConvert.SerializeObject(args);
+            return httpClient.SysncRequest(httpUrl, httpContent);
         }
 
 
