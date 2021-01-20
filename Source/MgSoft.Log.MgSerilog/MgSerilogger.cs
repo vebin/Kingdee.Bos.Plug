@@ -12,7 +12,7 @@ namespace MgSoft.Log.MgSerilog
             this.log = mgSerilog;
         }
 
-        ILog ILogger.CreateLog()
+        IMgLog IMgLogger.CreateLog()
         {
             return log;
         }

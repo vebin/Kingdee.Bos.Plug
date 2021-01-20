@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MgSoft
 {
-    public interface ILogger
+    public interface IMgLogger
     {
-        ILog CreateLog();
+        IMgLog CreateLog();
     }
 }

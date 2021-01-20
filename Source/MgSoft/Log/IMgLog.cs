@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft
 {
-    public interface ILog
+    public interface IMgLog
     { 
         void Debug(string messageTemplate);
         void Debug<T>(string messageTemplate, T propertyValue);
