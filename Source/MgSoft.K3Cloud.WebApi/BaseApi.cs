@@ -19,7 +19,7 @@ namespace MgSoft.K3Cloud.WebApi
         public ApiServerInfo ApiServerInfo { get; private set; }
         private const int TimeOutSecond = 5 * 60;
         public DateTime CreateTime { get; private set; } = DateTime.Now;
-        protected ILog log;
+        protected IMgLog log;
 
         protected K3CloudApiClient client
         {
@@ -53,7 +53,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
         }
 
-        protected BaseApi(ApiServerInfo apiServerInfo, ILogger logger = null)
+        protected BaseApi(ApiServerInfo apiServerInfo, IMgLogger logger = null)
         {
             this.ApiServerInfo = apiServerInfo;
             if (logger != null)
@@ -62,7 +62,7 @@ namespace MgSoft.K3Cloud.WebApi
             }
             else
             {
-                log = new NullLog();
+                log = new NullMgLog();
             }
         }
 

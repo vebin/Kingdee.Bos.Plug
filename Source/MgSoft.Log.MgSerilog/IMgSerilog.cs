@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Log.MgSerilog
 {
-    public interface IMgSerilog : ILog
+    public interface IMgSerilog : IMgLog
     {
     }
 }
