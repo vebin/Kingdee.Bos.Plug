@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MgSoft.Excel\MgSoft.Excel\MgSoft.Excel.csproj" />
     <ProjectReference Include="..\MgSoft.DependenceInjection.Autofac\MgSoft.DependenceInjection.Autofac.csproj" />
     <ProjectReference Include="..\MgSoft.Import\MgSoft.Import.csproj" />
     <ProjectReference Include="..\MgSoft\MgSoft.csproj" />

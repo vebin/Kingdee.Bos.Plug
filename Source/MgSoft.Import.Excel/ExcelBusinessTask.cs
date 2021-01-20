@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public class ExcelBusinessTask : IExcelBusinessTask
+    public abstract class ExcelBusinessTask : IExcelBusinessTask
     {
     }
 }
