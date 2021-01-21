@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MgSoft.K3Cloud.WebApi
 {
-    public interface IWebApi
+    public interface IWebApi: IApi
     {
         List<AuditOutputDto> Audit(AuditInputDto auditInputDto);
         List<DeleteOutputDto> Delete(DeleteInputDto deleteInputDto);

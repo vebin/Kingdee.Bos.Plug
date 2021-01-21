@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace ConsoleApplication.WebAPI
+namespace MgSoft.K3Cloud.WebApi
 {
     class HttpClient
     {
@@ -33,22 +33,22 @@ namespace ConsoleApplication.WebAPI
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var result=SysncRequestDo(url, content);
+            var result = SysncRequestDo(url, content);
 
             stopwatch.Stop();
-            System.Diagnostics.Debug.WriteLine($"{url}");
-            System.Diagnostics.Debug.WriteLine($"用时:{stopwatch.ElapsedMilliseconds}");
+            Debug.WriteLine($"{url}");
+            Debug.WriteLine($"用时:{stopwatch.ElapsedMilliseconds}");
 
-            if(stopwatch.ElapsedMilliseconds>500)
+            if (stopwatch.ElapsedMilliseconds > 500)
             {
-                System.Diagnostics.Debug.WriteLine($"{content}");
+                Debug.WriteLine($"{content}");
             }
 
             return result;
         }
         private string SysncRequestDo(string url, string content)
         {
-            HttpWebRequest httpRequest = HttpWebRequest.Create(url) as HttpWebRequest;
+            HttpWebRequest httpRequest = WebRequest.Create(url) as HttpWebRequest;
             httpRequest.Method = "POST";
             httpRequest.ContentType = "application/json";
             httpRequest.CookieContainer = Cookie;
@@ -64,7 +64,7 @@ namespace ConsoleApplication.WebAPI
                 jObj.Add("timestamp", DateTime.Now);
                 jObj.Add("v", "1.0");
                 string sContent = jObj.ToString();
-                var bytes = UnicodeEncoding.UTF8.GetBytes(sContent);
+                var bytes = Encoding.UTF8.GetBytes(sContent);
                 reqStream.Write(bytes, 0, bytes.Length);
                 reqStream.Flush();
             }

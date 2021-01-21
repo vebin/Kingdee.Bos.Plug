@@ -25,4 +25,8 @@
     <ProjectReference Include="..\MgSoft\MgSoft.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ServiceApi\Model\" />
+  </ItemGroup>
+
 </Project>
