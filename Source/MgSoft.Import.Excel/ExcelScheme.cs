@@ -15,7 +15,6 @@ namespace MgSoft.Import.Excel
         protected ExcelScheme(ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
-            InitSortTaskManagers();
         }
 
         public abstract FileExcelTaskType Match(string filePath);
@@ -40,7 +39,8 @@ namespace MgSoft.Import.Excel
         public virtual AggregateExcelMessage Import(List<FileExcelTaskType> fileExcelTaskTypes)
         {
             AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
-            foreach(var fileExcelTaskType in fileExcelTaskTypes)
+
+            foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
                 import(fileExcelTaskType, ref aggregateExcelMessage);
             }
@@ -65,6 +65,6 @@ namespace MgSoft.Import.Excel
             return result;
         }
 
-        public abstract SortedList<int, string> InitSortTaskManagers();
+        public abstract void DoTaskManagers(List<FileExcelTaskType> fileExcelTaskTypes, ref AggregateExcelMessage aggregateExcelMessage);
     }
 }
