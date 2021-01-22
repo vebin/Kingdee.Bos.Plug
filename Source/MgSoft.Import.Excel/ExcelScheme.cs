@@ -10,6 +10,8 @@ namespace MgSoft.Import.Excel
     {
         private ILifetimeScope lifetimeScope;
 
+        protected SortedList<int, string> orderTaskManager { get; set; }
+
         protected ExcelScheme(ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
@@ -62,6 +64,6 @@ namespace MgSoft.Import.Excel
             return result;
         }
 
-        public abstract SortedList<int, ITaskManager> GetSortTaskManagers();
+        public abstract SortedList<int, string> InitSortTaskManagers();
     }
 }
