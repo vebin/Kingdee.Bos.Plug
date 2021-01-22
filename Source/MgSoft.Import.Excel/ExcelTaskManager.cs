@@ -13,11 +13,15 @@ namespace MgSoft.Import.Excel
 
         public abstract string Describe { get; }
 
+        protected string ExcelFilePath { get; private set; }
+
+        public abstract void Check(ref AggregateExcelMessage aggregateExcelMessage);
+
         public abstract void Do(ref AggregateExcelMessage aggregateExcelMessage);
 
-        public void SetExcelFilePath(string excelFilePath)
+        public virtual void SetExcelFilePath(string excelFilePath)
         {
-            throw new NotImplementedException();
+            this.ExcelFilePath = excelFilePath;
         }
     }
 }
