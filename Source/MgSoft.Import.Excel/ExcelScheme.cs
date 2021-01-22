@@ -15,6 +15,7 @@ namespace MgSoft.Import.Excel
         protected ExcelScheme(ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
+            InitSortTaskManagers();
         }
 
         public abstract FileExcelTaskType Match(string filePath);
