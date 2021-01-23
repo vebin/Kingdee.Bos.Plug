@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MgSoft.Import.Excel
+namespace MgSoft.K3Cloud.WebApi
 {
-    public class ExcelBusinessTask : IExcelBusinessTask
+    public interface IApi
     {
     }
 }

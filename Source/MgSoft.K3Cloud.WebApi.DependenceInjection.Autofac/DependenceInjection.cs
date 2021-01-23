@@ -9,8 +9,8 @@ namespace MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac
     {
         public static void Register(ContainerBuilder builder, Func<IComponentContext, ApiServerInfo> cfg)
         {
-            Type basetype = typeof(IWebApi);
-            builder.RegisterAssemblyTypes(typeof(IWebApi).Assembly)
+            Type basetype = typeof(IApi);
+            builder.RegisterAssemblyTypes(typeof(IApi).Assembly)
                 .Where(t => basetype.IsAssignableFrom(t) && t.IsClass)
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();

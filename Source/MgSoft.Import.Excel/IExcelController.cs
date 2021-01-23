@@ -1,6 +1,6 @@
 ﻿namespace MgSoft.Import.Excel
 {
-    public interface IExcelBusinessTaskManager
+    internal interface IExcelController
     {
     }
 }
