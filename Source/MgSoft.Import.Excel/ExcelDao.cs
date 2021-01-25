@@ -8,12 +8,12 @@ namespace MgSoft.Import.Excel
 {
     public abstract class ExcelDao : IExcelDao
     {
-        protected abstract TemplateConfig OrderExcelTemplateConfig { get; }
+        protected abstract TemplateConfig TemplateConfigService { get; }
 
         public MgExcel GetExcel(string filePath)
         {
             MgExcel mgExcel = new MgExcel();
-            var errorMessages = mgExcel.ReadAsync(filePath, OrderExcelTemplateConfig).GetAwaiter().GetResult();
+            var errorMessages = mgExcel.ReadAsync(filePath, TemplateConfigService).GetAwaiter().GetResult();
             if (errorMessages.Count > 0)
             {
                 throw new AggregateErrorException("数据校验错误", errorMessages);

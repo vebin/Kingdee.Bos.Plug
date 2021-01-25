@@ -7,27 +7,32 @@ namespace MgSoft.Import.Excel.Model
 {
     public class AggregateExcelMessage
     {
-        public List<ExcelMessage> CheckMessages { get; set; }
+        public List<ExcelMessage> ExcelMessages { get; set; }
 
         private object lockObject = new object();
 
         public AggregateExcelMessage()
         {
-            CheckMessages = new List<ExcelMessage>();
+            ExcelMessages = new List<ExcelMessage>();
         }
 
-        public void Add(ExcelMessage checkMessage)
+        public bool HasMessage()
+        {
+            return ExcelMessages.Count > 0;
+        }
+
+        public void Add(ExcelMessage excelMessage)
         {
             lock (lockObject)
             {
-                CheckMessages.Add(checkMessage);
+                ExcelMessages.Add(excelMessage);
             }
         }
         public void Add(string message, ExcelMessageType messageType = ExcelMessageType.Info, string detail = "")
         {
             lock (lockObject)
             {
-                CheckMessages.Add(new ExcelMessage(message, messageType, detail));
+                ExcelMessages.Add(new ExcelMessage(message, messageType, detail));
             }
         }
 
@@ -35,7 +40,7 @@ namespace MgSoft.Import.Excel.Model
         {
             lock (lockObject)
             {
-                CheckMessages.Add(new ExcelMessage(rowIndex, columnIndex, message, messageType, detail));
+                ExcelMessages.Add(new ExcelMessage(rowIndex, columnIndex, message, messageType, detail));
             }
         }
 
@@ -43,7 +48,7 @@ namespace MgSoft.Import.Excel.Model
         {
             lock (lockObject)
             {
-                CheckMessages.Add(new ExcelMessage(excelErrorMessage.RowIndex, excelErrorMessage.ColumnIndex, excelErrorMessage.Message, messageType, excelErrorMessage.Detailed));
+                ExcelMessages.Add(new ExcelMessage(excelErrorMessage.RowIndex, excelErrorMessage.ColumnIndex, excelErrorMessage.Message, messageType, excelErrorMessage.Detailed));
             }
         }
 
@@ -51,7 +56,7 @@ namespace MgSoft.Import.Excel.Model
         {
             lock (lockObject)
             {
-                CheckMessages.Clear();
+                ExcelMessages.Clear();
             }
         }
 

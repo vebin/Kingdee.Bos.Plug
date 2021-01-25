@@ -19,7 +19,7 @@ namespace MgSoft.Import.Excel
 
         public abstract FileExcelTaskTypeInfo Match(string filePath);
 
-        public AggregateExcelMessage Check(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
+        public AggregateExcelMessage InitAndCheck(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
         {
             AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
             foreach(var fileExcelTaskType in fileExcelTaskTypes)
@@ -32,8 +32,7 @@ namespace MgSoft.Import.Excel
         private void check(FileExcelTaskTypeInfo fileExcelTaskType,AggregateExcelMessage aggregateExcelMessage)
         {
             var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.SetExcelFilePath(fileExcelTaskType.FilePath);
-            excelTaskManager.InitAndCheck(aggregateExcelMessage);
+            excelTaskManager.InitAndCheck(fileExcelTaskType,aggregateExcelMessage);
         }
 
         public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
@@ -50,7 +49,6 @@ namespace MgSoft.Import.Excel
         private void import(FileExcelTaskTypeInfo fileExcelTaskType,AggregateExcelMessage aggregateExcelMessage)
         {
             var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.SetExcelFilePath(fileExcelTaskType.FilePath);
             excelTaskManager.Do(aggregateExcelMessage);
         }
 

@@ -11,7 +11,7 @@ namespace MgSoft.Import.Excel
         string Describe { get; }
 
         void Do(AggregateExcelMessage aggregateExcelMessage);
-        void SetExcelFilePath(string excelFilePath);
-        void InitAndCheck(AggregateExcelMessage aggregateExcelMessage);
+
+        void InitAndCheck(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage);
     }
 }

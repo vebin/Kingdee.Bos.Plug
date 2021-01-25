@@ -7,7 +7,7 @@ namespace MgSoft.Import.Excel
 {
     public interface IExcelScheme : IScheme
     {
-        AggregateExcelMessage Check(List<FileExcelTaskTypeInfo> fileExcelTaskType);
+        AggregateExcelMessage InitAndCheck(List<FileExcelTaskTypeInfo> fileExcelTaskType);
 
         AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskType);
 

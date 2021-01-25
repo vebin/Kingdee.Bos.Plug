@@ -4,29 +4,88 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Autofac;
+//using MgSoft.Log;
+using System.Threading;
+using MgSoft.Log;
 
 namespace MgSoft.Import.Excel
 {
     public abstract class ExcelTaskManager<TDto> : TaskManager, IExcelTaskManager where TDto : ExcelDto, new()
     {
+        private const int maxThreaderCount = 40;
+
+        private readonly ILifetimeScope lifetimeScope;
+
+        /// <summary>
+        /// 表格转换为Dto列表
+        /// </summary>
         protected List<TDto> Dtos { get; set; }
 
+        /// <summary>
+        /// 实现ExcelTaskManager的类型名称，用于名称注入
+        /// </summary>
         public virtual string Name => this.GetType().FullName;
 
+        /// <summary>
+        /// TaskManager中文标题
+        /// </summary>
         public abstract string Title { get; }
 
+        /// <summary>
+        /// TaskManager的描述说明
+        /// </summary>
         public abstract string Describe { get; }
 
+        /// <summary>
+        /// Excel表格文件路径
+        /// </summary>
         protected string ExcelFilePath { get; private set; }
 
+        /// <summary>
+        /// 具体实现的ExcelTask
+        /// </summary>
         protected abstract IExcelTask<TDto> ExcelTask { get; }
 
+        /// <summary>
+        /// Excel读取数据的Dao
+        /// </summary>
         protected abstract IExcelDao ExcelDao { get; }
 
+        /// <summary>
+        /// 读取到的Excel
+        /// </summary>
         protected MgExcel MgExcel { get; set; }
 
-        public virtual void InitAndCheck(AggregateExcelMessage aggregateExcelMessage)
+        protected FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; private set; }
+
+        protected IMgLog log { get; private set; }
+
+        protected ExcelTaskManager(Autofac.ILifetimeScope lifetimeScope)
         {
+            this.lifetimeScope = lifetimeScope;
+            IMgLogger mgLogger;
+            lifetimeScope.TryResolve<IMgLogger>(out mgLogger);
+            if(mgLogger==null)
+            {
+                log = new NullMgLog();
+            }
+            else
+            {
+                log = mgLogger.CreateLog();
+            }
+        }
+
+
+        /// <summary>
+        /// 初始化表格，并对数据进行校验
+        /// </summary>
+        /// <param name="aggregateExcelMessage"></param>
+        public virtual void InitAndCheck(FileExcelTaskTypeInfo fileExcelTaskTypeInfo, AggregateExcelMessage aggregateExcelMessage)
+        {
+            FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
+            ExcelFilePath = fileExcelTaskTypeInfo.FilePath;
+
             try
             {
                 BeforeInit();
@@ -47,33 +106,67 @@ namespace MgSoft.Import.Excel
             }
         }
 
+        /// <summary>
+        /// 初始化之前
+        /// </summary>
         protected virtual void AfterInit()
         {
         }
 
+        /// <summary>
+        /// 初始化之后
+        /// </summary>
         protected virtual void BeforeInit()
         {
         }
 
+        /// <summary>
+        /// 自定义校验
+        /// </summary>
+        /// <param name="aggregateExcelMessage"></param>
         protected virtual void Check(AggregateExcelMessage aggregateExcelMessage)
         {
         }
 
-
+        /// <summary>
+        /// 导入数据
+        /// </summary>
+        /// <param name="aggregateExcelMessage"></param>
         public virtual void Do(AggregateExcelMessage aggregateExcelMessage)
         {
-            Dtos = ConvertToDto();
+            var processInfo = (FileExcelTaskTypeInfo as IProcessInfo);
+            processInfo.SetProcessTotalRow(Dtos.Count);
+            ThreadPool.SetMaxThreads(maxThreaderCount, maxThreaderCount);
             foreach (var dto in Dtos)
             {
-                ExcelTask.Do(dto, MgExcel, aggregateExcelMessage);
+                try
+                {
+                    ExcelTask.Do(dto, MgExcel, aggregateExcelMessage);
+                }
+                catch(MgExcelException mgExcelException)
+                {
+                    aggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, ExcelMessageType.Error);
+                }
+                catch(MgException mgException)
+                {
+                    aggregateExcelMessage.Add(dto.Row.RowIndex,0, mgException.Message,ExcelMessageType.Error);
+                }
+                catch(Exception exception)
+                {
+                    log.Error(exception.Message + "\n" + exception.StackTrace);
+                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, ExcelMessageType.Error,exception.StackTrace);
+                }
+                finally
+                {
+                    processInfo.SetProcessRow();
+                }
             }
         }
 
-        public virtual void SetExcelFilePath(string excelFilePath)
-        {
-            this.ExcelFilePath = excelFilePath;
-        }
-
+        /// <summary>
+        /// 把Excel数据数据转换为Dto
+        /// </summary>
+        /// <returns></returns>
         public virtual List<TDto> ConvertToDto()
         {
             List<TDto> result = new List<TDto>();
