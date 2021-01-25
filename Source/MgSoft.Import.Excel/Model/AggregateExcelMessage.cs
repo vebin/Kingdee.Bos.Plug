@@ -8,6 +8,9 @@ namespace MgSoft.Import.Excel.Model
     public class AggregateExcelMessage
     {
         public List<ExcelMessage> CheckMessages { get; set; }
+
+        private object lockObject = new object();
+
         public AggregateExcelMessage()
         {
             CheckMessages = new List<ExcelMessage>();
@@ -15,33 +18,51 @@ namespace MgSoft.Import.Excel.Model
 
         public void Add(ExcelMessage checkMessage)
         {
-            CheckMessages.Add(checkMessage);
+            lock (lockObject)
+            {
+                CheckMessages.Add(checkMessage);
+            }
         }
         public void Add(string message, ExcelMessageType messageType = ExcelMessageType.Info, string detail = "")
         {
-            CheckMessages.Add(new ExcelMessage(message, messageType, detail));
+            lock (lockObject)
+            {
+                CheckMessages.Add(new ExcelMessage(message, messageType, detail));
+            }
         }
 
         public void Add(int rowIndex, int columnIndex, string message = "", ExcelMessageType messageType = ExcelMessageType.Info, string detail = "")
         {
-            CheckMessages.Add(new ExcelMessage(rowIndex, columnIndex, message, messageType, detail));
+            lock (lockObject)
+            {
+                CheckMessages.Add(new ExcelMessage(rowIndex, columnIndex, message, messageType, detail));
+            }
         }
 
         public void Add(ExcelErrorMessage excelErrorMessage, ExcelMessageType messageType = ExcelMessageType.Error)
         {
-            CheckMessages.Add(new ExcelMessage(excelErrorMessage.RowIndex,excelErrorMessage.ColumnIndex,excelErrorMessage.Message,messageType,excelErrorMessage.Detailed));
+            lock (lockObject)
+            {
+                CheckMessages.Add(new ExcelMessage(excelErrorMessage.RowIndex, excelErrorMessage.ColumnIndex, excelErrorMessage.Message, messageType, excelErrorMessage.Detailed));
+            }
         }
 
         public void Clear()
         {
-            CheckMessages.Clear();
+            lock (lockObject)
+            {
+                CheckMessages.Clear();
+            }
         }
 
         public void AddRange(List<ExcelErrorMessage> errorMessages,ExcelMessageType messageType=ExcelMessageType.Error)
         {
-            foreach(ExcelErrorMessage errorMessage in errorMessages)
+            lock (lockObject)
             {
-                this.Add(errorMessage);
+                foreach (ExcelErrorMessage errorMessage in errorMessages)
+                {
+                    this.Add(errorMessage);
+                }
             }
         }
     }

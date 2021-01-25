@@ -7,25 +7,20 @@ using System.Linq;
 
 namespace MgSoft.Import.Excel
 {
-    public abstract class ExcelComponent : Component, IExcelComponent
+    public abstract class ExcelComponent : ImportComponent, IExcelComponent
     {
-        public virtual string Name => this.GetType().FullName;
-
-        public abstract string Title { get; }
-
-        public abstract string Describe { get; }
 
         public abstract Type SchemeType { get; }
 
-        public virtual List<ExcelTaskType> GetAllExcelTaskType(IContainer container)
+        public virtual List<ExcelTaskTypeInfo> GetAllExcelTaskType(IContainer container)
         {
-            List<ExcelTaskType> result = new List<ExcelTaskType>();
+            List<ExcelTaskTypeInfo> result = new List<ExcelTaskTypeInfo>();
             var excelTaskManagerType = typeof(IExcelTaskManager);
             var excelTaskManagers = this.GetType().Assembly.GetTypes().Where(p => excelTaskManagerType.IsAssignableFrom(p));
             foreach (var excelTaskManager in excelTaskManagers)
             {
                 var target = container.ResolveNamed<IExcelTaskManager>(excelTaskManager.FullName);
-                result.Add(new ExcelTaskType()
+                result.Add(new ExcelTaskTypeInfo()
                 {
                     ComponentName = Name,
                     ComponentDescribe = Describe,

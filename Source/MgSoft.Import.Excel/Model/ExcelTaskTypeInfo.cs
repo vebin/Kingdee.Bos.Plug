@@ -4,8 +4,13 @@ using System.Text;
 
 namespace MgSoft.Import.Excel.Model
 {
-    public class ExcelTaskType
+    public class ExcelTaskTypeInfo
     {
+        public ExcelTaskTypeInfo()
+        {
+        }
+            
+
         /// <summary>
         /// 导入管理任务方案名称
         /// </summary>

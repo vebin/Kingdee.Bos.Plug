@@ -12,7 +12,7 @@ namespace MgSoft.Import.Excel
         string Name { get; }
         string Title { get; }
 
-        List<ExcelTaskType> GetAllExcelTaskType(IContainer container);
+        List<ExcelTaskTypeInfo> GetAllExcelTaskType(IContainer container);
         IExcelScheme GetScheme(IContainer container);
 
         void Register(object builder);

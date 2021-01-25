@@ -10,8 +10,8 @@ namespace MgSoft.Import.Excel
 
         string Describe { get; }
 
-        void Do(ref AggregateExcelMessage aggregateExcelMessage);
+        void Do(AggregateExcelMessage aggregateExcelMessage);
         void SetExcelFilePath(string excelFilePath);
-        void Check(ref AggregateExcelMessage aggregateExcelMessage);
+        void InitAndCheck(AggregateExcelMessage aggregateExcelMessage);
     }
 }
