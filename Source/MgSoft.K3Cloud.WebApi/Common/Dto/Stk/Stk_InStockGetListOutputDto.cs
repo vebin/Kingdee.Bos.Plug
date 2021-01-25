@@ -21,5 +21,10 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// </summary>
         [JsonProperty("FInStockFin_FEntryId")]
         public long FInStockFinId { get; set; }
+        /// <summary>
+        /// 单据类型
+        /// </summary>
+        [JsonProperty("FBillTypeID")]
+        public string FBillTypeID { get; set; }
     }
 }
