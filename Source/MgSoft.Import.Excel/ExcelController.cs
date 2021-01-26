@@ -9,7 +9,7 @@ namespace MgSoft.Import.Excel
     {
         public List<IExcelComponent> Components { get; protected set; }
 
-        public IExcelComponent GetComponent(string componentName)
+        public IExcelComponent GetComponentByName(string componentName)
         {
             var result=Components.Where(p => p.Name == componentName).SingleOrDefault();
             if(result==null)

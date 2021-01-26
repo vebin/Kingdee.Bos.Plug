@@ -11,7 +11,7 @@ namespace MgSoft.Import.Excel
 
         AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskType);
 
-        FileExcelTaskTypeInfo Match(string filePath);
+        List<FileExcelTaskTypeInfo> Match(string filePath);
         List<FileExcelTaskTypeInfo> Match(List<string> filePaths);
     }
 }

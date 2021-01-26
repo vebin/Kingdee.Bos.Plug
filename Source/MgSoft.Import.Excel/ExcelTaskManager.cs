@@ -66,7 +66,7 @@ namespace MgSoft.Import.Excel
             this.lifetimeScope = lifetimeScope;
             IMgLogger mgLogger;
             lifetimeScope.TryResolve<IMgLogger>(out mgLogger);
-            if(mgLogger==null)
+            if (mgLogger == null)
             {
                 log = new NullMgLog();
             }
@@ -102,7 +102,7 @@ namespace MgSoft.Import.Excel
             }
             catch (MgException mgException)
             {
-                aggregateExcelMessage.Add(new ExcelMessage(mgException.Message, ExcelMessageType.Error));
+                aggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
             }
         }
 
@@ -143,18 +143,18 @@ namespace MgSoft.Import.Excel
                 {
                     ExcelTask.Do(dto, MgExcel, aggregateExcelMessage);
                 }
-                catch(MgExcelException mgExcelException)
+                catch (MgExcelException mgExcelException)
                 {
-                    aggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, ExcelMessageType.Error);
+                    aggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
-                catch(MgException mgException)
+                catch (MgException mgException)
                 {
-                    aggregateExcelMessage.Add(dto.Row.RowIndex,0, mgException.Message,ExcelMessageType.Error);
+                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
-                catch(Exception exception)
+                catch (Exception exception)
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
-                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, ExcelMessageType.Error,exception.StackTrace);
+                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
                 finally
                 {
