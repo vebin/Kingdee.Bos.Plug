@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,8 +18,15 @@ namespace MgSoft.K3Cloud.WebApi
         private static List<K3CloudApiClient> k3CloudApiClientCache = new List<K3CloudApiClient>();
         private static object lockObject = new object();
         public ApiServerInfo ApiServerInfo { get; private set; }
+#if DEBUG
+        private const int TimeOutSecond = 3 * 60;
+#else
         private const int TimeOutSecond = 5 * 60;
-        public DateTime CreateTime { get; private set; } = DateTime.Now;
+#endif
+
+
+
+        public static DateTime CreateTime { get; private set; } = DateTime.Now;
         protected IMgLog log;
 
         protected K3CloudApiClient client
@@ -73,6 +81,7 @@ namespace MgSoft.K3Cloud.WebApi
             if (isClientTimeOut())
             {
                 removeK3CloudApiClientFormCache(cacheObj);
+                CreateTime = DateTime.Now;
                 return null;
             }
             return cacheObj;
@@ -92,7 +101,8 @@ namespace MgSoft.K3Cloud.WebApi
 
         private bool isClientTimeOut()
         {
-            return (DateTime.Now - this.CreateTime).Seconds > TimeOutSecond;
+            var result = (DateTime.Now - CreateTime).Ticks > TimeOutSecond;
+            return result;
         }
 
         private K3CloudApiClient createK3CloudApiClient()
