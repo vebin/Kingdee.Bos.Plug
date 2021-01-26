@@ -8,6 +8,6 @@ namespace MgSoft.Import.Excel
 {
     public abstract class ExcelTask<TDto> : IExcelTask<TDto>
     {
-        public abstract void Do(TDto dto, MgExcel mgExcel, AggregateExcelMessage aggregateExcelMessage);
+        public abstract void Do(TDto dto, AggregateExcelMessage aggregateExcelMessage, TaskManagerInfoArg taskManagerInfoArg);
     }
 }

@@ -19,7 +19,7 @@ namespace MgSoft.Import.Excel.Model
 
         public bool HasMessage()
         {
-            return ExcelMessages.Count > 0;
+            return ExcelMessages.Any();
         }
 
         public bool HasError()
@@ -32,6 +32,11 @@ namespace MgSoft.Import.Excel.Model
             return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Waring);
         }
 
+        public bool HasInfo()
+        {
+            return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Info);
+        }
+
         public void Add(ExcelMessage excelMessage)
         {
             lock (lockObject)
@@ -39,27 +44,28 @@ namespace MgSoft.Import.Excel.Model
                 ExcelMessages.Add(excelMessage);
             }
         }
-        public void Add(string message, string detail = "", ExcelMessageType messageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
+        public void Add(string message, string detail, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                ExcelMessages.Add(new ExcelMessage(message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
-        public void Add(int rowIndex, int columnIndex, string message = "", string detail = "", ExcelMessageType messageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
+        public void Add(int rowIndex, int columnIndex, string message, string detail, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                ExcelMessages.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
-        public void Add(ExcelErrorMessage excelErrorMessage, ExcelMessageType messageType = ExcelMessageType.Error, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
+        public void Add(ExcelErrorMessage excelErrorMessage, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                ExcelMessages.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, detail:excelErrorMessage.Detailed,messageType:messageType,fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                var messageType = ExcelMessageType.Error;
+                this.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, message: excelErrorMessage.Message, detail: excelErrorMessage.Detailed, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
@@ -71,13 +77,13 @@ namespace MgSoft.Import.Excel.Model
             }
         }
 
-        public void AddRange(List<ExcelErrorMessage> errorMessages, ExcelMessageType messageType = ExcelMessageType.Error)
+        public void AddRange(List<ExcelErrorMessage> errorMessages, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
                 foreach (ExcelErrorMessage errorMessage in errorMessages)
                 {
-                    this.Add(errorMessage);
+                    this.Add(errorMessage, fileExcelTaskTypeInfo);
                 }
             }
         }

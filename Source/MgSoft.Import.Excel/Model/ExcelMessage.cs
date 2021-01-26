@@ -28,7 +28,7 @@ namespace MgSoft.Import.Excel.Model
             MessageType = messageType;
             Message = message;
             Detail = detail;
-            this.FileExcelTaskTypeInfo = FileExcelTaskTypeInfo;
+            this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         }
         public ExcelMessage(int? rowIndex, int? columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType messageType = ExcelMessageType.Info)
         {
@@ -37,6 +37,7 @@ namespace MgSoft.Import.Excel.Model
             MessageType = messageType;
             Message = message;
             Detail = detail;
+            this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         }
 
         public int RowIndex { get; private set; }

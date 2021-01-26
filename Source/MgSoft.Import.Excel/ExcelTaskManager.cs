@@ -98,7 +98,7 @@ namespace MgSoft.Import.Excel
             catch (AggregateErrorException aggregateErrorException)
             {
                 //Excel表格校验失败
-                aggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages);
+                aggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages, ExcelMessageType.Error, FileExcelTaskTypeInfo);
             }
             catch (MgException mgException)
             {
@@ -141,7 +141,7 @@ namespace MgSoft.Import.Excel
             {
                 try
                 {
-                    ExcelTask.Do(dto, MgExcel, aggregateExcelMessage);
+                    ExcelTask.Do(dto, aggregateExcelMessage, GetTaskManagerInfoArg());
                 }
                 catch (MgExcelException mgExcelException)
                 {
@@ -161,6 +161,11 @@ namespace MgSoft.Import.Excel
                     processInfo.SetProcessRow();
                 }
             }
+        }
+
+        protected TaskManagerInfoArg GetTaskManagerInfoArg()
+        {
+            return new TaskManagerInfoArg(MgExcel, FileExcelTaskTypeInfo);
         }
 
         /// <summary>

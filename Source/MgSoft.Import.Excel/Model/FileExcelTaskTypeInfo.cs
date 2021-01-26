@@ -23,7 +23,7 @@ namespace MgSoft.Import.Excel.Model
         {
         }
 
-        public Guid Id { get; private set; } = new Guid();
+        public Guid Id { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// 文件路径
