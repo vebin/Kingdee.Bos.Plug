@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Import
 {
-    public abstract class MgTask : ITask
+    public abstract class MgTask : IMgTask
     {
     }
 }

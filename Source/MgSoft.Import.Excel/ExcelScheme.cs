@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public abstract class ExcelScheme: Scheme, IExcelScheme
+    public abstract class ExcelScheme : Scheme, IExcelScheme
     {
         private ILifetimeScope lifetimeScope;
 
@@ -17,54 +17,52 @@ namespace MgSoft.Import.Excel
             this.lifetimeScope = lifetimeScope;
         }
 
-        public abstract FileExcelTaskType Match(string filePath);
+        public abstract List<FileExcelTaskTypeInfo> Match(string filePath);
 
-        public AggregateExcelMessage Check(List<FileExcelTaskType> fileExcelTaskTypes)
+        public AggregateExcelMessage InitAndCheck(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
         {
             AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
-            foreach(var fileExcelTaskType in fileExcelTaskTypes)
+            foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
-                check(fileExcelTaskType, ref aggregateExcelMessage);
+                check(fileExcelTaskType, aggregateExcelMessage);
             }
             return aggregateExcelMessage;
         }
 
-        private void check(FileExcelTaskType fileExcelTaskType,ref AggregateExcelMessage aggregateExcelMessage)
+        private void check(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
         {
             var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.SetExcelFilePath(fileExcelTaskType.FilePath);
-            excelTaskManager.Check(ref aggregateExcelMessage);
+            excelTaskManager.InitAndCheck(fileExcelTaskType, aggregateExcelMessage);
         }
 
-        public virtual AggregateExcelMessage Import(List<FileExcelTaskType> fileExcelTaskTypes)
+        public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
         {
             AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
 
             foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
-                import(fileExcelTaskType, ref aggregateExcelMessage);
+                import(fileExcelTaskType, aggregateExcelMessage);
             }
             return aggregateExcelMessage;
         }
 
-        private void import(FileExcelTaskType fileExcelTaskType,ref AggregateExcelMessage aggregateExcelMessage)
+        private void import(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
         {
             var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.SetExcelFilePath(fileExcelTaskType.FilePath);
-            excelTaskManager.Do(ref aggregateExcelMessage);
+            excelTaskManager.Do(aggregateExcelMessage);
         }
 
-        public List<FileExcelTaskType> Match(List<string> filePaths)
+        public List<FileExcelTaskTypeInfo> Match(List<string> filePaths)
         {
-            List<FileExcelTaskType> result = new List<FileExcelTaskType>();
+            List<FileExcelTaskTypeInfo> result = new List<FileExcelTaskTypeInfo>();
             foreach (var filePath in filePaths)
             {
-                var fileExcelTaskType = Match(filePath);
-                if (fileExcelTaskType == null) result.Add(fileExcelTaskType);
+                var fileExcelTaskTypes = Match(filePath);
+                if (fileExcelTaskTypes.Count != 0) result.AddRange(fileExcelTaskTypes);
             }
             return result;
         }
 
-        public abstract void DoTaskManagers(List<FileExcelTaskType> fileExcelTaskTypes, ref AggregateExcelMessage aggregateExcelMessage);
+        public abstract void DoTaskManagers(List<FileExcelTaskTypeInfo> fileExcelTaskTypes, AggregateExcelMessage aggregateExcelMessage);
     }
 }

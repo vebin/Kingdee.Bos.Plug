@@ -7,7 +7,7 @@ namespace MgSoft.Import
     /// <summary>
     /// 任务
     /// </summary>
-    public interface ITask
+    public interface IMgTask
     {
     }
 }
