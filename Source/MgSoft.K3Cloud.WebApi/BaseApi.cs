@@ -21,12 +21,15 @@ namespace MgSoft.K3Cloud.WebApi
 #if DEBUG
         private const int TimeOutSecond = 3 * 60;
 #else
-        private const int TimeOutSecond = 5 * 60;
+        private const int TimeOutSecond = 10 * 60;
 #endif
 
+        /// <summary>
+        /// 超时重试次数
+        /// </summary>
+        private static int retryCount = 0;
 
-
-        public static DateTime CreateTime { get; private set; } = DateTime.Now;
+        //public static DateTime CreateTime { get; private set; } = DateTime.Now;
         protected IMgLog log;
 
         protected K3CloudApiClient client
@@ -76,12 +79,12 @@ namespace MgSoft.K3Cloud.WebApi
 
         private K3CloudApiClient getK3CloudApiClientFormCache(ApiServerInfo apiServerInfo)
         {
-            var cacheObj = k3CloudApiClientCache.Where(p => p.ApiServerInforl.Equals(p.ApiServerInforl)).SingleOrDefault();
+            var cacheObj = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(p.ApiServerInfo)).SingleOrDefault();
             if (cacheObj == null) return null;
-            if (isClientTimeOut())
+            if (isClientTimeOut(cacheObj.CreateTime))
             {
                 removeK3CloudApiClientFormCache(cacheObj);
-                CreateTime = DateTime.Now;
+                //cacheObj.CreateTime = DateTime.Now;
                 return null;
             }
             return cacheObj;
@@ -93,15 +96,15 @@ namespace MgSoft.K3Cloud.WebApi
 
         private void removeK3CloudApiClientFormCache(K3CloudApiClient k3CloudApiClient)
         {
-            var removeObj = k3CloudApiClientCache.Where(p => p.ApiServerInforl.Equals(p.ApiServerInforl)).SingleOrDefault();
+            var removeObj = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(p.ApiServerInfo)).SingleOrDefault();
             if (removeObj == null) return;
 
             k3CloudApiClientCache.Remove(removeObj);
         }
 
-        private bool isClientTimeOut()
+        private bool isClientTimeOut(DateTime createTime)
         {
-            var result = (DateTime.Now - CreateTime).Ticks > TimeOutSecond;
+            var result = (DateTime.Now - createTime).Ticks > TimeOutSecond;
             return result;
         }
 
@@ -334,6 +337,14 @@ namespace MgSoft.K3Cloud.WebApi
             {
                 return;
             }
+
+            var msgCode = jResult["MsgCode"].Value<int>();
+            if (msgCode.Equals(1))//是否超时。1 为超时。其他值暂不知晓，后续可以补充
+            {
+                var cacheObj = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(p.ApiServerInfo)).SingleOrDefault();
+                if (cacheObj == null) return;
+                removeK3CloudApiClientFormCache(cacheObj);
+            }
             var responseStatus = jResult["ResponseStatus"];
             if (responseStatus.SelectToken("IsSuccess") != null && responseStatus["IsSuccess"].Value<bool>())
             {
@@ -341,7 +352,7 @@ namespace MgSoft.K3Cloud.WebApi
             }
             if (responseStatus.SelectToken("Errors") != null)
             {
-                //throw new ApiException(responseStatus["Errors"].ToString());
+                //throw new ApiException(responseStatus["Errors"].ToString());                
                 throw new ApiException(getErrorMessage(responseStatus));
             }
         }

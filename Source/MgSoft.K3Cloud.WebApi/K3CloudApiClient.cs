@@ -12,7 +12,7 @@ namespace MgSoft.K3Cloud.WebApi
         private string url;//K/3 Cloud 业务站点地址
         private HttpClient httpClient;
 
-        public ApiServerInfo ApiServerInforl { get; private set; }
+        public ApiServerInfo ApiServerInfo { get; private set; }
 
         public DateTime CreateTime { get; private set; } = DateTime.Now;
 
@@ -26,7 +26,7 @@ namespace MgSoft.K3Cloud.WebApi
 
         public K3CloudApiClient(ApiServerInfo apiServerInforl)
         {
-            this.ApiServerInforl = apiServerInforl;
+            this.ApiServerInfo = apiServerInforl;
             this.url = apiServerInforl.ServerUrl;
             httpClient = new HttpClient();
         }
