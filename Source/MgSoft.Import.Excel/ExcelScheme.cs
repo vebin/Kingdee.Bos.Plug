@@ -24,15 +24,16 @@ namespace MgSoft.Import.Excel
             AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
             foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
-                check(fileExcelTaskType, aggregateExcelMessage);
+                TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(null, fileExcelTaskType, aggregateExcelMessage);
+                check(taskManagerInfoArg);
             }
             return aggregateExcelMessage;
         }
 
-        private void check(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
+        private void check(TaskManagerInfoArg taskManagerInfoArg)
         {
-            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.InitAndCheck(fileExcelTaskType, aggregateExcelMessage);
+            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
+            excelTaskManager.InitAndCheck(taskManagerInfoArg);
         }
 
         public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)

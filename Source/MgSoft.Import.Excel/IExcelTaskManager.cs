@@ -12,6 +12,6 @@ namespace MgSoft.Import.Excel
 
         void Do(AggregateExcelMessage aggregateExcelMessage);
 
-        void InitAndCheck(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage);
+        void InitAndCheck(TaskManagerInfoArg taskManagerInfoArg);
     }
 }

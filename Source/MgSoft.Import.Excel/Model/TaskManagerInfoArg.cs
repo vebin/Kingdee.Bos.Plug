@@ -5,16 +5,24 @@ using System.Text;
 
 namespace MgSoft.Import.Excel.Model
 {
-    public class TaskManagerInfoArg
+    public class TaskManagerInfoArg : ITaskManagerInfoArg
     {
         public MgExcel MgExcel { get; private set; }
 
         public FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; private set; }
 
-        public TaskManagerInfoArg(MgExcel mgExcel, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        public AggregateExcelMessage AggregateExcelMessage { get; private set; }
+
+        public TaskManagerInfoArg(MgExcel mgExcel, FileExcelTaskTypeInfo fileExcelTaskTypeInfo, AggregateExcelMessage aggregateExcelMessage)
         {
             this.MgExcel = mgExcel;
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
+            this.AggregateExcelMessage = AggregateExcelMessage;
+        }
+
+        void ITaskManagerInfoArg.SetMgExcel(MgExcel mgExcel)
+        {
+            MgExcel = mgExcel;
         }
     }
 }

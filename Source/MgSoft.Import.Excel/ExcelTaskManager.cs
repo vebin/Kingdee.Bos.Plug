@@ -81,42 +81,39 @@ namespace MgSoft.Import.Excel
         /// 初始化表格，并对数据进行校验
         /// </summary>
         /// <param name="aggregateExcelMessage"></param>
-        public virtual void InitAndCheck(FileExcelTaskTypeInfo fileExcelTaskTypeInfo, AggregateExcelMessage aggregateExcelMessage)
+        public virtual void InitAndCheck(TaskManagerInfoArg taskManagerInfoArg)
         {
-            FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
-            ExcelFilePath = fileExcelTaskTypeInfo.FilePath;
-
             try
             {
-                BeforeInit();
-                initCheck();
-                initMgExcel();
-                AfterInit();
-                Check(aggregateExcelMessage);
-                Dtos = ConvertToDto();
+                BeforeInit(taskManagerInfoArg);
+                initCheck(taskManagerInfoArg);
+                initMgExcel(taskManagerInfoArg);
+                AfterInit(taskManagerInfoArg);
+                Check(taskManagerInfoArg);
+                Dtos = ConvertToDto(taskManagerInfoArg);
             }
             catch (AggregateErrorException aggregateErrorException)
             {
                 //Excel表格校验失败
-                aggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages, ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                taskManagerInfoArg.AggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages, ExcelMessageType.Error, FileExcelTaskTypeInfo);
             }
             catch (MgException mgException)
             {
-                aggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
+                taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
             }
         }
 
         /// <summary>
         /// 初始化之前
         /// </summary>
-        protected virtual void AfterInit()
+        protected virtual void AfterInit(TaskManagerInfoArg taskManagerInfoArg)
         {
         }
 
         /// <summary>
         /// 初始化之后
         /// </summary>
-        protected virtual void BeforeInit()
+        protected virtual void BeforeInit(TaskManagerInfoArg taskManagerInfoArg)
         {
         }
 
@@ -124,7 +121,7 @@ namespace MgSoft.Import.Excel
         /// 自定义校验
         /// </summary>
         /// <param name="aggregateExcelMessage"></param>
-        protected virtual void Check(AggregateExcelMessage aggregateExcelMessage)
+        protected virtual void Check(TaskManagerInfoArg taskManagerInfoArg)
         {
         }
 
@@ -141,7 +138,7 @@ namespace MgSoft.Import.Excel
             {
                 try
                 {
-                    ExcelTask.Do(dto, aggregateExcelMessage, GetTaskManagerInfoArg());
+                    ExcelTask.Do(dto, aggregateExcelMessage, GetTaskManagerInfoArg(aggregateExcelMessage));
                 }
                 catch (MgExcelException mgExcelException)
                 {
@@ -155,24 +152,24 @@ namespace MgSoft.Import.Excel
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
                     aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
-                }
+                } 
                 finally
                 {
                     processInfo.SetProcessRow();
                 }
-            }
+            } 
         }
 
-        protected TaskManagerInfoArg GetTaskManagerInfoArg()
+        protected TaskManagerInfoArg GetTaskManagerInfoArg(AggregateExcelMessage aggregateExcelMessage)
         {
-            return new TaskManagerInfoArg(MgExcel, FileExcelTaskTypeInfo);
+            return new TaskManagerInfoArg(MgExcel, FileExcelTaskTypeInfo,aggregateExcelMessage);
         }
 
         /// <summary>
         /// 把Excel数据数据转换为Dto
         /// </summary>
         /// <returns></returns>
-        public virtual List<TDto> ConvertToDto()
+        public virtual List<TDto> ConvertToDto(TaskManagerInfoArg taskManagerInfoArg)
         {
             List<TDto> result = new List<TDto>();
             var startRowIndex = MgExcel.MgSheet.StartRowIndex;
@@ -186,12 +183,13 @@ namespace MgSoft.Import.Excel
             return result;
         }
 
-        private void initMgExcel()
+        private void initMgExcel(TaskManagerInfoArg taskManagerInfoArg)
         {
             MgExcel = ExcelDao.GetExcel(ExcelFilePath);
+            (taskManagerInfoArg as ITaskManagerInfoArg).SetMgExcel(MgExcel);//调用显式实现接口给MgExcel赋值
         }
 
-        private void initCheck()
+        private void initCheck(TaskManagerInfoArg taskManagerInfoArg)
         {
             if (string.IsNullOrEmpty(ExcelFilePath))
             {
