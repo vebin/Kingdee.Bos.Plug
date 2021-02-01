@@ -16,16 +16,16 @@ namespace MgSoft.Import.Excel.Model
         public FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; }
 
         public ExcelMessage(string message, string detail = "", ExcelMessageType excelMessageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
-            : this(rowIndex: 0, columnIndex: 0, message: message, detail: detail, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo, messageType: excelMessageType)
+            : this(rowIndex: 0, columnIndex: 0, message: message, detail: detail, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo, excelMessageType: excelMessageType)
         {
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         }
 
-        public ExcelMessage(int rowIndex, int columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType messageType = ExcelMessageType.Info)
+        public ExcelMessage(int rowIndex, int columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType excelMessageType = ExcelMessageType.Info)
         {
             RowIndex = rowIndex;
             ColumnIndex = columnIndex;
-            MessageType = messageType;
+            MessageType = excelMessageType;
             Message = message;
             Detail = detail;
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;

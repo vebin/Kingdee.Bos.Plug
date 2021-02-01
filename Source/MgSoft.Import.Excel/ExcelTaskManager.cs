@@ -37,10 +37,10 @@ namespace MgSoft.Import.Excel
         /// </summary>
         public abstract string Describe { get; }
 
-        /// <summary>
-        /// Excel表格文件路径
-        /// </summary>
-        protected string ExcelFilePath { get; private set; }
+        ///// <summary>
+        ///// Excel表格文件路径
+        ///// </summary>
+        //protected string ExcelFilePath { get; private set; }
 
         /// <summary>
         /// 具体实现的ExcelTask
@@ -86,12 +86,24 @@ namespace MgSoft.Import.Excel
             try
             {
                 BeforeInit(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+
                 initCheck(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                
                 initMgExcel(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+
                 AfterInit(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+
                 CheckMgRow(taskManagerInfoArg);
-                CheckDto(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+
                 Dtos = ConvertToDto(taskManagerInfoArg);
+                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+
+                CheckDto(taskManagerInfoArg);
             }
             catch (AggregateErrorException aggregateErrorException)
             {
@@ -117,7 +129,7 @@ namespace MgSoft.Import.Excel
             {
                 try
                 {
-                    ExcelTask.Do(dto, aggregateExcelMessage, GetTaskManagerInfoArg(aggregateExcelMessage));
+                    ExcelTask.Do(dto, GetTaskManagerInfoArg(aggregateExcelMessage));
                 }
                 catch (MgExcelException mgExcelException)
                 {
@@ -203,20 +215,22 @@ namespace MgSoft.Import.Excel
 
         private void initMgExcel(TaskManagerInfoArg taskManagerInfoArg)
         {
-            MgExcel = ExcelDao.GetExcel(ExcelFilePath);
+            MgExcel = ExcelDao.GetExcel(FileExcelTaskTypeInfo.FilePath);
             (taskManagerInfoArg as ITaskManagerInfoArg).SetMgExcel(MgExcel);//调用显式实现接口给MgExcel赋值
         }
 
         private void initCheck(TaskManagerInfoArg taskManagerInfoArg)
         {
-            if (string.IsNullOrEmpty(ExcelFilePath))
+            this.FileExcelTaskTypeInfo = taskManagerInfoArg.FileExcelTaskTypeInfo;
+
+            if (string.IsNullOrEmpty(FileExcelTaskTypeInfo.FilePath))
             {
                 throw new MgException("没有设置文件名称");
             }
 
-            if (!File.Exists(ExcelFilePath))
+            if (!File.Exists(FileExcelTaskTypeInfo.FilePath))
             {
-                throw new MgException($"文件不存在或已删除，{ExcelFilePath}");
+                throw new MgException($"文件不存在或已删除，{FileExcelTaskTypeInfo.FilePath}");
             }
         }
 

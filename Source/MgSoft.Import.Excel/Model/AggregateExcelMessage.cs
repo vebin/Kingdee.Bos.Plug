@@ -56,16 +56,15 @@ namespace MgSoft.Import.Excel.Model
         {
             lock (lockObject)
             {
-                this.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail: detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex, columnIndex, message:message, detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
-        public void Add(ExcelErrorMessage excelErrorMessage, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        public void Add(ExcelErrorMessage excelErrorMessage, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                var messageType = ExcelMessageType.Error;
-                this.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, message: excelErrorMessage.Message, detail: excelErrorMessage.Detailed, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, message: excelErrorMessage.Message, detail: excelErrorMessage.Detailed, messageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 

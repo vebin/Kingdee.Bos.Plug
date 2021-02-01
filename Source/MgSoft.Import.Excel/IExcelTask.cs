@@ -6,6 +6,7 @@ namespace MgSoft.Import.Excel
 {
     public interface IExcelTask<TDto> : IMgTask
     {
+        void CheckDto(TDto dto, TaskManagerInfoArg taskManagerInfoArg);
         void CheckMgRow(MgRow mgRow, TaskManagerInfoArg taskManagerInfoArg);
         void Do(TDto dto, TaskManagerInfoArg taskManagerInfoArg);
     }

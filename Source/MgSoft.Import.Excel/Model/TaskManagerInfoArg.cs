@@ -17,7 +17,7 @@ namespace MgSoft.Import.Excel.Model
         {
             this.MgExcel = mgExcel;
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
-            this.AggregateExcelMessage = AggregateExcelMessage;
+            this.AggregateExcelMessage = aggregateExcelMessage;
         }
 
         void ITaskManagerInfoArg.SetMgExcel(MgExcel mgExcel)
