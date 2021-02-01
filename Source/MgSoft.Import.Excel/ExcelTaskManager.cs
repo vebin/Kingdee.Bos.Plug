@@ -89,7 +89,8 @@ namespace MgSoft.Import.Excel
                 initCheck(taskManagerInfoArg);
                 initMgExcel(taskManagerInfoArg);
                 AfterInit(taskManagerInfoArg);
-                Check(taskManagerInfoArg);
+                CheckMgRow(taskManagerInfoArg);
+                CheckDto(taskManagerInfoArg);
                 Dtos = ConvertToDto(taskManagerInfoArg);
             }
             catch (AggregateErrorException aggregateErrorException)
@@ -101,28 +102,6 @@ namespace MgSoft.Import.Excel
             {
                 taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
             }
-        }
-
-        /// <summary>
-        /// 初始化之前
-        /// </summary>
-        protected virtual void AfterInit(TaskManagerInfoArg taskManagerInfoArg)
-        {
-        }
-
-        /// <summary>
-        /// 初始化之后
-        /// </summary>
-        protected virtual void BeforeInit(TaskManagerInfoArg taskManagerInfoArg)
-        {
-        }
-
-        /// <summary>
-        /// 自定义校验
-        /// </summary>
-        /// <param name="aggregateExcelMessage"></param>
-        protected virtual void Check(TaskManagerInfoArg taskManagerInfoArg)
-        {
         }
 
         /// <summary>
@@ -152,12 +131,48 @@ namespace MgSoft.Import.Excel
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
                     aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
-                } 
+                }
                 finally
                 {
                     processInfo.SetProcessRow();
                 }
-            } 
+            }
+        }
+
+        #region 可重载方法
+        /// <summary>
+        /// 自定义校验
+        /// </summary>
+        /// <param name="aggregateExcelMessage"></param>
+        protected virtual void CheckDto(TaskManagerInfoArg taskManagerInfoArg)
+        {
+            foreach (var dto in Dtos)
+            {
+                ExcelTask.CheckDto(dto, taskManagerInfoArg);
+            }
+        }
+
+        /// <summary>
+        /// 初始化之前
+        /// </summary>
+        protected virtual void AfterInit(TaskManagerInfoArg taskManagerInfoArg)
+        {
+        }
+
+        /// <summary>
+        /// 初始化之后
+        /// </summary>
+        protected virtual void BeforeInit(TaskManagerInfoArg taskManagerInfoArg)
+        {
+        }
+
+        protected void CheckMgRow(TaskManagerInfoArg taskManagerInfoArg)
+        {
+            for (int rowIndex = this.MgExcel.MgSheet.StartRowIndex; rowIndex < this.MgExcel.MgSheet.MaxRowIndex; rowIndex++)
+            {
+                var row = MgExcel.MgSheet.GetRow(rowIndex);
+                ExcelTask.CheckMgRow(row, taskManagerInfoArg);
+            }
         }
 
         protected TaskManagerInfoArg GetTaskManagerInfoArg(AggregateExcelMessage aggregateExcelMessage)
@@ -166,10 +181,10 @@ namespace MgSoft.Import.Excel
         }
 
         /// <summary>
-        /// 把Excel数据数据转换为Dto
+        /// 把Excel数据数据转换为Dto，默认转换规则为一行数据转换为一个Dto，如需多行数据转换为一个Dto请自行重载
         /// </summary>
         /// <returns></returns>
-        public virtual List<TDto> ConvertToDto(TaskManagerInfoArg taskManagerInfoArg)
+        protected virtual List<TDto> ConvertToDto(TaskManagerInfoArg taskManagerInfoArg)
         {
             List<TDto> result = new List<TDto>();
             var startRowIndex = MgExcel.MgSheet.StartRowIndex;
@@ -182,6 +197,9 @@ namespace MgSoft.Import.Excel
 
             return result;
         }
+        #endregion
+
+        #region 私有方案
 
         private void initMgExcel(TaskManagerInfoArg taskManagerInfoArg)
         {
@@ -201,5 +219,8 @@ namespace MgSoft.Import.Excel
                 throw new MgException($"文件不存在或已删除，{ExcelFilePath}");
             }
         }
+
+
+        #endregion
     }
 }

@@ -15,8 +15,8 @@ namespace MgSoft.Import.Excel.Model
 
         public FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; }
 
-        public ExcelMessage(string message, string detail = "", ExcelMessageType messageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
-            : this(rowIndex: 0, columnIndex: 0, message: message, detail: detail, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo, messageType: messageType)
+        public ExcelMessage(string message, string detail = "", ExcelMessageType excelMessageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
+            : this(rowIndex: 0, columnIndex: 0, message: message, detail: detail, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo, messageType: excelMessageType)
         {
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         }

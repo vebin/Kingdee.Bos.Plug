@@ -44,19 +44,19 @@ namespace MgSoft.Import.Excel.Model
                 ExcelMessages.Add(excelMessage);
             }
         }
-        public void Add(string message, string detail, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        public void Add(string message, string detail, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                this.Add(new ExcelMessage(message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(message: message, detail: detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
-        public void Add(int rowIndex, int columnIndex, string message, string detail, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        public void Add(int rowIndex, int columnIndex, string message, string detail, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                this.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail: detail, messageType: messageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail: detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
@@ -77,13 +77,13 @@ namespace MgSoft.Import.Excel.Model
             }
         }
 
-        public void AddRange(List<ExcelErrorMessage> errorMessages, ExcelMessageType messageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        public void AddRange(List<ExcelErrorMessage> errorMessages, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
                 foreach (ExcelErrorMessage errorMessage in errorMessages)
                 {
-                    this.Add(errorMessage, fileExcelTaskTypeInfo);
+                    this.Add(errorMessage, excelMessageType, fileExcelTaskTypeInfo);
                 }
             }
         }
