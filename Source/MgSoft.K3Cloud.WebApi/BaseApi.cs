@@ -213,6 +213,7 @@ namespace MgSoft.K3Cloud.WebApi
         {
             setFormId(saveInputDto);
 
+            
             var apiResult = client.Save(saveInputDto.FormId, JsonConvert.SerializeObject(saveInputDto));
             CheckGetIsSuccess(apiResult);
 
@@ -338,14 +339,16 @@ namespace MgSoft.K3Cloud.WebApi
                 return;
             }
 
-            var msgCode = jResult["MsgCode"].Value<int>();
+            
+            var responseStatus = jResult["ResponseStatus"];
+
+            var msgCode = responseStatus?["MsgCode"]?.Value<int>() ?? 0;
             if (msgCode.Equals(1))//是否超时。1 为超时。其他值暂不知晓，后续可以补充
             {
                 var cacheObj = k3CloudApiClientCache.Where(p => p.ApiServerInfo.Equals(p.ApiServerInfo)).SingleOrDefault();
                 if (cacheObj == null) return;
                 removeK3CloudApiClientFormCache(cacheObj);
             }
-            var responseStatus = jResult["ResponseStatus"];
             if (responseStatus.SelectToken("IsSuccess") != null && responseStatus["IsSuccess"].Value<bool>())
             {
                 return;

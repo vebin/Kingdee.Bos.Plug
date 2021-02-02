@@ -36,6 +36,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 基本单位
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FBaseUnitID { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -62,7 +63,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual decimal? FAmount { get; set; }
-
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FTaxCombination { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -124,6 +125,7 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Stk
         /// <summary>
         /// 采购单位(必填)
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual FNumberProperty FRemainInStockUnitId { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
