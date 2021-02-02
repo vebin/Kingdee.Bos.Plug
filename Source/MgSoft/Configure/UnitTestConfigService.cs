@@ -4,18 +4,18 @@ using System.Text;
 
 namespace MgSoft.Configure
 {
-    public class UnitTestConfigService : IConfigService
+    public class UnitTestConfigService : MemoryConfigService,IConfigService
     {
-        private object config;
+        //private object config;
 
-        public T GetConfig<T>(string configName = "") where T : class,new()
-        {
-            return config as T;
-        }
+        //public T GetConfig<T>(string configName = "") where T : class,new()
+        //{
+        //    return config as T;
+        //}
 
-        public void SetConfig<T>(T config, string configName = "")
-        {
-            this.config = config;
-        }
+        //public void SetConfig<T>(T config, string configName = "")
+        //{
+        //    this.config = config;
+        //}
     }
 }

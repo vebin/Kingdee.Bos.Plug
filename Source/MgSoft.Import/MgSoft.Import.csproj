@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MgSoft.DependenceInjection.Autofac\MgSoft.DependenceInjection.Autofac.csproj" />
     <ProjectReference Include="..\MgSoft\MgSoft.csproj" />
   </ItemGroup>
 

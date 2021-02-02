@@ -52,11 +52,18 @@ namespace MgSoft.Import.Excel.Model
             }
         }
 
-        public void Add(int rowIndex, int columnIndex, string message, string detail, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        //public void Add(int rowIndex, int columnIndex, string message, string detail, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
+        //{
+        //    lock (lockObject)
+        //    {
+        //        this.Add(new ExcelMessage(rowIndex, columnIndex, message:message, detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+        //    }
+        //}
+        public void Add(int? rowIndex, int? columnIndex, string message, string detail, ExcelMessageType excelMessageType, FileExcelTaskTypeInfo fileExcelTaskTypeInfo)
         {
             lock (lockObject)
             {
-                this.Add(new ExcelMessage(rowIndex, columnIndex, message:message, detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex, columnIndex, message: message, detail, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 
@@ -64,7 +71,7 @@ namespace MgSoft.Import.Excel.Model
         {
             lock (lockObject)
             {
-                this.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, message: excelErrorMessage.Message, detail: excelErrorMessage.Detailed, messageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
+                this.Add(new ExcelMessage(rowIndex: excelErrorMessage.RowIndex, columnIndex: excelErrorMessage.ColumnIndex, message: excelErrorMessage.Message, detail: excelErrorMessage.Detailed, excelMessageType: excelMessageType, fileExcelTaskTypeInfo: fileExcelTaskTypeInfo));
             }
         }
 

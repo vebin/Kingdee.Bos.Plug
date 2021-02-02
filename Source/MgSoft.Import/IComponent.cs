@@ -1,6 +1,4 @@
-﻿using Autofac;
-
-namespace MgSoft.Import
+﻿namespace MgSoft.Import
 {
     public interface IComponent
     {

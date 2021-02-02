@@ -15,5 +15,6 @@ namespace MgSoft.Import
         public string Password { get; set; }
 
         public string SqlConnectionString { get; set; }
+
     }
 }

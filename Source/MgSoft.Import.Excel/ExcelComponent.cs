@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using MgSoft.Import.Model;
 
 namespace MgSoft.Import.Excel
 {
@@ -11,6 +12,8 @@ namespace MgSoft.Import.Excel
     {
 
         public abstract Type SchemeType { get; }
+
+        public abstract ConfigUiType ConfigUiType { get; }
 
         public virtual List<ExcelTaskTypeInfo> GetAllExcelTaskType(IContainer container)
         {
@@ -59,6 +62,11 @@ namespace MgSoft.Import.Excel
         public virtual void OnRegister(ContainerBuilder containerBuilder)
         {
 
+        }
+
+        public virtual void CustomerConfigUi(object lifetimeScope,Action successCallTack, Action failCallBack) 
+        {
+            throw new NotImplementedException("ConfigUiType配置为Customize，需要重载CustomerConfig");
         }
     }
 }

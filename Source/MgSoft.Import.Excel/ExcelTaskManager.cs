@@ -59,21 +59,14 @@ namespace MgSoft.Import.Excel
 
         protected FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; private set; }
 
-        protected IMgLog log { get; private set; }
+        protected IMgLog log { get; private set; } = new NullMgLog();
 
         protected ExcelTaskManager(Autofac.ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
             IMgLogger mgLogger;
             lifetimeScope.TryResolve<IMgLogger>(out mgLogger);
-            if (mgLogger == null)
-            {
-                log = new NullMgLog();
-            }
-            else
-            {
-                log = mgLogger.CreateLog();
-            }
+            if (mgLogger != null) log = mgLogger.CreateLog();
         }
 
 
@@ -90,7 +83,7 @@ namespace MgSoft.Import.Excel
 
                 initCheck(taskManagerInfoArg);
                 if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
-                
+
                 initMgExcel(taskManagerInfoArg);
                 if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
 
@@ -112,6 +105,7 @@ namespace MgSoft.Import.Excel
             }
             catch (MgException mgException)
             {
+                log.Error(mgException.Message);
                 taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
             }
         }
@@ -142,7 +136,7 @@ namespace MgSoft.Import.Excel
                 catch (Exception exception)
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
-                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    aggregateExcelMessage.Add(dto.Row?.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
                 finally
                 {
@@ -189,7 +183,7 @@ namespace MgSoft.Import.Excel
 
         protected TaskManagerInfoArg GetTaskManagerInfoArg(AggregateExcelMessage aggregateExcelMessage)
         {
-            return new TaskManagerInfoArg(MgExcel, FileExcelTaskTypeInfo,aggregateExcelMessage);
+            return new TaskManagerInfoArg(MgExcel, FileExcelTaskTypeInfo, aggregateExcelMessage);
         }
 
         /// <summary>

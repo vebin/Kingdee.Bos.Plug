@@ -21,20 +21,21 @@ namespace MgSoft.Import.Excel.Model
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         }
 
-        public ExcelMessage(int rowIndex, int columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType excelMessageType = ExcelMessageType.Info)
-        {
-            RowIndex = rowIndex;
-            ColumnIndex = columnIndex;
-            MessageType = excelMessageType;
-            Message = message;
-            Detail = detail;
-            this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
-        }
-        public ExcelMessage(int? rowIndex, int? columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType messageType = ExcelMessageType.Info)
+        //public ExcelMessage(int rowIndex, int columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType excelMessageType = ExcelMessageType.Info)
+        //{
+        //    RowIndex = rowIndex;
+        //    ColumnIndex = columnIndex;
+        //    MessageType = excelMessageType;
+        //    Message = message;
+        //    Detail = detail;
+        //    this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
+        //}
+
+        public ExcelMessage(int? rowIndex, int? columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType excelMessageType = ExcelMessageType.Info)
         {
             RowIndex = rowIndex.HasValue ? rowIndex.Value : 0;
             ColumnIndex = columnIndex.HasValue ? columnIndex.Value : 0;
-            MessageType = messageType;
+            MessageType = excelMessageType;
             Message = message;
             Detail = detail;
             this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;

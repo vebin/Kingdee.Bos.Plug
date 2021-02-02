@@ -5,6 +5,5 @@
         string Name { get; }
         string Title { get; }
         string Describe { get; }
-        string TargetConfigName { get; }
     }
 }

@@ -12,7 +12,5 @@ namespace MgSoft.Import
 
         public abstract string Describe { get; }
 
-        public abstract string TargetConfigName { get; }
-
     }
 }

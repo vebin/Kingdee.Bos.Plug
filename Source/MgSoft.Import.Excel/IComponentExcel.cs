@@ -1,12 +1,13 @@
 ﻿using Autofac;
 using MgSoft.Import.Excel.Model;
+using MgSoft.Import.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public interface IExcelComponent
+    public interface IExcelComponent: IConfigUiComponent
     {
         string Describe { get; }
         string Name { get; }
