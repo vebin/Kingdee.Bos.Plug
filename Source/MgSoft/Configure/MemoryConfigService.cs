@@ -6,7 +6,7 @@ namespace MgSoft.Configure
 {
     public class MemoryConfigService : IConfigService
     {
-        Dictionary<string, object> memoryConfig;
+        Dictionary<string, object> memoryConfig=new Dictionary<string, object>();
 
         object lockOjbect = new object();
 
