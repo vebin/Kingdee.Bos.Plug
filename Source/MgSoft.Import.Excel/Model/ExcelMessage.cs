@@ -31,7 +31,7 @@ namespace MgSoft.Import.Excel.Model
         //    this.FileExcelTaskTypeInfo = fileExcelTaskTypeInfo;
         //}
 
-        public ExcelMessage(int? rowIndex, int? columnIndex, string message = "", string detail = "", FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null, ExcelMessageType excelMessageType = ExcelMessageType.Info)
+        public ExcelMessage(int? rowIndex, int? columnIndex, string message = "", string detail = "", ExcelMessageType excelMessageType = ExcelMessageType.Info, FileExcelTaskTypeInfo fileExcelTaskTypeInfo = null)
         {
             RowIndex = rowIndex.HasValue ? rowIndex.Value : 0;
             ColumnIndex = columnIndex.HasValue ? columnIndex.Value : 0;

@@ -174,10 +174,19 @@ namespace MgSoft.Import.Excel
 
         protected void CheckMgRow(TaskManagerInfoArg taskManagerInfoArg)
         {
-            for (int rowIndex = this.MgExcel.MgSheet.StartRowIndex; rowIndex < this.MgExcel.MgSheet.MaxRowIndex; rowIndex++)
+            var processInfo = ((IProcessInfo)taskManagerInfoArg.FileExcelTaskTypeInfo);
+            processInfo.SetProcessTotalRow(this.MgExcel.MgSheet.MaxRowIndex - this.MgExcel.MgSheet.StartRowIndex + 1);
+            for (int rowIndex = this.MgExcel.MgSheet.StartRowIndex; rowIndex <= this.MgExcel.MgSheet.MaxRowIndex; rowIndex++)
             {
-                var row = MgExcel.MgSheet.GetRow(rowIndex);
-                ExcelTask.CheckMgRow(row, taskManagerInfoArg);
+                try
+                {
+                    var row = MgExcel.MgSheet.GetRow(rowIndex);
+                    ExcelTask.CheckMgRow(row, taskManagerInfoArg);
+                }
+                finally
+                {
+                    processInfo.SetProcessRow();
+                }
             }
         }
 
