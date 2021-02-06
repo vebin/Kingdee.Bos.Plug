@@ -174,8 +174,13 @@ namespace MgSoft.Import.Excel
 
         protected void CheckMgRow(TaskManagerInfoArg taskManagerInfoArg)
         {
+            if(!this.MgExcel.MgSheet.IsHasRow())
+            {
+                taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage("表格没有可以导入的数据", "", ExcelMessageType.Error, taskManagerInfoArg.FileExcelTaskTypeInfo));
+            }
+
             var processInfo = ((IProcessInfo)taskManagerInfoArg.FileExcelTaskTypeInfo);
-            processInfo.SetProcessTotalRow(this.MgExcel.MgSheet.MaxRowIndex - this.MgExcel.MgSheet.StartRowIndex + 1);
+            processInfo.SetProcessTotalRow(this.MgExcel.MgSheet.GetTotleRow());
             for (int rowIndex = this.MgExcel.MgSheet.StartRowIndex; rowIndex <= this.MgExcel.MgSheet.MaxRowIndex; rowIndex++)
             {
                 try
