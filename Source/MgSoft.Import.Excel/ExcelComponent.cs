@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using MgSoft.Import.Model;
+using MgSoft.DependenceInjection.Autofac;
 
 namespace MgSoft.Import.Excel
 {
@@ -19,7 +20,7 @@ namespace MgSoft.Import.Excel
         {
             List<ExcelTaskTypeInfo> result = new List<ExcelTaskTypeInfo>();
             var excelTaskManagerType = typeof(IExcelTaskManager);
-            var excelTaskManagers = this.GetType().Assembly.GetTypes().Where(p => excelTaskManagerType.IsAssignableFrom(p));
+            var excelTaskManagers = this.GetType().Assembly.GetTypes().Where(p => excelTaskManagerType.IsAssignableFrom(p)&&p.IsClass);
             foreach (var excelTaskManager in excelTaskManagers)
             {
                 var target = container.ResolveNamed<IExcelTaskManager>(excelTaskManager.FullName);
@@ -47,6 +48,9 @@ namespace MgSoft.Import.Excel
             if (containerBuilder == null) throw new ArgumentException("builder need type is ContainerBuilder");
 
             containerBuilder.RegisterType(SchemeType);
+            containerBuilder.RegisterType(this.GetType()).OnActivating(p => p.ReplaceInstance(this));
+            RegisterAssemblyType.Register(this.GetType().Assembly, containerBuilder);
+
             registerExcelTaskManager(containerBuilder);
 
             OnRegister(containerBuilder);
@@ -55,7 +59,7 @@ namespace MgSoft.Import.Excel
         private void registerExcelTaskManager(ContainerBuilder containerBuilder)
         {
             var excelTaskManagerType = typeof(IExcelTaskManager);
-            var excelTaskManagers = this.GetType().Assembly.GetTypes().Where(p => excelTaskManagerType.IsAssignableFrom(p)).ToList();
+            var excelTaskManagers = this.GetType().Assembly.GetTypes().Where(p => excelTaskManagerType.IsAssignableFrom(p)&&p.IsClass).ToList();
             excelTaskManagers.ForEach(p => containerBuilder.RegisterType(p).Named(p.FullName, excelTaskManagerType).InstancePerLifetimeScope());
         }
 

@@ -7,6 +7,7 @@ namespace MgSoft.Import.Excel
 {
     public interface ITemplateConfigService
     {
+        TemplateCellConfig GetTemplateCellConfigByName(string name);
         TemplateConfig GetTemplateConfig();
     }
 }

@@ -50,7 +50,8 @@ namespace MgSoft.Import.Excel
         private void import(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
         {
             var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            excelTaskManager.Do(aggregateExcelMessage);
+            TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(excelTaskManager.MgExcel,fileExcelTaskType, aggregateExcelMessage);
+            excelTaskManager.Do(taskManagerInfoArg);
         }
 
         public List<FileExcelTaskTypeInfo> Match(List<string> filePaths)

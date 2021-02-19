@@ -1,4 +1,5 @@
-﻿using MgSoft.Import.Excel.Model;
+﻿using MgSoft.Excel;
+using MgSoft.Import.Excel.Model;
 
 namespace MgSoft.Import.Excel
 {
@@ -10,7 +11,12 @@ namespace MgSoft.Import.Excel
 
         string Describe { get; }
 
-        void Do(AggregateExcelMessage aggregateExcelMessage);
+        /// <summary>
+        /// 读取到的Excel
+        /// </summary>
+        MgExcel MgExcel { get; }
+
+        void Do(TaskManagerInfoArg taskManagerInfoArg);
 
         void InitAndCheck(TaskManagerInfoArg taskManagerInfoArg);
     }

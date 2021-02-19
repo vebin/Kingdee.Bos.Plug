@@ -55,7 +55,7 @@ namespace MgSoft.Import.Excel
         /// <summary>
         /// 读取到的Excel
         /// </summary>
-        protected MgExcel MgExcel { get; set; }
+        public MgExcel MgExcel { get; private set; }
 
         protected FileExcelTaskTypeInfo FileExcelTaskTypeInfo { get; private set; }
 
@@ -113,8 +113,8 @@ namespace MgSoft.Import.Excel
         /// <summary>
         /// 导入数据
         /// </summary>
-        /// <param name="aggregateExcelMessage"></param>
-        public virtual void Do(AggregateExcelMessage aggregateExcelMessage)
+        /// <param name="taskManagerInfoArg"></param>
+        public virtual void Do(TaskManagerInfoArg taskManagerInfoArg)
         {
             var processInfo = (FileExcelTaskTypeInfo as IProcessInfo);
             processInfo.SetProcessTotalRow(Dtos.Count);
@@ -123,20 +123,20 @@ namespace MgSoft.Import.Excel
             {
                 try
                 {
-                    ExcelTask.Do(dto, GetTaskManagerInfoArg(aggregateExcelMessage));
+                    ExcelTask.Do(dto, taskManagerInfoArg);
                 }
                 catch (MgExcelException mgExcelException)
                 {
-                    aggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
                 catch (MgException mgException)
                 {
-                    aggregateExcelMessage.Add(dto.Row.RowIndex, 0, mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, 0, mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
                 catch (Exception exception)
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
-                    aggregateExcelMessage.Add(dto.Row?.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row?.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
                 }
                 finally
                 {
