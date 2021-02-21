@@ -17,6 +17,11 @@ namespace MgSoft.Import.Excel.Model
             ExcelMessages = new List<ExcelMessage>();
         }
 
+        public void Add(AggregateExcelMessage aggregateExcelMessage)
+        {
+            ExcelMessages.AddRange(aggregateExcelMessage.ExcelMessages);
+        }
+
         public bool HasMessage()
         {
             return ExcelMessages.Any();

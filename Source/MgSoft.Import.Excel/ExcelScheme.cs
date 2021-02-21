@@ -21,19 +21,18 @@ namespace MgSoft.Import.Excel
 
         public AggregateExcelMessage InitAndCheck(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
         {
-            AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
+            AggregateExcelMessage result = new AggregateExcelMessage();
             foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
+                AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
                 TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(null, fileExcelTaskType, aggregateExcelMessage);
-                check(taskManagerInfoArg);
+                var socpe = lifetimeScope.BeginLifetimeScope();
+                var excelTaskManager = socpe.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
+                fileExcelTaskType.SetTaskManagerInstance(excelTaskManager);
+                excelTaskManager.InitAndCheck(taskManagerInfoArg);
+                result.Add(aggregateExcelMessage);
             }
-            return aggregateExcelMessage;
-        }
-
-        private void check(TaskManagerInfoArg taskManagerInfoArg)
-        {
-            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
-            excelTaskManager.InitAndCheck(taskManagerInfoArg);
+            return result;
         }
 
         public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
@@ -49,8 +48,9 @@ namespace MgSoft.Import.Excel
 
         private void import(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
         {
-            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(excelTaskManager.MgExcel,fileExcelTaskType, aggregateExcelMessage);
+            //var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
+            var excelTaskManager = fileExcelTaskType.TaskManager;
+            TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(excelTaskManager.MgExcel, fileExcelTaskType, aggregateExcelMessage);
             excelTaskManager.Do(taskManagerInfoArg);
         }
 
