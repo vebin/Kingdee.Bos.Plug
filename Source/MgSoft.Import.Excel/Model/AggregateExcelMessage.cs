@@ -32,6 +32,11 @@ namespace MgSoft.Import.Excel.Model
             return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Error);
         }
 
+        public bool HasException()
+        {
+            return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Exception);
+        }
+
         public bool HasWaing()
         {
             return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Waring);

@@ -78,36 +78,48 @@ namespace MgSoft.Import.Excel
         {
             try
             {
+                AggregateExcelMessage aggregateExcelMessage = taskManagerInfoArg.AggregateExcelMessage;
+
                 BeforeInit(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 initCheck(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 initMgExcel(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 AfterInit(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 CheckMgRow(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 Dtos = ConvertToDto(taskManagerInfoArg);
-                if (taskManagerInfoArg.AggregateExcelMessage.HasError()) return;
+                if (hasErrorOrException(aggregateExcelMessage)) return;
 
                 CheckDto(taskManagerInfoArg);
             }
             catch (AggregateErrorException aggregateErrorException)
             {
                 //Excel表格校验失败
-                taskManagerInfoArg.AggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages, ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                taskManagerInfoArg.AggregateExcelMessage.AddRange(aggregateErrorException.ErrorMessages, ExcelMessageType.Exception, FileExcelTaskTypeInfo);
             }
             catch (MgException mgException)
             {
                 log.Error(mgException.Message);
-                taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo));
+                taskManagerInfoArg.AggregateExcelMessage.Add(new ExcelMessage(mgException.Message, "", ExcelMessageType.Exception, FileExcelTaskTypeInfo));
             }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message + "\n" + exception.StackTrace);
+                taskManagerInfoArg.AggregateExcelMessage.Add(exception.Message, exception.StackTrace, ExcelMessageType.Exception, FileExcelTaskTypeInfo);
+            }
+        }
+
+        private bool hasErrorOrException(AggregateExcelMessage aggregateExcelMessage)
+        {
+            return aggregateExcelMessage.HasError() || aggregateExcelMessage.HasException();
         }
 
         /// <summary>
@@ -127,16 +139,16 @@ namespace MgSoft.Import.Excel
                 }
                 catch (MgExcelException mgExcelException)
                 {
-                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, mgExcelException.ColumnIndex, mgExcelException.Message, "", ExcelMessageType.Exception, FileExcelTaskTypeInfo);
                 }
                 catch (MgException mgException)
                 {
-                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, 0, mgException.Message, "", ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row.RowIndex, 0, mgException.Message, "", ExcelMessageType.Exception, FileExcelTaskTypeInfo);
                 }
                 catch (Exception exception)
                 {
                     log.Error(exception.Message + "\n" + exception.StackTrace);
-                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row?.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Error, FileExcelTaskTypeInfo);
+                    taskManagerInfoArg.AggregateExcelMessage.Add(dto.Row?.RowIndex, 0, exception.Message, exception.StackTrace, ExcelMessageType.Exception, FileExcelTaskTypeInfo);
                 }
                 finally
                 {
@@ -154,7 +166,7 @@ namespace MgSoft.Import.Excel
         {
             foreach (var dto in Dtos)
             {
-                ExcelTask.CheckDto(dto, taskManagerInfoArg);
+                ExcelTask.CheckBusiness(dto, taskManagerInfoArg);
             }
         }
 

@@ -3,6 +3,7 @@ using MgSoft.Import.Excel.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace MgSoft.Import.Excel
 {
@@ -11,10 +12,13 @@ namespace MgSoft.Import.Excel
         private ILifetimeScope lifetimeScope;
 
         protected SortedList<int, string> orderTaskManager { get; set; }
+        private IMgLog log=new MgSoft.Log.NullMgLog();
 
         protected ExcelScheme(ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
+            IMgLogger mgLogger = lifetimeScope.Resolve<IMgLogger>();
+            if (mgLogger != null) log = mgLogger.CreateLog();
         }
 
         public abstract List<FileExcelTaskTypeInfo> Match(string filePath);
@@ -28,11 +32,23 @@ namespace MgSoft.Import.Excel
                 TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(null, fileExcelTaskType, aggregateExcelMessage);
                 var socpe = lifetimeScope.BeginLifetimeScope();
                 var excelTaskManager = socpe.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
+
                 fileExcelTaskType.SetTaskManagerInstance(excelTaskManager);
                 excelTaskManager.InitAndCheck(taskManagerInfoArg);
                 result.Add(aggregateExcelMessage);
             }
+            //把错误日志写入到日志
+            writeExceptionLog(result);
             return result;
+        }
+
+        private void writeExceptionLog(AggregateExcelMessage result)
+        {
+            var exceptionMessage = result.ExcelMessages.Where(p => p.MessageType == ExcelMessageType.Exception).ToList();
+            foreach (var message in exceptionMessage)
+            {
+                log.Error(message.Message+"\r\n"+message.Detail);
+            }
         }
 
         public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
