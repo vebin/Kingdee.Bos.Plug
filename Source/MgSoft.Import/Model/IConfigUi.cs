@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MgSoft.Import.Model
 {
-    public interface IConfigUiComponent
+    public interface IConfigUi
     {
         ConfigUiType ConfigUiType { get; }
 

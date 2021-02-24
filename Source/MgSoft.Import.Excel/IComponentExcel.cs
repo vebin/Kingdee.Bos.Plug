@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MgSoft.Component;
 using MgSoft.Import.Excel.Model;
 using MgSoft.Import.Model;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace MgSoft.Import.Excel
 {
-    public interface IExcelComponent: IConfigUiComponent
+    public interface IExcelComponent: IConfigUi,IMgComponent
     {
         string Describe { get; }
         string Name { get; }

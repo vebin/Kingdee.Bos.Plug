@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MgSoft.Import
+namespace MgSoft.Import.Model
 {
     public class DbConfig
     {
