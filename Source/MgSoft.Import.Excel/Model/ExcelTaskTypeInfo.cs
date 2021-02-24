@@ -19,6 +19,8 @@ namespace MgSoft.Import.Excel.Model
         public string TaskManagerTitle { get; set; }
         public string TaskManagerDescribe { get; set; }
 
+        public IExcelTaskManager TaskManager { get;private set; }
+
         /// <summary>
         /// 导入组件名称
         /// </summary>
@@ -26,5 +28,10 @@ namespace MgSoft.Import.Excel.Model
         public string ComponentTitle { get; set; }
 
         public string ComponentDescribe { get; set; }
+
+        public void SetTaskManagerInstance(IExcelTaskManager taskManagerInstance)
+        {
+            TaskManager = taskManagerInstance;
+        }
     }
 }

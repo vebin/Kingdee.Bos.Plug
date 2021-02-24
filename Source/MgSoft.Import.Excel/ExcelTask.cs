@@ -35,7 +35,7 @@ namespace MgSoft.Import.Excel
         /// </remarks>
         /// <param name="dto"></param>
         /// <param name="taskManagerInfoArg"></param>
-        public abstract void CheckDto(TDto dto, TaskManagerInfoArg taskManagerInfoArg);
+        public abstract void CheckBusiness(TDto dto, TaskManagerInfoArg taskManagerInfoArg);
 
         public abstract void Do(TDto dto, TaskManagerInfoArg taskManagerInfoArg);
     }

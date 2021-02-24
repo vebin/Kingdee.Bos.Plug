@@ -17,6 +17,11 @@ namespace MgSoft.Import.Excel.Model
             ExcelMessages = new List<ExcelMessage>();
         }
 
+        public void Add(AggregateExcelMessage aggregateExcelMessage)
+        {
+            ExcelMessages.AddRange(aggregateExcelMessage.ExcelMessages);
+        }
+
         public bool HasMessage()
         {
             return ExcelMessages.Any();
@@ -25,6 +30,11 @@ namespace MgSoft.Import.Excel.Model
         public bool HasError()
         {
             return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Error);
+        }
+
+        public bool HasException()
+        {
+            return ExcelMessages.Any(p => p.MessageType == ExcelMessageType.Exception);
         }
 
         public bool HasWaing()

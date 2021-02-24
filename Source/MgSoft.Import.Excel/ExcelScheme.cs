@@ -3,6 +3,7 @@ using MgSoft.Import.Excel.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace MgSoft.Import.Excel
 {
@@ -11,29 +12,43 @@ namespace MgSoft.Import.Excel
         private ILifetimeScope lifetimeScope;
 
         protected SortedList<int, string> orderTaskManager { get; set; }
+        private IMgLog log=new MgSoft.Log.NullMgLog();
 
         protected ExcelScheme(ILifetimeScope lifetimeScope)
         {
             this.lifetimeScope = lifetimeScope;
+            IMgLogger mgLogger = lifetimeScope.Resolve<IMgLogger>();
+            if (mgLogger != null) log = mgLogger.CreateLog();
         }
 
         public abstract List<FileExcelTaskTypeInfo> Match(string filePath);
 
         public AggregateExcelMessage InitAndCheck(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
         {
-            AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
+            AggregateExcelMessage result = new AggregateExcelMessage();
             foreach (var fileExcelTaskType in fileExcelTaskTypes)
             {
+                AggregateExcelMessage aggregateExcelMessage = new AggregateExcelMessage();
                 TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(null, fileExcelTaskType, aggregateExcelMessage);
-                check(taskManagerInfoArg);
+                var socpe = lifetimeScope.BeginLifetimeScope();
+                var excelTaskManager = socpe.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
+
+                fileExcelTaskType.SetTaskManagerInstance(excelTaskManager);
+                excelTaskManager.InitAndCheck(taskManagerInfoArg);
+                result.Add(aggregateExcelMessage);
             }
-            return aggregateExcelMessage;
+            //把错误日志写入到日志
+            writeExceptionLog(result);
+            return result;
         }
 
-        private void check(TaskManagerInfoArg taskManagerInfoArg)
+        private void writeExceptionLog(AggregateExcelMessage result)
         {
-            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(taskManagerInfoArg.FileExcelTaskTypeInfo.TaskManagerName);
-            excelTaskManager.InitAndCheck(taskManagerInfoArg);
+            var exceptionMessage = result.ExcelMessages.Where(p => p.MessageType == ExcelMessageType.Exception).ToList();
+            foreach (var message in exceptionMessage)
+            {
+                log.Error(message.Message+"\r\n"+message.Detail);
+            }
         }
 
         public virtual AggregateExcelMessage Import(List<FileExcelTaskTypeInfo> fileExcelTaskTypes)
@@ -49,8 +64,9 @@ namespace MgSoft.Import.Excel
 
         private void import(FileExcelTaskTypeInfo fileExcelTaskType, AggregateExcelMessage aggregateExcelMessage)
         {
-            var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
-            TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(excelTaskManager.MgExcel,fileExcelTaskType, aggregateExcelMessage);
+            //var excelTaskManager = lifetimeScope.ResolveNamed<IExcelTaskManager>(fileExcelTaskType.TaskManagerName);
+            var excelTaskManager = fileExcelTaskType.TaskManager;
+            TaskManagerInfoArg taskManagerInfoArg = new TaskManagerInfoArg(excelTaskManager.MgExcel, fileExcelTaskType, aggregateExcelMessage);
             excelTaskManager.Do(taskManagerInfoArg);
         }
 

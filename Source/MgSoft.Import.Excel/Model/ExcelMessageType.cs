@@ -8,6 +8,7 @@ namespace MgSoft.Import.Excel.Model
     {
         Info=0,
         Waring=1,
-        Error=2
+        Error=2,
+        Exception=99
     }
 }
