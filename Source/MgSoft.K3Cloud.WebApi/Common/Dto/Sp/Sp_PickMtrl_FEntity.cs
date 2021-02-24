@@ -90,6 +90,9 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Sp
         public FNumberProperty FBaseUnitId { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string FServiceContext { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public decimal? FBaseActualQty { get; set; }
         /// <summary>
