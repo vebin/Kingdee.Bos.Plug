@@ -14,11 +14,13 @@ namespace MgSoft.K3Cloud.WebApi.Common.Dto.Bd
         /// <summary>
         /// 客户名称(必填)
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FName { get; set; }
 
         /// <summary>
         /// 客户编码
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual string FNumber { get; set; }
         /// <summary>
         /// 创建组织(必填)

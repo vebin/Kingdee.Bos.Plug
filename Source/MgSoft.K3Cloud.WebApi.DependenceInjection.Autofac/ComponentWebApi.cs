@@ -29,6 +29,8 @@ namespace MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac
                    cfgAction.Invoke(apiServerInfo);
                    p.ReplaceInstance(apiServerInfo);
                });
+
+            containerBuilder.RegisterType(this.GetType()).OnActivating(p => p.ReplaceInstance(this));
         }
         public void Config(Action<ApiServerInfo> cfg)
         {

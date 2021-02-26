@@ -221,7 +221,7 @@ namespace MgSoft.Import.Excel
             List<TDto> result = new List<TDto>();
             var startRowIndex = MgExcel.MgSheet.StartRowIndex;
             var maxRowIndex = MgExcel.MgSheet.MaxRowIndex;
-            for (var rowIndex = startRowIndex; rowIndex < maxRowIndex; rowIndex++)
+            for (var rowIndex = startRowIndex; rowIndex <= maxRowIndex; rowIndex++)
             {
                 var row = MgExcel.MgSheet.GetRow(rowIndex);
                 result.Add(row.ToObject<TDto>());

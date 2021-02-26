@@ -10,5 +10,7 @@ namespace MgSoft.Import.Model
         public string Dbid { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+        public long? OrgId { get; set; }
+        public string OrgNum { get; set; }
     }
 }
