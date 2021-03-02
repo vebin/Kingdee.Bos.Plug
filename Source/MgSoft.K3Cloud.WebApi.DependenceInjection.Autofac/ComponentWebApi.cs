@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Autofac;
+using MgSoft.K3Cloud.WebApi.Services;
 
 namespace MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac
 {
@@ -21,6 +22,8 @@ namespace MgSoft.K3Cloud.WebApi.DependenceInjection.Autofac
                 .Where(t => basetype.IsAssignableFrom(t) && t.IsClass)
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
+
+            containerBuilder.RegisterType<LoginServices>().As<ILoginServices>();
 
             containerBuilder.RegisterType<ApiServerInfo>()
                .OnActivating(p =>
